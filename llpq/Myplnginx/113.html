@@ -1,0 +1,218 @@
+﻿﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title> linux下得nginx负载均衡配置 - 秦鹏林的个人博客</title>
+		<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\css\base.css" />
+		<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\css\new.css" />
+	</head>
+	<body>
+		<!--
+        	内容页模板
+        -->
+		<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<header>
+			<div id="logo">
+				<a href="/"><img src="http://www.qinpl.cn\api\admin\vendor\static\img\logo.png" /></a>
+			</div>
+			<nav class="topnav" id="topnav">
+				<a href="/"><span>首页</span><span class="en">Index</span></a>
+								<a href="/Mypl/"><span>我的编程人生</span><span class="en">Mypl</span></a>
+								<a href="/fare/"><span>旅行</span><span class="en">fare</span></a>
+								<a href="/Download/"><span>下载区</span><span class="en">Download</span></a>
+							</nav>
+</header>
+		
+			
+		<article class="blogs">
+  <h1 class="t_nav"><span>您当前的位置：<a href="/">首页</a>&nbsp;&gt;&nbsp;<a href="/Mypl/">我的编程人生</a>&nbsp;&gt;&nbsp;<a href="/Myplnginx/">nginx</a></span><a href="/" class="n1">网站首页</a><a href="#" class="n2">nginx</a></h1>
+  <div class="index_about">
+    <h2 class="c_titile"> linux下得nginx负载均衡配置</h2>
+    <p class="box_c"><span class="d_time">发布时间：2017-04-27 06</span><span>编辑：<a href="#">秦</a></span></p>
+    <ul class="infos">
+         <p>找到nginx.conf这个配置文件把下面这段代码配置到http{}中去</p>
+
+<p>upstream&nbsp;myServer&nbsp;{&nbsp;&nbsp;&nbsp;</p>
+
+<p>&nbsp;&nbsp;&nbsp;server&nbsp;负载均衡服务器地址：端口;&nbsp;&nbsp;&nbsp;</p>
+
+<p>&nbsp;&nbsp;&nbsp;server&nbsp;another&nbsp;dns&nbsp;entry&nbsp;or&nbsp;IP&nbsp;Address：optional&nbsp;with&nbsp;port;&nbsp;&nbsp;</p>
+
+<p>&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>其中myServer自己随意取。</p>
+
+<p>&nbsp;</p>
+
+<p>然后再配置server其配置代码如下</p>
+
+<p>server{&nbsp;&nbsp;&nbsp;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;listen&nbsp;80;&nbsp;&nbsp;&nbsp;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;&nbsp;&nbsp;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;location&nbsp;/&nbsp;{&nbsp;&nbsp;&nbsp;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proxy_pass&nbsp;http://myServer;&nbsp;&nbsp;&nbsp;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;</p>
+
+<p>其中proxy_pass 必须是和上面你随意取得名字一样。</p>
+    </ul>
+   
+
+    
+     <div class="discuss">
+   	<p><span>留言</span></p>
+   </div>
+   <div id="discuss_essay" class="discuss_essay">
+   	
+   	
+   	
+   	<script>
+			var re=[{"id":"1","name":"2-1\u7528\u6237","u_id":null,"text":"\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u670d\u52a1\u5668\u4e0a\u7684\u4e1c\u897f\u5728\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u897f\u5728\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u670d\u52a1\u5668\u4e0a\u7684\u4e1c\u897f\u5728\u5b8c\u5584","essay_id":"36","p_u_id":"2","info_time":null,"p_name":null,"u_haerd":null},{"id":"2","name":"2\u7528\u6237","u_id":null,"text":"\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u670d\u52a1\u5668\u4e0a\u7684\u4e1c\u897f\u5728\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u897f\u5728\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u670d\u52a1\u5668\u4e0a\u7684\u4e1c\u897f\u5728\u5b8c\u5584","essay_id":"36","p_u_id":"0","info_time":null,"p_name":null,"u_haerd":null},{"id":"3","name":"2-3\u7528\u6237","u_id":null,"text":"\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u670d\u52a1\u5668\u4e0a\u7684\u4e1c\u897f\u5728\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u897f\u5728\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u670d\u52a1\u5668\u4e0a\u7684\u4e1c\u897f\u5728\u5b8c\u5584","essay_id":"36","p_u_id":"2","info_time":null,"p_name":null,"u_haerd":null},{"id":"5","name":"2-1-5\u7528\u6237","u_id":null,"text":"\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u670d\u52a1\u5668\u4e0a\u7684\u4e1c\u897f\u5728\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u897f\u5728\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u670d\u52a1\u5668\u4e0a\u7684\u4e1c\u897f\u5728\u5b8c\u5584","essay_id":"36","p_u_id":"1","info_time":null,"p_name":null,"u_haerd":null},{"id":"6","name":"2-1-5-6\u7528\u6237","u_id":null,"text":"\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u670d\u52a1\u5668\u4e0a\u7684\u4e1c\u897f\u5728\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u897f\u5728\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u670d\u52a1\u5668\u4e0a\u7684\u4e1c\u897f\u5728\u5b8c\u5584","essay_id":"36","p_u_id":"5","info_time":null,"p_name":null,"u_haerd":null},{"id":"7","name":"7\u7528\u6237","u_id":null,"text":"\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u670d\u52a1\u5668\u4e0a\u7684\u4e1c\u897f\u5728\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u897f\u5728\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u670d\u52a1\u5668\u4e0a\u7684\u4e1c\u897f\u5728\u5b8c\u5584","essay_id":"36","p_u_id":"0","info_time":null,"p_name":null,"u_haerd":null},{"id":"8","name":"7-8\u7528\u6237","u_id":null,"text":"\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u670d\u52a1\u5668\u4e0a\u7684\u4e1c\u897f\u5728\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u897f\u5728\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u670d\u52a1\u5668\u4e0a\u7684\u4e1c\u897f\u5728\u5b8c\u5584","essay_id":"36","p_u_id":"7","info_time":null,"p_name":null,"u_haerd":null},{"id":"9","name":"7-8-9\u7528\u6237","u_id":null,"text":"\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u670d\u52a1\u5668\u4e0a\u7684\u4e1c\u897f\u5728\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u897f\u5728\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u670d\u52a1\u5668\u4e0a\u7684\u4e1c\u897f\u5728\u5b8c\u5584","essay_id":"36","p_u_id":"8","info_time":null,"p_name":null,"u_haerd":null},{"id":"10","name":"7-10\u7528\u6237","u_id":null,"text":"\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u670d\u52a1\u5668\u4e0a\u7684\u4e1c\u897f\u5728\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u897f\u5728\u5b8c\u5584\uff0c\u5728linux\u4e0a\u9762\u6709\u4e9b\u9519\u8bef\u3002\u8fd9\u662f\u6211\u6302\u7684linux\u670d\u52a1\u5668\u4e0a\u7684\u4e1c\u897f\u5728\u5b8c\u5584","essay_id":"36","p_u_id":"7","info_time":null,"p_name":null,"u_haerd":null},{"id":"14","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u6d4b\u8bd5","essay_id":"36","p_u_id":"0","info_time":"1494575378","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"15","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u6d4b\u8bd5","essay_id":"36","p_u_id":"0","info_time":"1494575393","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"16","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u6d4b\u8bd5","essay_id":"36","p_u_id":"0","info_time":"1494575864","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"17","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u6d4b\u8bd5","essay_id":"36","p_u_id":"0","info_time":"1494575907","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"18","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u6d4b\u8bd5","essay_id":"36","p_u_id":"0","info_time":"1494576116","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"19","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u6d4b\u8bd5","essay_id":"36","p_u_id":"0","info_time":"1494576160","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"20","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u6d4b\u8bd5","essay_id":"36","p_u_id":"0","info_time":"1494576226","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"21","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u6d4b\u8bd5","essay_id":"36","p_u_id":"0","info_time":"1494576242","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"22","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u6d4b\u8bd5","essay_id":"36","p_u_id":"0","info_time":"1494576472","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"23","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u6d4b\u8bd5","essay_id":"36","p_u_id":"0","info_time":"1494576562","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"24","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u6d4b\u8bd5","essay_id":"36","p_u_id":"0","info_time":"1494576654","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"25","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u6d4b\u8bd5","essay_id":"36","p_u_id":"0","info_time":"1494576680","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"26","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u6d4b\u8bd5","essay_id":"36","p_u_id":"0","info_time":"1494576738","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"27","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u6d4b\u8bd5","essay_id":"36","p_u_id":"0","info_time":"1494576782","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"28","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u6d4b\u8bd5","essay_id":"36","p_u_id":"0","info_time":"1494576818","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"29","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u6d4b\u8bd5","essay_id":"36","p_u_id":"0","info_time":"1494576881","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"30","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u6d4b\u8bd5","essay_id":"36","p_u_id":"0","info_time":"1494577314","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"31","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u6d4b\u8bd5","essay_id":"36","p_u_id":"0","info_time":"1494577345","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"}];
+			var a_id=36;
+			var html='';
+		     
+			var h=tree(re,0);
+			document.getElementById("discuss_essay").innerHTML =h;
+			function tree(arr,pid){	
+				var lsz='';
+				for(var v in arr){ 
+					    if(arr[v]['p_u_id']==pid){
+		
+		if(arr[v]['p_u_id']==0){
+		lsz='</div><div class="discuss_essay_list">'+
+		'<a class="discuss_essay_list_img" href="#"><img src="'+arr[v]['u_haerd']+'" /></a>'+
+   		'<div class="discuss_essay_list_top"><span>'+arr[v]['name']+'</span>2017 4月6日<span reply="'+arr[v]['id']+'" class="discuss_essay_list_top_h">回复</span></div>'+
+   		'<div class="discuss_essay_list_cent">'+arr[v]['text']+'</div>';
+   	    }else{
+   	    lsz='</div><div class="discuss_essay_c_list">'+
+		'<a class="discuss_essay_list_img" href="#"><img src="'+arr[v]['u_haerd']+'" /></a>'+
+   		'<div class="discuss_essay_list_top"><span>'+arr[v]['name']+'</span>2017 4月6日<span reply="'+arr[v]['id']+'" class="discuss_essay_list_top_h">回复</span></div>'+
+   		'<div class="discuss_essay_list_cent">'+arr[v]['text']+'</div>';	
+   	    }
+					    	html=html+lsz;
+					    	tree(arr,arr[v]['id']);					    	
+					    }
+                         }
+				return html;
+			}
+			
+			
+		</script> 	
+   	<div class="discuss_essay_list">
+   		<div class="discuss_essay_c_list">
+   	     	<div class="discuss_essay_list_info">
+   	     		<textarea id="info"></textarea>
+   	     		<span onclick="tj(36,0)">提交</span>
+   	     	</div>
+   	     </div>
+   	</div>
+   	
+   </div>
+    
+    
+
+  </div>
+  <aside class="right">
+
+ <div class="rnav">
+      <h2>所有分类导航</h2>
+      <ul>
+            <li><a href="/Myplphp/">php</a></li>
+            <li><a href="/fare2012/">2012</a></li>
+            <li><a href="/Mypljs/">js</a></li>
+            <li><a href="/fare2017/">2017</a></li>
+            <li><a href="/Mypllinux/">linux</a></li>
+            <li><a href="/Myplnginx/">nginx</a></li>
+            <li><a href="/Downloadjs/">js下载</a></li>
+            <li><a href="/Downloadphp/">php下载</a></li>
+            <li><a href="/Downloadxtym/">系统源码下载</a></li>
+            <li><a href="/Downloadqtmb/">前台模板下载</a></li>
+           </ul>      
+    </div>
+    <div class="rnavs">
+      <h2>所有分类导航</h2>
+      <ul>
+                <li><a href="/Myplphp/">php</a></li>
+                <li><a href="/fare2012/">2012</a></li>
+                <li><a href="/Mypljs/">js</a></li>
+                <li><a href="/fare2017/">2017</a></li>
+                <li><a href="/Mypllinux/">linux</a></li>
+                <li><a href="/Myplnginx/">nginx</a></li>
+                <li><a href="/Downloadjs/">js下载</a></li>
+                <li><a href="/Downloadphp/">php下载</a></li>
+                <li><a href="/Downloadxtym/">系统源码下载</a></li>
+                <li><a href="/Downloadqtmb/">前台模板下载</a></li>
+             </ul>      
+    </div>
+
+    <div class="news">
+      <h3>
+        <p>栏目<span>最新</span></p>
+      </h3>
+      <ul class="rank">
+              <li><a href="http://www.qinpl.cn/Myplnginx/36.html" title=" linux下得nginx负载均衡配置" target="_blank"> linux下得nginx负载均衡配置</a></li>
+              	
+      </ul>
+    
+    </div>
+
+
+  </aside>
+</article>
+<div class="list_zezao">
+	<div class="v_k">
+      <div class="cols"><span>X</span></div>
+      <div id="u_login"></div>
+       <script type="text/javascript">
+            var childWindow;
+            function toQzoneLogin()
+            {
+                childWindow = window.open("http://www.qinpl.cn/admin/Qqlater/Login?qurl=oZKvDXyD8/36","TencentLogin","width=450,height=320,menubar=0,scrollbars=1, resizable=1,status=1,titlebar=0,toolbar=0,location=1");
+            } 
+            
+            function closeChildWindow()
+            {
+                childWindow.close();
+            }
+        </script>
+      		<a href="#" onclick='toQzoneLogin()'>登录</a>
+
+	</div>
+</div>
+		<script> 
+		var host='www.qinpl.cn';
+		</script>
+		<footer>
+  <p><a href="http://www.qinpl.cn/sitemap.xml" target="_blank">网站地图</a> Design by DanceSmile <a href="http://www.miitbeian.gov.cn" target="_blank">蜀ICP备17013559号-1</a></p>
+  <div style="float: right;margin-top: -35px;">
+  	<script type="text/javascript">
+  		var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+  		document.write(unescape("%3Cspan id='cnzz_stat_icon_1261808781'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261808781%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  </div>
+</footer>
+<script type="text/javascript" src="http://www.qinpl.cn\api\admin\vendor\static\js\jquery.js" ></script>
+	    <script type="text/javascript" src="http://www.qinpl.cn\api\admin\vendor\static/js/new.js" ></script>
+	</body>
+</html>

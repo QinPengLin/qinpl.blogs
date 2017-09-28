@@ -1,0 +1,60 @@
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<div style="display: none;" >
+				<img src="<?php echo STATICL.'\img\logo.png';    ?>" />
+</div>
+<nav class="fh5co-nav" role="navigation">
+            
+		<div class="container-wrap">
+			<div class="top-menu">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="/">Qin</a></div>
+					</div>
+					
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+						
+							<li <?php $classp=''; if(!isset($c_p_id)){ ?> class="active" <?php } ?>><a href="/">首页</a></li>
+				            <?php  foreach($lm as $v){ if($v['p_id']==0){ ?>
+				            <?php  
+				            $p=0;
+				             if(isset($c_p_id)){
+				             	$classp=$c_p_id;
+				             }else{
+				             		$classp='';
+				             }
+				             foreach($lm as $cpv){
+				                 if($v['id']==$cpv['p_id']){ 
+				                 	$p=1;break;
+				                 	}
+				                 	} if($p){ ?>
+							<li class=" <?php    if($classp==$v['id']){ ?> active <?php } ?> <?php if($p){ ?> has-dropdown <?php }  ?>"><a href="/<?php echo $v['file_name']; ?>/"><?php echo $v['name']; ?></a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   		<?php foreach($lm as $cv){ if($v['id']==$cv['p_id']){ ?>
+									<li><a href="/<?php echo $cv['file_name']; ?>/"><?php echo $cv['name']; ?></a></li>
+                                    <?php  }} ?>
+								</ul>
+							   <?php  } ?>
+							</li>
+							<?php  }} ?>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>

@@ -1,0 +1,1 @@
+var host="www.qinpl.cn";//配置ajax提交的域名（改为自己的域名）

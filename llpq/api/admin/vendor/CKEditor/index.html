@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="http://<?php echo HTTP_HOST; ?>/api/admin/vendor/CKEditor/ckeditor.js" ></script>
+	</head>
+	<body>
+		
+			标题：<input type="text" name="list_title" id="list_title" value="" /></br>
+			作者：<input type="text" name="list_author" id="list_author"  value="" /></br>
+			概述：<textarea name="list_outline" id="list_outline" style="width: 500px;height: 70px;"></textarea></br>
+			展示图片：<img style="height: 80px;width: auto;" id='list_im' src="" /><span onclick="add_essay1()">上传</span>
+			          <input type="hidden" id='outline_img' name="outline_img"  value="" />
+			<textarea name="editorl" id="editorl" rows="10" cols="80" >
+				
+			</textarea>
+			<script type="text/javascript">
+				CKEDITOR.replace('editorl');
+			</script>
+			
+			<?php   foreach($c_1[1] as $v){ $pln=0; foreach($c_1[2] as $v2){ if($v2['p_id']==$v['id']) { $pln=1; break;} } ?>
+			<div class="class_c_s">
+				<div class="class_c_t">
+					<?php if($pln){ ?>
+					 <?php echo $v['name']; ?>
+				    <?php }else{ ?>
+				    <input name="class_c" id="class_c_<?php echo $v['id']; ?>" type="radio" value="<?php echo $v['id']; ?>" /><?php echo $v['name']; ?>
+				     <?php } ?>
+				</div>
+				<div class="class_c_c">
+					<?php foreach($c_1[2] as $v2){ if($v['id']==$v2['p_id']){ ?>
+					<input name="class_c" id="class_c_<?php echo $v2['id']; ?>" type="radio" value="<?php echo $v2['id']; ?>" /><?php echo $v2['name']; ?>
+					<?php  }}  ?>
+				</div>
+			</div>
+			<?php } ?>
+			<input type="hidden" id='od_class' value="" />
+			<input type="hidden" name="list_id" id='list_id' value="" />
+			<input  onclick="list_et(CKEDITOR)" type="button" value="提交" />
+		
+	</body>
+</html>

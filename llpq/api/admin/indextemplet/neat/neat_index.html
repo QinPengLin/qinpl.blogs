@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title><?php echo base::GetKw()['title']; ?></title>
+	<meta name="keywords" content="<?php echo base::GetKw()['keywords']; ?>" />
+    <meta name="description" content="<?php echo base::GetKw()['description']; ?>" />
+    <meta name="baidu-site-verification" content="i5fPUO0ek8" />
+	<?php  include($this->itp."/neat/base.html");//公共文件引入 ?>
+
+	</head>
+	<body>
+    <?php //首页模板 ?>
+	<!--<div class="fh5co-loader"></div>-->
+	
+	<div id="page">
+	<?php  include($this->itp."/neat/nav.html");//头部导航引入 ?>
+	
+	
+	
+	<div class="container-wrap">
+		
+		<aside id="fh5co-hero">
+			<div class="flexslider">
+                                    <?php //首页轮播 ?>
+				<ul class="slides">
+				<?php foreach(base::recommend(19,4) as $k=>$v){ ?>	
+			   	<li style="background-image: url(<?php echo $v['outline_img'];  ?>);">
+			   		<div class="overlay-gradient"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 slider-text">
+				   				<div class="slider-text-inner">
+				   					<h1><?php echo $v['title'];  ?></h1>
+										<h2><?php echo mb_substr($v['outline'],0,50,'utf-8');  ?></h2>
+										<p><a class="btn btn-primary btn-demo" href="<?php echo $v['html_url'];  ?>"></i> View Demo</a></p>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			   	<?php } ?>	   	
+			  	</ul>
+		  	</div>
+		</aside>
+        <?php //此处可以插入广告位include($this->itp."/neat/index_guanggao.html"); ?>
+        
+        
+             
+       <div id="fh5co-blog">
+           <?php //编程人生首页推荐最新三条 ?>
+       	    <div class="row animate-box">
+				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+					<h2>我的编程人生</h2>
+					<p>My programming life</p>
+				</div>
+			</div>
+			<div class="row">
+				<?php foreach(base::recommend(17,3) as $k=>$v){ ?>	
+				<div class="col-md-4">
+					<div class="fh5co-blog animate-box">
+						<a href="<?php echo $v['html_url'];  ?>" class="blog-bg" style="background-image: url(<?php echo $v['outline_img'];  ?>);"></a>
+						<div class="blog-text">
+							<span class="posted_on"><?php echo $v['create_time'];  ?></span>
+							<h3><a href="<?php echo $v['html_url'];  ?>"><?php echo $v['title'];  ?></a></h3>
+							<p><?php echo mb_substr($v['outline'],0,50,'utf-8');  ?></p>
+							<ul class="stuff">
+								<li>作者：<?php echo mb_substr($v['author'],0,4,'utf-8');  ?></li>
+								<li><a href="<?php echo $v['class_url'];  ?>"><?php echo $v['class_c'];  ?></a></li>
+								<li><a href="<?php echo $v['html_url'];  ?>">Read More<i class="icon-arrow-right22"></i></a></li>
+							</ul>
+						</div> 
+					</div>
+				</div>
+				<?php } ?>
+			</div>
+		</div>
+        
+        
+
+		<div id="fh5co-work" class="fh5co-light-grey">
+            <?php //最新下载三条 ?>
+			<div class="row animate-box">
+				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+					<h2>下载推荐</h2>
+					<p>Download</p>
+				</div>
+			</div>
+			<div class="row">
+				<?php foreach(base::recommend(20,3) as $k=>$v){ ?>	
+				<div class="col-md-4 text-center animate-box">
+					<a href="<?php echo $v['html_url'];  ?>" class="work"  style="background-image: url(<?php echo $v['outline_img'];  ?>);">
+						<div class="desc">
+							<h3><?php echo $v['title'];  ?></h3>
+							<span><?php echo $v['create_time'];  ?></span>
+						</div>
+					</a>
+				</div>
+				<?php } ?>
+			</div>
+		</div>
+		
+
+
+		<div id="fh5co-blog" class="blog-flex">
+			<?php //旅行最新更新四条 ?>
+			<?php foreach(base::recommend(21,1) as $k=>$v){ ?>		
+			<div class="featured-blog" style="background-image: url(<?php echo $v['outline_img'];  ?>);">
+				<div class="desc-t">
+					<div class="desc-tc">
+						<span class="featured-head"><?php echo $v['title'];  ?></span>
+						<h3><a href="<?php echo $v['html_url'];  ?>"><?php echo mb_substr($v['outline'],0,50,'utf-8');  ?></a></h3>
+						<span><a href="<?php echo $v['html_url'];  ?>" class="read-button">Learn More</a></span>
+					</div>
+				</div>
+			</div>
+			<?php } ?>
+			<div class="blog-entry fh5co-light-grey">
+				<div class="row animate-box">
+					<div class="col-md-12">
+						<h2>Latest Posts</h2>
+					</div>
+				</div>
+				<div class="row">
+					<?php foreach(base::recommend(18,3) as $k=>$v){ ?>	
+					<div class="col-md-12 animate-box">
+						<a href="<?php echo $v['html_url'];  ?>" class="blog-post">
+							<span class="img" style="background-image: url(<?php echo $v['outline_img'];  ?>);"></span>
+							<div class="desc">
+								<h3><?php echo $v['title'];  ?></h3>
+								<span class="cat"><?php echo $v['create_time'];  ?></span>
+							</div>
+						</a>
+					</div>
+					<?php } ?>
+				</div>
+			</div>
+		</div>
+	</div><!-- END container-wrap -->
+
+	<?php  include($this->itp."/neat/footer_nav.html");//尾部导航引入 ?>
+	
+	</div>
+
+	<?php  include($this->itp."/neat/footer_base.html");//尾部公共文件引入 ?>
+
+	</body>
+</html>
+

@@ -1,0 +1,597 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>高并发常用手段 - 秦鹏林的个人博客</title>
+    	<!-- Facebook and Twitter integration -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!--<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\css.css" rel="stylesheet">
+	<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\css_f.css" rel="stylesheet">-->
+	<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\my_css.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\magnific-popup.css">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\flexslider.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\style.css">
+
+	<!-- Modernizr JS -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+
+	</head>
+	<style>
+		img{width: 100%;}
+	</style>
+	<body>
+		
+	<!--<div class="fh5co-loader"></div>-->
+	
+	<div id="page">
+	<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<div style="display: none;" >
+				<img src="http://www.qinpl.cn\api\admin\vendor\static\img\logo.png" />
+</div>
+<nav class="fh5co-nav" role="navigation">
+            
+		<div class="container-wrap">
+			<div class="top-menu">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="/">Qin</a></div>
+					</div>
+					
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+						
+							<li ><a href="/">首页</a></li>
+				            				            							<li class="  active   has-dropdown "><a href="/Mypl/">我的编程人生</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/Myplphp/">php</a></li>
+                                    									<li><a href="/Mypljs/">js</a></li>
+                                    									<li><a href="/Mypllinux/">linux</a></li>
+                                    									<li><a href="/Myplnginx/">nginx</a></li>
+                                    									<li><a href="/Myplmsql/">msql</a></li>
+                                    								</ul>
+							   							</li>
+											            							<li class="   has-dropdown "><a href="/fare/">旅行</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/fare2012/">2012</a></li>
+                                    									<li><a href="/fare2017/">2017</a></li>
+                                    								</ul>
+							   							</li>
+											            							<li class="   has-dropdown "><a href="/Download/">下载区</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/Downloadjs/">js下载</a></li>
+                                    									<li><a href="/Downloadphp/">php下载</a></li>
+                                    									<li><a href="/Downloadxtym/">系统源码下载</a></li>
+                                    									<li><a href="/Downloadqtmb/">前台模板下载</a></li>
+                                    								</ul>
+							   							</li>
+													</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>	<div class="container-wrap">	
+		<div id="fh5co-work">
+			<div class="row">
+			
+				<div class="col-md-8" >
+					<span style="border-bottom: 1px solid #CCCCCC;width: 100%;padding-bottom: 10px;" class="fh5co-project-sub qin_list_span">您当前的位置：<a href="/">首页</a>&nbsp;&gt;&nbsp;<a href="/Mypl/">我的编程人生</a>&nbsp;&gt;&nbsp;<a href="/Myplphp/">php</a></span>
+					<h2 style="margin: 20px 0 10px 0;" class="fh5co-project-title qin_list_h">高并发常用手段</h2>
+					<span style="margin-bottom: 20px;" class="fh5co-project-sub">发布时间：2017-05-08 10 作者：秦（转载http://www.4u4v.net）</span>
+					 <p><strong>一、关于高并发</strong></p>
+
+<p>高并发是指在同一个时间点，有很多用户同时访问URL地址，比如：淘宝的双11、双12，就会产生高并发。又如贴吧的爆吧，就是恶意的高并发请求，也就是DDOS攻击，再屌丝点的说法就像玩LOL被ADC暴击了一样，那伤害你懂的。</p>
+
+<p><strong>1</strong></p>
+
+<p><strong>高并发会来带的后果</strong></p>
+
+<p><strong>服务端：</strong>导致站点服务器/DB服务器资源被占满崩溃，数据的存储和更新结果和理想的设计是不一样的，比如：出现重复的数据记录，多次添加了用户积分等。</p>
+
+<p><strong>用户角度：</strong>尼玛，这么卡，老子来参加活动的，刷新了还是这样，垃圾网站，再也不来了！</p>
+
+<p><strong>我的经历：</strong>在做公司产品网站的过程中，经常会有这样的需求，比如搞个活动专题、抽奖、签到、积分竞拍等等，如果没有考虑到高并发下的数据处理，那就Game Over了，很容易导致抽奖被多抽走，签到发现一个用户有多条记录等等，各种超出正常逻辑的现象，这就是做产品网站必须考虑的问题，因为这些都是面向大量用户的，而不是像做ERP管理系统、OA系统那样，只是面向员工。</p>
+
+<p>下面我进行实例分析，简单粗暴，动态分析，纯属本人经验分享，如有说错或者更好的建议，请留言，大家一起成长。</p>
+
+<p><strong>2</strong></p>
+
+<p><strong>并发下的数据处理</strong></p>
+
+<p>通过表设计，如：记录表添加唯一约束，数据处理逻辑使用事物防止并发下的数据错乱问题。通过服务端锁进程防止包并发下的数据错乱问题。<strong>这里主要讲述的是在并发请求下的数据逻辑处理的接口，如何保证数据的一致性和完整性，这里的并发可能是大量用户发起的，也可能攻击者通过并发工具发起的并发请求。</strong></p>
+
+<p>例子1：通过表设计防止并发导致数据错乱</p>
+
+<p><strong>需求点：</strong></p>
+
+<p>【签到功能】一天一个用户只能签到一次，签到成功后用户获取到一个积分。</p>
+
+<p><strong>已知表：</strong></p>
+
+<p>1、用户表，包含积分字段；</p>
+
+<p>2、高并发意淫分析(属于开发前的猜测)：在高并发的情况下，会导致一个用户签到记录会有多条，或者用户签到后不止加一积分。</p>
+
+<p><strong>我的设计：</strong>首先根据需求我会添加一张签到记录表，重点来了，这张表需要把用户唯一标识字段(ID,Token)和签到日期字段添加为唯一约束，或者唯一索引，这样就可以防止并发的时候插入重复用户的签到记录。然后再程序代码逻辑里，先执行签到数据的添加(这里可以防止并发，添加成功后再进行积分的添加，这样就可以防止重复地添加积分了。最后我还是建议所有的数据操作都写在一个sql事务里面， 这样在添加失败，或者编辑用户积分失败的时候可以回滚数据。</p>
+
+<p>例子2：事务+通过更新锁，防止并发导致数据错乱；或者事物+Update的锁表机制</p>
+
+<p><strong>需求点：</strong>【抽奖功能】抽奖一次消耗一个积分，抽奖中奖后编辑剩余奖品总数，剩余奖品总数为0，或者用户积分为0的时候无法进行抽奖。</p>
+
+<p><strong>已知表：</strong>用户表，包含积分字段 奖品表，包含奖品剩余数量字段。</p>
+
+<p><strong>高并发意淫分析(属于开发前的猜测)：</strong>在高并发的情况下，会导致用户参与抽奖的时候积分被扣除，而奖品实际上已经被抽完了。</p>
+
+<p><strong>我的设计：</strong>在事物里，通过WITH(UPDLOCK)锁住商品表，或者Update 表的奖品剩余数量和最后编辑时间字段，来把数据行锁住，然后进行用户积分的消耗，都完成后提交事物，失败就回滚。 这样就可以保证，只有可能存在一个操作在操作这件商品的数量，只有等到这个操作事物提交后，其他的操作这个商品行的事物才会继续执行。</p>
+
+<p>例子3：通过程序代码防止包并发下的数据错乱问题</p>
+
+<p><strong>需求点：</strong>【缓存数据到cache里】，当缓存不存在的时候，从数据库中获取并保存在cache里，如果存在从cache里获取，每天10点必须更新一次，其他时间点缓存两个小时更新一次 到10点的时候，凡是打开页面的用户会自动刷新页面。</p>
+
+<p><strong>问题点：</strong>这里有个逻辑用户触发缓存的更新，用户刷新页面，当缓存存在的时候，会取到最后一次缓存更新时间，如果当前时间大于十点，并且最后缓存时间是10点前，则会从数据库中重新获取数据保存到cache中。 还有客户端页面会在10点时候用js发起页面的刷新，就是因为有这样的逻辑，导致10点的时候有很多并发请求同时过来，然后就会导致很多的sql查询操作，理想的逻辑是，只有一个请求会去数据库获取，其他都是从缓存中获取数据。(因为这个sql查询很耗服务器性能，所以导致在10点的时候，突然间数据库服务器压力暴增)</p>
+
+<p><strong>解决问题：</strong>C#通过（锁）lock，在从数据读取到缓存的那段代码前面加上锁，这样在并发的情况下只会有一个请求是从数据库里获取数据，其他都是从缓存中获取。</p>
+
+<p><strong>3</strong></p>
+
+<p><strong>访问量大的数据统计接口</strong></p>
+
+<p><strong>需求：</strong>用户行为数据统计接口，用来记录商品展示次数，用户通过点击图片，或者链接，或者其他方式进入到商品详情的行为次数。</p>
+
+<p><strong>问题点：</strong>这接口是给前端ajax使用，访问量会很大，一页面展示的时候就会有几十件商品的展示，滚动条滚到到页面显示商品的时候就会请求接口进行展示数据的统计，每次翻页又会加载几十件。</p>
+
+<p><strong>意淫分析：</strong>设想如果同时有1W个用户同时在线访问页面，一个次拉动滚动条屏幕页面展示10件商品，这样就会有10W个请求过来，服务端需要把请求数据入库。在实际线上环境可能还会超过这个请求量，如果不经过进行高并发设计处理，服务器分分钟给跪了。</p>
+
+<p><strong>解决问题：</strong>我们通过nodejs写了一个数据处理接口，把统计数据先存到redis的list里。(使用nodejs写接口的好处是，nodejs使用单线程异步事件机制，高并发处理能力强，不会因为数据逻辑处理问题导致服务器资源被占用而导致服务器宕机) 然后再使用nodejs写了一个脚本，脚本功能就是从redis里出列数据保存到mysql数据库中。这个脚本会一直运行，当redis没有数据需要同步到数据库中的时候，sleep，让在进行数据同步操作。</p>
+
+<p><strong>4</strong></p>
+
+<p><strong>高并发的下的服务器压力均衡，合理站点架设，DB部署</strong></p>
+
+<p>以下我所知道的：</p>
+
+<p>服务器代理nginx，做服务器的均衡负载，把压力均衡到多台服务器；</p>
+
+<p>部署集群MySQL数据库， Redis服务器，或者MongoDB服务器，把一些常用的查询数据，并且不会经常的变化的数据保存到其他NoSQL DB服务器中，来减少数据库服务器的压力，加快数据的响应速度；</p>
+
+<p>数据缓存，Cache；</p>
+
+<p>在高并发接口的设计中可以使用具有高并发能力的编程语言去开发，如：nodejs做web接口；</p>
+
+<p>服务器部署，图片服务器分离，静态文件走CDN；</p>
+
+<p>DBA数据库的优化查询条件，索引优化；</p>
+
+<p>消息存储机制，将数据添加到信息队列中(redis list)，然后再写工具去入库</p>
+
+<p>脚本合理控制请求，如，防止用户重复点击导致的ajax多余的请求，等等。</p>
+
+<p><strong>5</strong></p>
+
+<p><strong>并发测试神器推荐</strong></p>
+
+<p>Apache JMeter</p>
+
+<p>Microsoft Web Application Stress Tool</p>
+
+<p>Visual Studio 性能负载</p>
+
+<p><strong>二、关于高并发架构</strong></p>
+
+<p>为了让业务可以流畅地运行并且给用户一个好的交互体验，我们需要根据业务场景预估达到的并发量等因素，来设计适合自己业务场景的高并发处理方案。</p>
+
+<p>在电商相关产品开发的这些年，我有幸遇到了并发下的各种坑，这一路摸爬滚打过来有着不少的血泪史，这里进行总结，作为自己的归档记录，同时分享给大家。</p>
+
+<p><strong>1</strong></p>
+
+<p><strong>服务器架构</strong></p>
+
+<p>业务从发展的初期到逐渐成熟，服务器架构也是从相对单一到集群，再到分布式服务。</p>
+
+<p>一个可以支持高并发的服务少不了好的服务器架构，需要有均衡负载，数据库需要主从集群，NoSQL缓存需要主从集群，静态文件需要上传CDN，这些都是能让业务程序流畅运行的强大后盾。</p>
+
+<p>服务器这块多是需要运维人员来配合搭建，具体我就不多说了，点到为止。</p>
+
+<p><strong>大致需要用到的服务器架构如下：</strong></p>
+
+<p>服务器：</p>
+
+<p>均衡负载(如：nginx，阿里云SLB)</p>
+
+<p>资源监控</p>
+
+<p>分布式</p>
+
+<p>数据库：</p>
+
+<p>主从分离，集群</p>
+
+<p>DBA 表优化，索引优化，等</p>
+
+<p>分布式</p>
+
+<p>NoSQL：</p>
+
+<p>Redis</p>
+
+<p>主从分离，集群</p>
+
+<p>MongoDB</p>
+
+<p>主从分离，集群</p>
+
+<p>memcache</p>
+
+<p>主从分离，集群</p>
+
+<p>CDN：</p>
+
+<p>html</p>
+
+<p>css</p>
+
+<p>js</p>
+
+<p>image</p>
+
+<p><strong>2</strong></p>
+
+<p><strong>并发测试</strong></p>
+
+<p>高并发相关的业务，需要进行并发的测试，通过大量的数据分析评估出整个架构可以支撑的并发量。</p>
+
+<p>测试高并发可以使用第三方服务器或者自己测试服务器，利用测试工具进行并发请求测试，分析测试数据得到可以支撑并发数量的评估，这个可以作为一个预警参考，俗话说知己自彼百战不殆。</p>
+
+<p>第三方服务:</p>
+
+<p>阿里云性能测试</p>
+
+<p>并发测试工具：</p>
+
+<p>Apache JMeter</p>
+
+<p>Visual Studio性能负载测试</p>
+
+<p>Microsoft Web Application Stress Tool</p>
+
+<p><strong>3</strong></p>
+
+<p><strong>实战方案</strong></p>
+
+<p><strong>1</strong><strong>）通用方案</strong></p>
+
+<p>日用户流量大，但是比较分散，偶尔会有用户高聚的情况；</p>
+
+<p><strong>场景： 用户签到，用户中心，用户订单等。</strong></p>
+
+<p><strong>服务器架构图：</strong></p>
+
+<p><img alt="" src="http://www.4u4v.net/wp-content/uploads/auto_save_image/2016/11/132612jup.jpg" /></p>
+
+<p><strong>说明：</strong></p>
+
+<p>场景中的这些业务基本是用户进入APP后会操作到的，除了活动日(618、双11等)，这些业务的用户量都不会高聚集，同时这些业务相关的表都是大数据表，业务多是查询操作，所以我们需要减少用户直接命中DB的查询；优先查询缓存，如果缓存不存在，再进行DB查询，将查询结果缓存起来。</p>
+
+<p>更新用户相关缓存需要分布式存储，比如使用用户ID进行hash分组，把用户分布到不同的缓存中，这样一个缓存集合的总量不会很大，不会影响查询效率。</p>
+
+<p>方案如：</p>
+
+<p><strong>用户签到获取积分：</strong></p>
+
+<p>计算出用户分布的key，Redis，hash中查找用户今日签到信息</p>
+
+<p>如果查询到签到信息，返回签到信息</p>
+
+<p>如果没有查询到，DB查询今日是否签到过，如果有签到过，就把签到信息同步Redis缓存。</p>
+
+<p>如果DB中也没有查询到今日的签到记录，就进行签到逻辑，操作DB添加今日签到记录，添加签到积分(这整个DB操作是一个事务)</p>
+
+<p>缓存签到信息到Redis，返回签到信息</p>
+
+<p>注意这里会有并发情况下的逻辑问题，如：一天签到多次，发放多次积分给用户。</p>
+
+<p><strong>用户订单：</strong></p>
+
+<p>这里我们只缓存用户第一页的订单信息，一页40条数据，用户一般也只会看第一页的订单数据</p>
+
+<p>用户访问订单列表，如果是第一页读缓存，如果不是读DB</p>
+
+<p>计算出用户分布的key，Redis，hash中查找用户订单信息</p>
+
+<p>如果查询到用户订单信息，返回订单信息</p>
+
+<p>如果不存在就进行DB查询第一页的订单数据，然后缓存redis，返回订单信息</p>
+
+<p><strong>用户中心：</strong></p>
+
+<p>计算出用户分布的key，Redis hash中查找用户订单信息</p>
+
+<p>如果查询到用户信息，返回用户信息</p>
+
+<p>如果不存在进行用户DB查询，然后缓存redis，返回用户信息</p>
+
+<p><strong>其他业务：</strong></p>
+
+<p>上面例子多是针对用户存储缓存，如果是公用的缓存数据需要注意一些问题，如：公用的缓存数据需要考虑并发下的可能会导致大量命中DB查询，可以使用管理后台更新缓存，或者DB查询的锁住操作。</p>
+
+<p>以上例子是一个相对简单的高并发架构，并发量不是很高的情况可以很好的支撑，但是随着业务的壮大，用户并发量增加，我们的架构也会进行不断的优化和演变，比如对业务进行服务化，每个服务有自己的并发架构，自己的均衡服务器，分布式数据库，NoSQL主从集群，如：用户服务、订单服务。</p>
+
+<p><strong>2</strong><strong>）消息队列</strong></p>
+
+<p>秒杀、秒抢等活动业务，用户在瞬间涌入产生高并发请求。</p>
+
+<p><strong>场景：定时领取红包等。</strong></p>
+
+<p>服务器架构图：</p>
+
+<p><img alt="" src="http://www.4u4v.net/wp-content/uploads/auto_save_image/2016/11/212612BoK.jpg" /></p>
+
+<p><strong>说明：</strong></p>
+
+<p>场景中的定时领取是一个高并发的业务，像秒杀活动用户会在到点的时间涌入，DB瞬间就接受到一记暴击，hold不住就会宕机，然后影响整个业务；</p>
+
+<p>像这种不是只有查询的操作并且会有高并发的插入或者更新数据的业务，前面提到的通用方案就无法支撑，并发的时候都是直接命中DB；</p>
+
+<p>设计这块业务的时候就会使用消息队列的，可以将参与用户的信息添加到消息队列中，然后再写个多线程程序去消耗队列，给队列中的用户发放红包；</p>
+
+<p><strong>方案如：</strong></p>
+
+<p>定时领取红包；</p>
+
+<p>一般习惯使用 redis的 list；</p>
+
+<p>当用户参与活动，将用户参与信息push到队列中；</p>
+
+<p>然后写个多线程程序去pop数据，进行发放红包的业务；</p>
+
+<p>这样可以支持高并发下的用户可以正常的参与活动，并且避免数据库服务器宕机的危险。</p>
+
+<p><strong>附加：</strong>通过消息队列可以做很多的服务。</p>
+
+<p>如：定时短信发送服务，使用sset(sorted set)，发送时间戳作为排序依据，短信数据队列根据时间升序，然后写个程序定时循环去读取sset队列中的第一条，当前时间是否超过发送时间，如果超过就进行短信发送。</p>
+
+<p><strong>3</strong><strong>）一级缓存</strong></p>
+
+<p>高并发请求连接缓存服务器超出服务器能够接收的请求连接量，部分用户出现建立连接超时无法读取到数据的问题；</p>
+
+<p>因此需要有个方案当高并发时候时候可以减少命中缓存服务器；</p>
+
+<p>这时候就出现了一级缓存的方案，一级缓存就是使用站点服务器缓存去存储数据，注意只存储部分请求量大的数据，并且缓存的数据量要控制，不能过分的使用站点服务器的内存而影响了站点应用程序的正常运行，一级缓存需要设置秒单位的过期时间，具体时间根据业务场景设定，目的是当有高并发请求的时候可以让数据的获取命中到一级缓存，而不用连接缓存NoSQL数据服务器，减少NoSQL数据服务器的压力。</p>
+
+<p>比如APP首屏商品数据接口，这些数据是公共的不会针对用户自定义，而且这些数据不会频繁的更新，像这种接口的请求量比较大就可以加入一级缓存；</p>
+
+<p><strong>服务器架构图：</strong></p>
+
+<p><img alt="" src="http://www.4u4v.net/wp-content/uploads/auto_save_image/2016/11/212613cNM.jpg" /></p>
+
+<p>合理地规范和使用NoSQL缓存数据库，根据业务拆分缓存数据库的集群，这样基本可以很好支持业务，一级缓存毕竟是使用站点服务器缓存所以还是要善用。</p>
+
+<p><strong>4）静态化数据</strong></p>
+
+<p>高并发请求数据不变化的情况下如果可以不请求自己的服务器获取数据那就可以减少服务器的资源压力。</p>
+
+<p>对于更新频繁度不高，并且数据允许短时间内的延迟，可以通过数据静态化成JSON、XML、HTML等数据文件上传CDN，在拉取数据的时候优先到CDN拉取，如果没有获取到数据再从缓存，数据库中获取，当管理人员操作后台编辑数据再重新生成静态文件上传同步到CDN，这样在高并发的时候可以使数据的获取命中在CDN服务器上。</p>
+
+<p>CDN节点同步有一定的延迟性，所以找一个靠谱的CDN服务器商也很重要。</p>
+
+<p><strong>5）其他方案</strong></p>
+
+<p>对于更新频繁度不高的数据，APP、PC浏览器，可以缓存数据到本地，然后每次请求接口的时候上传当前缓存数据的版本号，服务端接收到版本号判断版本号与最新数据版本号是否一致，如果不一样就进行最新数据的查询并返回最新数据和最新版本号，如果一样就返回状态码告知数据已经是最新。减少服务器压力：资源、带宽。</p>
+
+				    </div>
+	              <div class="col-md-4 fh5co-project-detail">
+	              	<div class="fh5co-project-service">
+	              	<h3>评论</h3>
+	              						 	
+					  <div id="discuss_essay" class="discuss_essay">
+   	
+   	
+   	
+   	<script>
+			var re=[{"id":"73","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u597d\u70e6\u554a","essay_id":"41","p_u_id":"0","info_time":"2017-05-17 17:28:06","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"89","name":"\u5927\u5a03.\u4f55\u8dc3","u_id":"13","text":"\u662f\u5440\u662f\u5440","essay_id":"41","p_u_id":"0","info_time":"2017-05-23 10:54:48","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/1A4BFBF202642730AA9305BDE754919D\/100"}];
+			var a_id=41;
+			var html='';
+		     
+			var h=tree(re,0);
+			document.getElementById("discuss_essay").innerHTML =h;
+			function tree(arr,pid){	
+				var lsz='';
+				for(var v in arr){ 
+					    if(arr[v]['p_u_id']==pid){
+		
+		if(arr[v]['p_u_id']==0){
+		lsz='</div><div class="discuss_essay_list">'+
+		'<a class="discuss_essay_list_img" href="#"><img src="'+arr[v]['u_haerd']+'" /></a>'+
+   		'<div class="discuss_essay_list_top"><span>'+arr[v]['name']+'</span>'+arr[v]['info_time']+'<span reply="'+arr[v]['id']+'" class="discuss_essay_list_top_h">回复</span></div>'+
+   		'<div class="discuss_essay_list_cent">'+arr[v]['text']+'</div>';
+   	    }else{
+   	    lsz='</div><div class="discuss_essay_c_list">'+
+		'<a class="discuss_essay_list_img" href="#"><img src="'+arr[v]['u_haerd']+'" /></a>'+
+   		'<div class="discuss_essay_list_top"><span>'+arr[v]['name']+' 回复 '+arr[v]['p_name']+'</span>'+arr[v]['info_time']+'<span reply="'+arr[v]['id']+'" class="discuss_essay_list_top_h">回复</span></div>'+
+   		'<div class="discuss_essay_list_cent">'+arr[v]['text']+'</div>';	
+   	    }
+					    	html=html+lsz;
+					    	tree(arr,arr[v]['id']);					    	
+					    }
+                         }
+				return html;
+			}
+			
+			
+		</script> 	
+   	<div class="discuss_essay_list">
+   		<div class="discuss_essay_c_list">
+   	     	<div class="discuss_essay_list_info">
+   	     		<textarea id="info"></textarea>
+   	     		<span onclick="tj(41,0)">提交</span>
+   	     	</div>
+   	     </div>
+   	</div>
+   	
+   </div>
+	              	
+	              	
+	              	</div>
+					<div class="fh5co-project-service">
+						<h3>栏目最新</h3>
+						<ul>
+							                                <li><a href="http://www.qinpl.cn/Myplphp/50.html" title="UCenter API使用入门" target="_blank">UCenter API使用入门</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/49.html" title="sphinx的配置文件" target="_blank">sphinx的配置文件</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/48.html" title="PHP中利用PHPMailer配合QQ邮箱实现发邮件" target="_blank">PHP中利用PHPMailer配合QQ邮箱实现发邮件</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/43.html" title="搜索获取淘宝商品信息" target="_blank">搜索获取淘宝商品信息</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/42.html" title="PHP 5.3.6及以前版本的PDO的bindParam,bindValue潜在的安全隐患" target="_blank">PHP 5.3.6及以前版本的PDO的bindParam,bindValue潜在的安全隐患</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/41.html" title="高并发常用手段" target="_blank">高并发常用手段</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/40.html" title="递归方式和迭代方式实现无限极分类" target="_blank">递归方式和迭代方式实现无限极分类</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/39.html" title="PHP常用算法和数据结构示例" target="_blank">PHP常用算法和数据结构示例</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/38.html" title="php 实现的基本数据结构" target="_blank">php 实现的基本数据结构</a></li>
+                              						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!-- END container-wrap -->
+
+	<div class="container-wrap">
+		<footer id="fh5co-footer" role="contentinfo">
+			<div class="row">
+				<div class="col-md-3 fh5co-widget">
+					<h4>About Neat</h4>
+					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
+				</div>
+				<div class="col-md-3 col-md-push-1">
+					<h4>最新更新</h4>
+					<ul class="fh5co-footer-links">
+						                        <li><a href="http://www.qinpl.cn/Mypllinux/53.html" target="_blank">Nginx和PHP-FPM</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplmsql/52.html" target="_blank">MySQL replace</a></li>
+                                                <li><a href="http://www.qinpl.cn/Mypllinux/51.html" target="_blank">Linux 定时任务</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplphp/50.html" target="_blank">UCenter API使用</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplphp/49.html" target="_blank">sphinx的配置文件</a></li>
+                        					</ul>
+				</div>
+
+				<div class="col-md-3 col-md-push-1">
+					<h4>友情链接</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="http://www.codejie.net/" target="_blank">源码街</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-3">
+					<h4>联系方式</h4>
+					<ul class="fh5co-footer-links">
+						<li>tel:<a href="tel://18883768578">18883768578</a></li>
+						<li>e mail:<a href="mailto:1017962047@qq.com">1017962047@qq.com</a></li>
+						<li><a href="http://www.qinpl.cn/">www.qinpl.cn</a></li>
+					</ul>
+				</div>
+
+			</div>
+
+			<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+						<small class="block"><a href="http://www.qinpl.cn/sitemap.xml" target="_blank">网站地图</a> Design by DanceSmile <a href="http://www.miitbeian.gov.cn" target="_blank">蜀ICP备17013559号-1</a></small>
+					</p>
+					<p>
+						<ul class="fh5co-social-icons">
+							<li><a href="#"><i class="icon-twitter"></i></a></li>
+							<li><a href="#"><i class="icon-facebook"></i></a></li>
+							<li><a href="#"><i class="icon-linkedin"></i></a></li>
+							<li>
+								<script type="text/javascript">
+  		var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+  		document.write(unescape("%3Cspan id='cnzz_stat_icon_1261808781'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261808781%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+                               </script>                  
+							</li>
+						</ul>
+					</p>
+				</div>
+			</div>
+		</footer>
+	</div><!-- END container-wrap -->	
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.flexslider-min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.magnific-popup.min.js"></script>
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\magnific-popup-options.js"></script>
+	<!-- Counters -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.countTo.js"></script>
+	<!-- Main -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\main.js"></script>
+
+	<div class="list_zezao">
+	<div class="v_k">
+      <div class="cols"><span>X</span></div>
+      <div id="u_login"></div>
+     
+      		<a href="http://www.qinpl.cn/admin/Qqlater/Login?qurl=oZKvKfK/41"></a>
+
+	</div>
+</div>
+	<script type="text/javascript" src="http://www.qinpl.cn\api\admin\vendor\static/js/config.js" ></script>
+	<script type="text/javascript" src="http://www.qinpl.cn\api\admin\vendor\static/js/new.js" ></script>
+
+	</body>
+</html>
+

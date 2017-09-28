@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="<?php echo $this->www."\\css\\admin.css"; ?>" />
+	</head>
+	<body>
+	<?php  include($this->url."/Index/public/nav.html"); ?>
+	<div class="content">
+		<div class="content_cen">
+			<div class="content_cen_l">
+				
+			    <?php   foreach($c_1[1] as $v){ $pl=0; foreach($c_1[2] as $v2){ if($v2['p_id']==$v['id']) { $pl=1; break;} } ?>
+				
+				<div class="content_cen_l_l">
+					<?php if(!$pl){ ?>
+					<a href="Content_list?c_id=<?php echo $v['id']; ?>"><div style="border-bottom: 0px solid #0782C1;" class="content_cen_l_l_n"><?php echo $v['name']; ?></div></a>
+					<?php }else{ ?>
+					<div  onclick="zcdxs(<?php echo $v['id']; ?>)" class="content_cen_l_l_n"><?php echo $v['name']; ?></div>
+					    <div id="cl_<?php echo $v['id']; ?>" class="content_cen_l_l_l">
+					    	<ul>
+					    		<?php foreach($c_1[2] as $v3){ if($v3['p_id']==$v['id']){ ?>
+					    		<a id="ccc_<?php echo $v3['id']; ?>" href="Content_list?c_id=<?php echo $v3['id']; ?>"><li><?php echo $v3['name']; ?></li></a>
+					    		<?php }} ?>
+					    	</ul>
+					    </div>
+					<?php } ?>
+					   
+				</div>
+				
+				
+			    <?php } ?>
+				
+			</div>
+			<div class="content_cen_r">
+				
+				<?php if(isset($rel)){//判断是否是选择了文章 ?>
+					
+					<a href="http://<?php echo HTTP_HOST; ?>/admin/Index/Add_essay?class_c=<?php echo $get['c_id']; ?>"><div>添加文章</div></a>
+					
+					<input id="huoqu" type="hidden" value="<?php echo $get['c_id']; ?>" />
+					
+					<table>
+						<tr><th style="width: 50px;">ID</th><th style="width: 150px;">标题</th><th style="width: 400px;">简介</th><th style="width: 80px;">操作</th></tr>
+						<?php foreach($rel as $k=>$v){ ?>
+						<tr id="tr_<?php echo $v['id']; ?>"><td><?php echo $v['id']; ?></td><td id='title_<?php echo $v['id']; ?>'><?php echo $v['title']; ?></td><td id="outline_<?php echo $v['id']; ?>"><?php echo $v['outline']; ?></td><td><span onclick="xis(CKEDITOR,<?php echo $v['id']; ?>)">操作</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span onclick="dlet_essay(<?php echo $v['id']; ?>)">删除</span></td></tr>
+						<?php } ?>
+						<tr><td style="text-align: center;" colspan='4'><span   onclick="next('Content_list_next?c_id=<?php echo $get['c_id']; ?>&end_id=<?php echo $next; ?>',<?php echo $next; ?>)">下一页</span></td></tr>
+					</table>
+				
+				<?php } ?>
+			</div>
+		</div>
+	</div>
+	
+	
+	                <div class="zezao" >
+		                        <div class="edit_content">
+			                      <div class="clos_content" onclick="clos()">X</div>
+			                    
+			                      <?php  include($this->url."/CKEditor/index.html"); ?>
+			                    </div>
+			       </div>
+			       
+			       
+			       <div class="zezao1"  >
+		                        <div class="essay_content">
+			                      <div class="essay_clos_content" onclick="clos1()">X</div>
+<style>
+    .txt{ height:28px; border:1px solid #cdcdcd; width:600px;}
+    .mybtn{ background-color:#FFF; line-height:14px;vertical-align:middle;border:1px solid #CDCDCD;height:30px; width:70px;}
+    .file{ position:absolute; top:0; right:80px; height:24px; filter:alpha(opacity:0);opacity: 0;width:260px }
+</style>
+
+
+    <label class="control-label">图片</label>
+    <br/>
+    <input type='text' name='textfield' id='textfield' class='txt' />
+    <span onclick="file.click()"  class="mybtn">浏览...</span>
+    <input type="file" name="file" class="file" id="file" size="28" onchange="document.getElementById('textfield').value=this.value" />
+    <span onclick="UpladFile()" class="mybtn">上传</span>
+			                    </div>
+			       </div>
+	
+	
+	<script type="text/javascript" src="<?php echo $this->static."\\jquery.js"; ?>" ></script>
+	<script type="text/javascript" src="<?php echo $this->www."\\js\\config.js"; ?>" ></script>
+	<script type="text/javascript" src="<?php echo $this->www."\\js\\admin.js"; ?>" ></script>
+	<script type="text/javascript" src="<?php echo $this->www."\\js\\eti_essay.js"; ?>" ></script>
+	</body>
+</html>

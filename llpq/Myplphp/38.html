@@ -1,0 +1,438 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>php 实现的基本数据结构 - 秦鹏林的个人博客</title>
+    	<!-- Facebook and Twitter integration -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!--<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\css.css" rel="stylesheet">
+	<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\css_f.css" rel="stylesheet">-->
+	<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\my_css.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\magnific-popup.css">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\flexslider.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\style.css">
+
+	<!-- Modernizr JS -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+
+	</head>
+	<style>
+		img{width: 100%;}
+	</style>
+	<body>
+		
+	<!--<div class="fh5co-loader"></div>-->
+	
+	<div id="page">
+	<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<div style="display: none;" >
+				<img src="http://www.qinpl.cn\api\admin\vendor\static\img\logo.png" />
+</div>
+<nav class="fh5co-nav" role="navigation">
+            
+		<div class="container-wrap">
+			<div class="top-menu">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="/">Qin</a></div>
+					</div>
+					
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+						
+							<li ><a href="/">首页</a></li>
+				            				            							<li class="  active   has-dropdown "><a href="/Mypl/">我的编程人生</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/Myplphp/">php</a></li>
+                                    									<li><a href="/Mypljs/">js</a></li>
+                                    									<li><a href="/Mypllinux/">linux</a></li>
+                                    									<li><a href="/Myplnginx/">nginx</a></li>
+                                    									<li><a href="/Myplmsql/">msql</a></li>
+                                    								</ul>
+							   							</li>
+											            							<li class="   has-dropdown "><a href="/fare/">旅行</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/fare2012/">2012</a></li>
+                                    									<li><a href="/fare2017/">2017</a></li>
+                                    								</ul>
+							   							</li>
+											            							<li class="   has-dropdown "><a href="/Download/">下载区</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/Downloadjs/">js下载</a></li>
+                                    									<li><a href="/Downloadphp/">php下载</a></li>
+                                    									<li><a href="/Downloadxtym/">系统源码下载</a></li>
+                                    									<li><a href="/Downloadqtmb/">前台模板下载</a></li>
+                                    								</ul>
+							   							</li>
+													</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>	<div class="container-wrap">	
+		<div id="fh5co-work">
+			<div class="row">
+			
+				<div class="col-md-8" >
+					<span style="border-bottom: 1px solid #CCCCCC;width: 100%;padding-bottom: 10px;" class="fh5co-project-sub qin_list_span">您当前的位置：<a href="/">首页</a>&nbsp;&gt;&nbsp;<a href="/Mypl/">我的编程人生</a>&nbsp;&gt;&nbsp;<a href="/Myplphp/">php</a></span>
+					<h2 style="margin: 20px 0 10px 0;" class="fh5co-project-title qin_list_h">php 实现的基本数据结构</h2>
+					<span style="margin-bottom: 20px;" class="fh5co-project-sub">发布时间：2017-05-05 03 作者：秦</span>
+					 <p><span style="font-family:Courier New"><span style="color:#ff9900">//--------------------<br />
+//&nbsp;基本数据结构<br />
+//--------------------<br />
+<br />
+//二分查找（数组里查找某个元素）</span><br />
+<span style="color:#006600">function&nbsp;</span><span style="color:#0000cc">bin_sch</span><span style="color:#006600">(</span><span style="color:#0000cc">$array</span><span style="color:#006600">,&nbsp;</span><span style="color:#0000cc">$low</span><span style="color:#006600">,&nbsp;</span><span style="color:#0000cc">$high</span><span style="color:#006600">,&nbsp;</span><span style="color:#0000cc">$k</span></span><span style="font-family:Courier New"><span style="color:#006600">){&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color:#0000cc">$low&nbsp;</span><span style="color:#006600">&lt;=&nbsp;</span><span style="color:#0000cc">$high</span></span><span style="font-family:Courier New"><span style="color:#006600">){&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#0000cc">$mid&nbsp;</span><span style="color:#006600">=&nbsp;</span><span style="color:#0000cc">intval</span><span style="color:#006600">((</span><span style="color:#0000cc">$low</span><span style="color:#006600">+</span><span style="color:#0000cc">$high</span><span style="color:#006600">)/</span><span style="color:#0000cc">2</span></span><span style="font-family:Courier New"><span style="color:#006600">);&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color:#0000cc">$array</span><span style="color:#006600">[</span><span style="color:#0000cc">$mid</span><span style="color:#006600">]&nbsp;==&nbsp;</span><span style="color:#0000cc">$k</span></span><span style="font-family:Courier New"><span style="color:#006600">){&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color:#0000cc">$mid</span></span><span style="font-family:Courier New"><span style="color:#006600">;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}elseif&nbsp;(</span><span style="color:#0000cc">$k&nbsp;</span><span style="color:#006600">&lt;&nbsp;</span><span style="color:#0000cc">$array</span><span style="color:#006600">[</span><span style="color:#0000cc">$mid</span></span><span style="font-family:Courier New"><span style="color:#006600">]){&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color:#0000cc">bin_sch</span><span style="color:#006600">(</span><span style="color:#0000cc">$array</span><span style="color:#006600">,&nbsp;</span><span style="color:#0000cc">$low</span><span style="color:#006600">,&nbsp;</span><span style="color:#0000cc">$mid</span><span style="color:#006600">-</span><span style="color:#0000cc">1</span><span style="color:#006600">,&nbsp;</span><span style="color:#0000cc">$k</span></span><span style="font-family:Courier New"><span style="color:#006600">);&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}else{&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color:#0000cc">bin_sch</span><span style="color:#006600">(</span><span style="color:#0000cc">$array</span><span style="color:#006600">,&nbsp;</span><span style="color:#0000cc">$mid</span><span style="color:#006600">+</span><span style="color:#0000cc">1</span><span style="color:#006600">,&nbsp;</span><span style="color:#0000cc">$high</span><span style="color:#006600">,&nbsp;</span><span style="color:#0000cc">$k</span></span><span style="font-family:Courier New"><span style="color:#006600">);&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;-</span><span style="color:#0000cc">1</span></span><span style="font-family:Courier New"><span style="color:#006600">;&nbsp;<br />
+}&nbsp;</span></span><br />
+<br />
+<br />
+<span style="font-family:Courier New"><span style="color:#ff9900">//顺序查找（数组里查找某个元素）</span><br />
+<span style="color:#006600">function&nbsp;</span><span style="color:#0000cc">seq_sch</span><span style="color:#006600">(</span><span style="color:#0000cc">$array</span><span style="color:#006600">,&nbsp;</span><span style="color:#0000cc">$n</span><span style="color:#006600">,&nbsp;</span><span style="color:#0000cc">$k</span></span><span style="font-family:Courier New"><span style="color:#006600">){&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#0000cc">$array</span><span style="color:#006600">[</span><span style="color:#0000cc">$n</span><span style="color:#006600">]&nbsp;=&nbsp;</span><span style="color:#0000cc">$k</span></span><span style="font-family:Courier New"><span style="color:#006600">;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;for(</span><span style="color:#0000cc">$i</span><span style="color:#006600">=</span><span style="color:#0000cc">0</span><span style="color:#006600">;&nbsp;</span><span style="color:#0000cc">$i</span><span style="color:#006600">&lt;</span><span style="color:#0000cc">$n</span><span style="color:#006600">;&nbsp;</span><span style="color:#0000cc">$i</span></span><span style="font-family:Courier New"><span style="color:#006600">++){&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color:#0000cc">$array</span><span style="color:#006600">[</span><span style="color:#0000cc">$i</span><span style="color:#006600">]==</span><span style="color:#0000cc">$k</span></span><span style="font-family:Courier New"><span style="color:#006600">){&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color:#0000cc">$i</span><span style="color:#006600">&lt;</span><span style="color:#0000cc">$n</span></span><span style="font-family:Courier New"><span style="color:#006600">){&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color:#0000cc">$i</span></span><span style="font-family:Courier New"><span style="color:#006600">;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}else{&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;-</span><span style="color:#0000cc">1</span></span><span style="font-family:Courier New"><span style="color:#006600">;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<br />
+}&nbsp;</span></span><br />
+<br />
+<span style="font-family:Courier New"><span style="color:#ff9900">//线性表的删除（数组中实现）</span><br />
+<span style="color:#006600">function&nbsp;</span><span style="color:#0000cc">delete_array_element</span><span style="color:#006600">(</span><span style="color:#0000cc">$array</span><span style="color:#006600">,&nbsp;</span><span style="color:#0000cc">$i</span></span><span style="font-family:Courier New"><span style="color:#006600">)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#0000cc">$len&nbsp;</span><span style="color:#006600">=&nbsp;</span><span style="color:#0000cc">count</span><span style="color:#006600">(</span><span style="color:#0000cc">$array</span></span><span style="font-family:Courier New"><span style="color:#006600">);&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(</span><span style="color:#0000cc">$j</span><span style="color:#006600">=</span><span style="color:#0000cc">$i</span><span style="color:#006600">;&nbsp;</span><span style="color:#0000cc">$j</span><span style="color:#006600">&lt;</span><span style="color:#0000cc">$len</span><span style="color:#006600">;&nbsp;</span><span style="color:#0000cc">$j</span></span><span style="font-family:Courier New"><span style="color:#006600">++){<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#0000cc">$array</span><span style="color:#006600">[</span><span style="color:#0000cc">$j</span><span style="color:#006600">]&nbsp;=&nbsp;</span><span style="color:#0000cc">$array</span><span style="color:#006600">[</span><span style="color:#0000cc">$j</span><span style="color:#006600">+</span><span style="color:#0000cc">1</span></span><span style="font-family:Courier New"><span style="color:#006600">];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#0000cc">array_pop</span><span style="color:#006600">(</span><span style="color:#0000cc">$array</span></span><span style="font-family:Courier New"><span style="color:#006600">);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color:#0000cc">$array</span></span><span style="font-family:Courier New"><span style="color:#006600">;<br />
+}</span></span><br />
+<br />
+<span style="font-family:Courier New"><span style="color:#ff9900">//冒泡排序（数组排序）</span><br />
+<span style="color:#006600">function&nbsp;</span><span style="color:#0000cc">bubble_sort</span><span style="color:#006600">(</span><span style="color:#0000cc">$array</span></span><span style="font-family:Courier New"><span style="color:#006600">)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#0000cc">$count&nbsp;</span><span style="color:#006600">=&nbsp;</span><span style="color:#0000cc">count</span><span style="color:#006600">(</span><span style="color:#0000cc">$array</span></span><span style="font-family:Courier New"><span style="color:#006600">);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color:#0000cc">$count&nbsp;</span><span style="color:#006600">&lt;=&nbsp;</span><span style="color:#0000cc">0</span><span style="color:#006600">)&nbsp;return&nbsp;</span><span style="color:#0000cc">false</span></span><span style="font-family:Courier New"><span style="color:#006600">;<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;for(</span><span style="color:#0000cc">$i</span><span style="color:#006600">=</span><span style="color:#0000cc">0</span><span style="color:#006600">;&nbsp;</span><span style="color:#0000cc">$i</span><span style="color:#006600">&lt;</span><span style="color:#0000cc">$count</span><span style="color:#006600">;&nbsp;</span><span style="color:#0000cc">$i</span></span><span style="font-family:Courier New"><span style="color:#006600">++){<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(</span><span style="color:#0000cc">$j</span><span style="color:#006600">=</span><span style="color:#0000cc">$count</span><span style="color:#006600">-</span><span style="color:#0000cc">1</span><span style="color:#006600">;&nbsp;</span><span style="color:#0000cc">$j</span><span style="color:#006600">&gt;</span><span style="color:#0000cc">$i</span><span style="color:#006600">;&nbsp;</span><span style="color:#0000cc">$j</span></span><span style="font-family:Courier New"><span style="color:#006600">--){<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color:#0000cc">$array</span><span style="color:#006600">[</span><span style="color:#0000cc">$j</span><span style="color:#006600">]&nbsp;&lt;&nbsp;</span><span style="color:#0000cc">$array</span><span style="color:#006600">[</span><span style="color:#0000cc">$j</span><span style="color:#006600">-</span><span style="color:#0000cc">1</span></span><span style="font-family:Courier New"><span style="color:#006600">]){<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#0000cc">$tmp&nbsp;</span><span style="color:#006600">=&nbsp;</span><span style="color:#0000cc">$array</span><span style="color:#006600">[</span><span style="color:#0000cc">$j</span></span><span style="font-family:Courier New"><span style="color:#006600">];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#0000cc">$array</span><span style="color:#006600">[</span><span style="color:#0000cc">$j</span><span style="color:#006600">]&nbsp;=&nbsp;</span><span style="color:#0000cc">$array</span><span style="color:#006600">[</span><span style="color:#0000cc">$j</span><span style="color:#006600">-</span><span style="color:#0000cc">1</span></span><span style="font-family:Courier New"><span style="color:#006600">];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#0000cc">$array</span><span style="color:#006600">[</span><span style="color:#0000cc">$j</span><span style="color:#006600">-</span><span style="color:#0000cc">1</span><span style="color:#006600">]&nbsp;=&nbsp;</span><span style="color:#0000cc">$tmp</span></span><span style="font-family:Courier New"><span style="color:#006600">;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color:#0000cc">$array</span></span><span style="font-family:Courier New"><span style="color:#006600">;<br />
+}</span></span><br />
+<br />
+<span style="font-family:Courier New"><span style="color:#ff9900">//快速排序（数组排序）</span><br />
+<span style="color:#006600">function&nbsp;</span><span style="color:#0000cc">quicksort</span><span style="color:#006600">(</span><span style="color:#0000cc">$array</span></span><span style="font-family:Courier New"><span style="color:#006600">)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color:#0000cc">count</span><span style="color:#006600">(</span><span style="color:#0000cc">$array</span><span style="color:#006600">)&nbsp;&lt;=&nbsp;</span><span style="color:#0000cc">1</span><span style="color:#006600">)&nbsp;return&nbsp;</span><span style="color:#0000cc">$array</span></span><span style="font-family:Courier New"><span style="color:#006600">;<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#0000cc">$key&nbsp;</span><span style="color:#006600">=&nbsp;</span><span style="color:#0000cc">$array</span><span style="color:#006600">[</span><span style="color:#0000cc">0</span></span><span style="font-family:Courier New"><span style="color:#006600">];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#0000cc">$left_arr&nbsp;</span></span><span style="font-family:Courier New"><span style="color:#006600">=&nbsp;array();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#0000cc">$right_arr&nbsp;</span></span><span style="font-family:Courier New"><span style="color:#006600">=&nbsp;array();<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(</span><span style="color:#0000cc">$i</span><span style="color:#006600">=</span><span style="color:#0000cc">1</span><span style="color:#006600">;&nbsp;</span><span style="color:#0000cc">$i</span><span style="color:#006600">&lt;</span><span style="color:#0000cc">count</span><span style="color:#006600">(</span><span style="color:#0000cc">$array</span><span style="color:#006600">);&nbsp;</span><span style="color:#0000cc">$i</span></span><span style="font-family:Courier New"><span style="color:#006600">++){<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color:#0000cc">$array</span><span style="color:#006600">[</span><span style="color:#0000cc">$i</span><span style="color:#006600">]&nbsp;&lt;=&nbsp;</span><span style="color:#0000cc">$key</span></span><span style="font-family:Courier New"><span style="color:#006600">)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#0000cc">$left_arr</span><span style="color:#006600">[]&nbsp;=&nbsp;</span><span style="color:#0000cc">$array</span><span style="color:#006600">[</span><span style="color:#0000cc">$i</span></span><span style="font-family:Courier New"><span style="color:#006600">];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#0000cc">$right_arr</span><span style="color:#006600">[]&nbsp;=&nbsp;</span><span style="color:#0000cc">$array</span><span style="color:#006600">[</span><span style="color:#0000cc">$i</span></span><span style="font-family:Courier New"><span style="color:#006600">];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#0000cc">$left_arr&nbsp;</span><span style="color:#006600">=&nbsp;</span><span style="color:#0000cc">quicksort</span><span style="color:#006600">(</span><span style="color:#0000cc">$left_arr</span></span><span style="font-family:Courier New"><span style="color:#006600">);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color:#0000cc">$right_arr&nbsp;</span><span style="color:#006600">=&nbsp;</span><span style="color:#0000cc">quicksort</span><span style="color:#006600">(</span><span style="color:#0000cc">$right_arr</span></span><span style="font-family:Courier New"><span style="color:#006600">);<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color:#0000cc">array_merge</span><span style="color:#006600">(</span><span style="color:#0000cc">$left_arr</span><span style="color:#006600">,&nbsp;array(</span><span style="color:#0000cc">$key</span><span style="color:#006600">),&nbsp;</span><span style="color:#0000cc">$right_arr</span></span><span style="color:#006600"><span style="font-family:Courier New">);<br />
+}</span></span></p>
+
+<p><span style="font-family:Courier New"><span style="color:#ff9900">//无限级分类递归函数</span></span></p>
+
+<p><span style="color:#006600"><span style="font-family:Courier New">&nbsp;function </span></span><span style="color:#0000cc">_data_to_tree</span><span style="font-family:Courier New"><span style="color:#0000cc">(&amp;$items, $topid = 0, $with_id = TRUE)</span><span style="color:#27ae60">{</span><br />
+&nbsp; &nbsp; <span style="color:#009933">$result</span> = [];<br />
+&nbsp; &nbsp; foreach($items as $v){<br />
+&nbsp; &nbsp; &nbsp; &nbsp; if ($topid == $v[&#39;p_id&#39;]) &nbsp;{<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $r = $v + [&#39;children&#39; =&gt; _data_to_tree($items, $v[&#39;id&#39;], $with_id)];<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if ($with_id){<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $result[$v[&#39;id&#39;]] = $r;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }else{<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $result[] = $r;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; &nbsp;}<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br />
+&nbsp; &nbsp; return $result;<br />
+}</span></p>
+
+<p><span style="font-family:Courier New">//简单的加密函数只允许输入$encrypt_key中存在的字符</span></p>
+
+<p><span style="font-family:Courier New">function php_encode($str)<br />
+{<br />
+$enstr=&#39;&#39;;<br />
+$encrypt_key = &#39;ABCDEFGHIJKLMNOQPRST*UVWXYZabcdefghijklmnopqrstuvwxyz1234567890,&#39;;<br />
+$decrypt_key = &#39;nTgCzQ7tO,cNoUbmAuhLelBkpIdGaVwPxXfyiWvrDsKjSqH46R8Z0E213Y5*FM9J&#39;;<br />
+if (strlen($str) == 0) return false;<br />
+for ($i=0; $i&lt;strlen($str); $i++){<br />
+for ($j=0; $j&lt;strlen($encrypt_key); $j++){<br />
+if ($str[$i] == $encrypt_key[$j]){<br />
+$enstr .= $decrypt_key[$j];<br />
+break;<br />
+}<br />
+}<br />
+}<br />
+return $enstr;<br />
+}</span></p>
+
+<p>//简单的解密函数</p>
+
+<p><span style="font-family:Courier New">function php_decode($str)<br />
+{<br />
+&nbsp;&nbsp; &nbsp;$enstr=&#39;&#39;;<br />
+$encrypt_key = &#39;ABCDEFGHIJKLMNOQPRST*UVWXYZabcdefghijklmnopqrstuvwxyz1234567890,&#39;;<br />
+$decrypt_key = &#39;nTgCzQ7tO,cNoUbmAuhLelBkpIdGaVwPxXfyiWvrDsKjSqH46R8Z0E213Y5*FM9J&#39;;<br />
+if (strlen($str) == 0) return false;<br />
+for ($i=0; $i&lt;strlen($str); $i++){<br />
+for ($j=0; $j&lt;strlen($decrypt_key); $j++){<br />
+if ($str[$i] == $decrypt_key[$j]){<br />
+$enstr .= $encrypt_key[$j];<br />
+break;<br />
+}<br />
+}<br />
+}<br />
+return $enstr;<br />
+}</span></p>
+
+				    </div>
+	              <div class="col-md-4 fh5co-project-detail">
+	              	<div class="fh5co-project-service">
+	              	<h3>评论</h3>
+	              						 	
+					  <div id="discuss_essay" class="discuss_essay">
+   	
+   	
+   	
+   	<script>
+			var re=[{"id":"60","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u6211\u6765\u7559\u4e2a\u8a00","essay_id":"38","p_u_id":"0","info_time":"2017-05-12 09:24:46","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"61","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u518d\u7559\u4e2a","essay_id":"38","p_u_id":"0","info_time":"2017-05-12 17:29:28","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"69","name":"5\u20e3\ufe0f","u_id":"5","text":"\u5927\u795e\uff0c\u6211\u770b\u4e0d\u61c2\u54ce","essay_id":"38","p_u_id":"0","info_time":"2017-05-12 18:27:20","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/8811B5192964DA50B8F77B6F7AA66D4D\/100"},{"id":"72","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u518d\u770b\u770b","essay_id":"38","p_u_id":"0","info_time":"2017-05-17 16:52:01","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"62","name":"\u5fc3\u65e0\u5b9a\u6240","u_id":"3","text":"\u6765\u4e86","essay_id":"38","p_u_id":"61","info_time":"2017-05-12 17:33:56","p_name":"\u6469\u5361\u6469\u5361","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/56BE465F8A6ED9886E7E36EA0606439A\/100"},{"id":"63","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u770b\u89c1\u4e86","essay_id":"38","p_u_id":"62","info_time":"2017-05-12 17:34:10","p_name":"\u5fc3\u65e0\u5b9a\u6240","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"64","name":"\u5fc3\u65e0\u5b9a\u6240","u_id":"3","text":"\u6cd5\u89c4\u548c\u7b26\u5408\u89c4\u8303","essay_id":"38","p_u_id":"63","info_time":"2017-05-12 17:47:35","p_name":"\u6469\u5361\u6469\u5361","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/56BE465F8A6ED9886E7E36EA0606439A\/100"},{"id":"65","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u53d1\u7ed9\u5bf9\u65b9","essay_id":"38","p_u_id":"64","info_time":"2017-05-12 17:47:47","p_name":"\u5fc3\u65e0\u5b9a\u6240","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"66","name":"\u68a6\u8981\u81ea\u5df1\u625b\u6cea\u8981\u81ea\u5df1\u5c1d","u_id":"4","text":"\u522b\u96be\u8fc7\u590d\u5408\u98ce\u7ba1","essay_id":"38","p_u_id":"65","info_time":"2017-05-12 17:50:03","p_name":"\u6469\u5361\u6469\u5361","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/01A6DC1E047148E022E05FF74400D98E\/100"},{"id":"67","name":"\u5fc3\u65e0\u5b9a\u6240","u_id":"3","text":"\u68b5\u8482\u5188\u5730\u65b9","essay_id":"38","p_u_id":"65","info_time":"2017-05-12 17:50:43","p_name":"\u6469\u5361\u6469\u5361","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/56BE465F8A6ED9886E7E36EA0606439A\/100"},{"id":"68","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u4f60\u662f\u6211\u7684\u751f\u6d3b","essay_id":"38","p_u_id":"67","info_time":"2017-05-12 18:08:46","p_name":"\u5fc3\u65e0\u5b9a\u6240","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"70","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u53ef\u4ee5\u53ef\u4ee5\u54c8\u54c8","essay_id":"38","p_u_id":"69","info_time":"2017-05-12 18:27:45","p_name":"5\u20e3\ufe0f","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"}];
+			var a_id=38;
+			var html='';
+		     
+			var h=tree(re,0);
+			document.getElementById("discuss_essay").innerHTML =h;
+			function tree(arr,pid){	
+				var lsz='';
+				for(var v in arr){ 
+					    if(arr[v]['p_u_id']==pid){
+		
+		if(arr[v]['p_u_id']==0){
+		lsz='</div><div class="discuss_essay_list">'+
+		'<a class="discuss_essay_list_img" href="#"><img src="'+arr[v]['u_haerd']+'" /></a>'+
+   		'<div class="discuss_essay_list_top"><span>'+arr[v]['name']+'</span>'+arr[v]['info_time']+'<span reply="'+arr[v]['id']+'" class="discuss_essay_list_top_h">回复</span></div>'+
+   		'<div class="discuss_essay_list_cent">'+arr[v]['text']+'</div>';
+   	    }else{
+   	    lsz='</div><div class="discuss_essay_c_list">'+
+		'<a class="discuss_essay_list_img" href="#"><img src="'+arr[v]['u_haerd']+'" /></a>'+
+   		'<div class="discuss_essay_list_top"><span>'+arr[v]['name']+' 回复 '+arr[v]['p_name']+'</span>'+arr[v]['info_time']+'<span reply="'+arr[v]['id']+'" class="discuss_essay_list_top_h">回复</span></div>'+
+   		'<div class="discuss_essay_list_cent">'+arr[v]['text']+'</div>';	
+   	    }
+					    	html=html+lsz;
+					    	tree(arr,arr[v]['id']);					    	
+					    }
+                         }
+				return html;
+			}
+			
+			
+		</script> 	
+   	<div class="discuss_essay_list">
+   		<div class="discuss_essay_c_list">
+   	     	<div class="discuss_essay_list_info">
+   	     		<textarea id="info"></textarea>
+   	     		<span onclick="tj(38,0)">提交</span>
+   	     	</div>
+   	     </div>
+   	</div>
+   	
+   </div>
+	              	
+	              	
+	              	</div>
+					<div class="fh5co-project-service">
+						<h3>栏目最新</h3>
+						<ul>
+							                                <li><a href="http://www.qinpl.cn/Myplphp/50.html" title="UCenter API使用入门" target="_blank">UCenter API使用入门</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/49.html" title="sphinx的配置文件" target="_blank">sphinx的配置文件</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/48.html" title="PHP中利用PHPMailer配合QQ邮箱实现发邮件" target="_blank">PHP中利用PHPMailer配合QQ邮箱实现发邮件</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/43.html" title="搜索获取淘宝商品信息" target="_blank">搜索获取淘宝商品信息</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/42.html" title="PHP 5.3.6及以前版本的PDO的bindParam,bindValue潜在的安全隐患" target="_blank">PHP 5.3.6及以前版本的PDO的bindParam,bindValue潜在的安全隐患</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/41.html" title="高并发常用手段" target="_blank">高并发常用手段</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/40.html" title="递归方式和迭代方式实现无限极分类" target="_blank">递归方式和迭代方式实现无限极分类</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/39.html" title="PHP常用算法和数据结构示例" target="_blank">PHP常用算法和数据结构示例</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/38.html" title="php 实现的基本数据结构" target="_blank">php 实现的基本数据结构</a></li>
+                              						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!-- END container-wrap -->
+
+	<div class="container-wrap">
+		<footer id="fh5co-footer" role="contentinfo">
+			<div class="row">
+				<div class="col-md-3 fh5co-widget">
+					<h4>About Neat</h4>
+					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
+				</div>
+				<div class="col-md-3 col-md-push-1">
+					<h4>最新更新</h4>
+					<ul class="fh5co-footer-links">
+						                        <li><a href="http://www.qinpl.cn/Mypllinux/53.html" target="_blank">Nginx和PHP-FPM</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplmsql/52.html" target="_blank">MySQL replace</a></li>
+                                                <li><a href="http://www.qinpl.cn/Mypllinux/51.html" target="_blank">Linux 定时任务</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplphp/50.html" target="_blank">UCenter API使用</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplphp/49.html" target="_blank">sphinx的配置文件</a></li>
+                        					</ul>
+				</div>
+
+				<div class="col-md-3 col-md-push-1">
+					<h4>友情链接</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="http://www.codejie.net/" target="_blank">源码街</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-3">
+					<h4>联系方式</h4>
+					<ul class="fh5co-footer-links">
+						<li>tel:<a href="tel://18883768578">18883768578</a></li>
+						<li>e mail:<a href="mailto:1017962047@qq.com">1017962047@qq.com</a></li>
+						<li><a href="http://www.qinpl.cn/">www.qinpl.cn</a></li>
+					</ul>
+				</div>
+
+			</div>
+
+			<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+						<small class="block"><a href="http://www.qinpl.cn/sitemap.xml" target="_blank">网站地图</a> Design by DanceSmile <a href="http://www.miitbeian.gov.cn" target="_blank">蜀ICP备17013559号-1</a></small>
+					</p>
+					<p>
+						<ul class="fh5co-social-icons">
+							<li><a href="#"><i class="icon-twitter"></i></a></li>
+							<li><a href="#"><i class="icon-facebook"></i></a></li>
+							<li><a href="#"><i class="icon-linkedin"></i></a></li>
+							<li>
+								<script type="text/javascript">
+  		var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+  		document.write(unescape("%3Cspan id='cnzz_stat_icon_1261808781'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261808781%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+                               </script>                  
+							</li>
+						</ul>
+					</p>
+				</div>
+			</div>
+		</footer>
+	</div><!-- END container-wrap -->	
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.flexslider-min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.magnific-popup.min.js"></script>
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\magnific-popup-options.js"></script>
+	<!-- Counters -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.countTo.js"></script>
+	<!-- Main -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\main.js"></script>
+
+	<div class="list_zezao">
+	<div class="v_k">
+      <div class="cols"><span>X</span></div>
+      <div id="u_login"></div>
+     
+      		<a href="http://www.qinpl.cn/admin/Qqlater/Login?qurl=oZKvKfK/38"></a>
+
+	</div>
+</div>
+	<script type="text/javascript" src="http://www.qinpl.cn\api\admin\vendor\static/js/config.js" ></script>
+	<script type="text/javascript" src="http://www.qinpl.cn\api\admin\vendor\static/js/new.js" ></script>
+
+	</body>
+</html>
+

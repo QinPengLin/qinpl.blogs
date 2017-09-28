@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="http://<?php echo HTTP_HOST; ?>/api/admin/vendor/CKEditor/ckeditor.js" ></script>
+	</head>
+	<body>
+		  <form action="http://<?php echo HTTP_HOST; ?>/admin/Index/Add_essay" method="post">
+			标题：<input type="text" name="list_title"  value="" /></br></br>
+			作者：<input type="text" name="list_author"  value="" /></br></br>
+			概述：<textarea name="list_outline" style="width: 300px;height: 110px;"></textarea></br></br>
+			展示图片：<img style="height: 80px;width: auto;" id='list_im' src="" /><span onclick="add_essay()">上传</span>
+			          <input type="hidden" id='outline_img' name="outline_img"  value="" />
+			<textarea name="editorl" id="editorl" rows="10" cols="80" >
+				
+			</textarea>
+			<script type="text/javascript">
+				CKEDITOR.replace('editorl');
+			</script>
+			<input type="hidden" name="class_c"  value="<?php echo $clss_c; ?>" />
+			
+			<input   type="submit" value="提交" />
+		</form>
+		
+	</body>
+</html>

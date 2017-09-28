@@ -1,0 +1,350 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>UCenter API使用入门 - 秦鹏林的个人博客</title>
+    	<!-- Facebook and Twitter integration -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!--<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\css.css" rel="stylesheet">
+	<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\css_f.css" rel="stylesheet">-->
+	<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\my_css.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\magnific-popup.css">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\flexslider.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\style.css">
+
+	<!-- Modernizr JS -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+
+	</head>
+	<style>
+		img{width: 100%;}
+	</style>
+	<body>
+		
+	<!--<div class="fh5co-loader"></div>-->
+	
+	<div id="page">
+	<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<div style="display: none;" >
+				<img src="http://www.qinpl.cn\api\admin\vendor\static\img\logo.png" />
+</div>
+<nav class="fh5co-nav" role="navigation">
+            
+		<div class="container-wrap">
+			<div class="top-menu">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="/">Qin</a></div>
+					</div>
+					
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+						
+							<li ><a href="/">首页</a></li>
+				            				            							<li class="  active   has-dropdown "><a href="/Mypl/">我的编程人生</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/Myplphp/">php</a></li>
+                                    									<li><a href="/Mypljs/">js</a></li>
+                                    									<li><a href="/Mypllinux/">linux</a></li>
+                                    									<li><a href="/Myplnginx/">nginx</a></li>
+                                    									<li><a href="/Myplmsql/">msql</a></li>
+                                    								</ul>
+							   							</li>
+											            							<li class="   has-dropdown "><a href="/fare/">旅行</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/fare2012/">2012</a></li>
+                                    									<li><a href="/fare2017/">2017</a></li>
+                                    								</ul>
+							   							</li>
+											            							<li class="   has-dropdown "><a href="/Download/">下载区</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/Downloadjs/">js下载</a></li>
+                                    									<li><a href="/Downloadphp/">php下载</a></li>
+                                    									<li><a href="/Downloadxtym/">系统源码下载</a></li>
+                                    									<li><a href="/Downloadqtmb/">前台模板下载</a></li>
+                                    								</ul>
+							   							</li>
+													</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>	<div class="container-wrap">	
+		<div id="fh5co-work">
+			<div class="row">
+			
+				<div class="col-md-8" >
+					<span style="border-bottom: 1px solid #CCCCCC;width: 100%;padding-bottom: 10px;" class="fh5co-project-sub qin_list_span">您当前的位置：<a href="/">首页</a>&nbsp;&gt;&nbsp;<a href="/Mypl/">我的编程人生</a>&nbsp;&gt;&nbsp;<a href="/Myplphp/">php</a></span>
+					<h2 style="margin: 20px 0 10px 0;" class="fh5co-project-title qin_list_h">UCenter API使用入门</h2>
+					<span style="margin-bottom: 20px;" class="fh5co-project-sub">发布时间：2017-06-23 04 作者：秦</span>
+					 <p>如果你写了一个WEB程序，你又想与ucenter共用一个用户库，你会怎么做？</p>
+
+<p>来吧，让我告诉你，只要几个简单的步骤就行了。</p>
+
+<p>1、先到ucenter administrator建一个应用，在应用里配置完你的项目的地址，在UC_KEY那里随便输入一些字符串，越长越好。【在这里有配置通讯文件的名称，好象是提示你在api目录下，你可以定义一个，默认是uc.php】。然后你会一直发现应用列表中，该应用一直是通讯失败。</p>
+
+<p>2、生成应用后，在应用详情的最下方有一个textarea框，这个就是系统帮你生成的连接ucenter的配置文件 。</p>
+
+<p>3、在您的项目根目录下建立一个api目录，里面放上刚才说的通讯文件，默认是uc.php</p>
+
+<p>在通讯文件里定义一些常量，可以从uchome、supesite、等里面拷贝出来，其实就是一些返回值 的常量。</p>
+
+<p>加载刚才ucenter administrator所生成的配置文件。</p>
+
+<p>到comsenz的任何一个程序中拷贝一下authcode函数（一般在common.inc.php或者global.inc.php中）</p>
+
+<p>写上简单的判断代码：</p>
+
+<p>$code = $_GET[&#39;code&#39;];&nbsp;&nbsp; //取得GET回来的code变量</p>
+
+<p>//经过authcode解码后，转化为一个数组，这个数组里其实就有一些简单的验证信息，如：时间，传递过来的操作等<br />
+parse_str(authcode($code, &lsquo;DECODE&rsquo;, UC_KEY), $get);</p>
+
+<p>//如果当前时间大于传递来的时间1小时，返回超时<br />
+if(time() &ndash; $get[&#39;time&#39;] &gt; 3600) {<br />
+exit(&lsquo;Authracation has expiried&rsquo;);<br />
+}</p>
+
+<p>//如果转换出来的$get变量是空值 ，那肯定是出错了<br />
+if(empty($get)) {<br />
+exit(&lsquo;Invalid Request&rsquo;);<br />
+}</p>
+
+<p>//获取传递过来的操作<br />
+$action = $get[&#39;action&#39;];</p>
+
+<p>//写上一个简单的判断<br />
+if ($action == &lsquo;test&rsquo;){<br />
+exit(API_RETURN_SUCCEED);<br />
+}</p>
+
+<p>4、写完这样的代码后，去ucenter管理中心看一下应用列表，是不是通讯成功了？</p>
+
+<p>其实那个通讯成功，就是发送了一个 action = test过来。所以当返回1的时候就直接成功了。</p>
+
+<p>不过，由于exit();函数自身的状态，如果参数是字符串，则会直接输出，而如果参数是整数，则仅仅用来表示退出程序，而整数则代表了error code。</p>
+
+<p>这时候，你就会发现，你必须得使用exit(&ldquo;1&Prime;);才会真正的输出1。【当然，这是PHP的基础，与通信问题不大，在这里提出来，只是为了防止你明明写了exit(1)，却不会输出而在那里拼命调试】</p>
+
+<p>OK，到现在为止，一个简单的通讯就完成了。如果你需要更多的功能，可以参考一下server究竟提供了哪些服务，然后写上针对性的代码和判断就可以了。</p>
+
+<p>本文没图，但我相信，说的应该够明白了吧？</p>
+
+				    </div>
+	              <div class="col-md-4 fh5co-project-detail">
+	              	<div class="fh5co-project-service">
+	              	<h3>评论</h3>
+	              						 	
+					  <div id="discuss_essay" class="discuss_essay">
+   	
+   	
+   	
+   	<script>
+			var re=[];
+			var a_id=50;
+			var html='';
+		     
+			var h=tree(re,0);
+			document.getElementById("discuss_essay").innerHTML =h;
+			function tree(arr,pid){	
+				var lsz='';
+				for(var v in arr){ 
+					    if(arr[v]['p_u_id']==pid){
+		
+		if(arr[v]['p_u_id']==0){
+		lsz='</div><div class="discuss_essay_list">'+
+		'<a class="discuss_essay_list_img" href="#"><img src="'+arr[v]['u_haerd']+'" /></a>'+
+   		'<div class="discuss_essay_list_top"><span>'+arr[v]['name']+'</span>'+arr[v]['info_time']+'<span reply="'+arr[v]['id']+'" class="discuss_essay_list_top_h">回复</span></div>'+
+   		'<div class="discuss_essay_list_cent">'+arr[v]['text']+'</div>';
+   	    }else{
+   	    lsz='</div><div class="discuss_essay_c_list">'+
+		'<a class="discuss_essay_list_img" href="#"><img src="'+arr[v]['u_haerd']+'" /></a>'+
+   		'<div class="discuss_essay_list_top"><span>'+arr[v]['name']+' 回复 '+arr[v]['p_name']+'</span>'+arr[v]['info_time']+'<span reply="'+arr[v]['id']+'" class="discuss_essay_list_top_h">回复</span></div>'+
+   		'<div class="discuss_essay_list_cent">'+arr[v]['text']+'</div>';	
+   	    }
+					    	html=html+lsz;
+					    	tree(arr,arr[v]['id']);					    	
+					    }
+                         }
+				return html;
+			}
+			
+			
+		</script> 	
+   	<div class="discuss_essay_list">
+   		<div class="discuss_essay_c_list">
+   	     	<div class="discuss_essay_list_info">
+   	     		<textarea id="info"></textarea>
+   	     		<span onclick="tj(50,0)">提交</span>
+   	     	</div>
+   	     </div>
+   	</div>
+   	
+   </div>
+	              	
+	              	
+	              	</div>
+					<div class="fh5co-project-service">
+						<h3>栏目最新</h3>
+						<ul>
+							                                <li><a href="http://www.qinpl.cn/Myplphp/50.html" title="UCenter API使用入门" target="_blank">UCenter API使用入门</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/49.html" title="sphinx的配置文件" target="_blank">sphinx的配置文件</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/48.html" title="PHP中利用PHPMailer配合QQ邮箱实现发邮件" target="_blank">PHP中利用PHPMailer配合QQ邮箱实现发邮件</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/43.html" title="搜索获取淘宝商品信息" target="_blank">搜索获取淘宝商品信息</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/42.html" title="PHP 5.3.6及以前版本的PDO的bindParam,bindValue潜在的安全隐患" target="_blank">PHP 5.3.6及以前版本的PDO的bindParam,bindValue潜在的安全隐患</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/41.html" title="高并发常用手段" target="_blank">高并发常用手段</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/40.html" title="递归方式和迭代方式实现无限极分类" target="_blank">递归方式和迭代方式实现无限极分类</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/39.html" title="PHP常用算法和数据结构示例" target="_blank">PHP常用算法和数据结构示例</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/38.html" title="php 实现的基本数据结构" target="_blank">php 实现的基本数据结构</a></li>
+                              						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!-- END container-wrap -->
+
+	<div class="container-wrap">
+		<footer id="fh5co-footer" role="contentinfo">
+			<div class="row">
+				<div class="col-md-3 fh5co-widget">
+					<h4>About Neat</h4>
+					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
+				</div>
+				<div class="col-md-3 col-md-push-1">
+					<h4>最新更新</h4>
+					<ul class="fh5co-footer-links">
+						                        <li><a href="http://www.qinpl.cn/Mypllinux/53.html" target="_blank">Nginx和PHP-FPM</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplmsql/52.html" target="_blank">MySQL replace</a></li>
+                                                <li><a href="http://www.qinpl.cn/Mypllinux/51.html" target="_blank">Linux 定时任务</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplphp/50.html" target="_blank">UCenter API使用</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplphp/49.html" target="_blank">sphinx的配置文件</a></li>
+                        					</ul>
+				</div>
+
+				<div class="col-md-3 col-md-push-1">
+					<h4>友情链接</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="http://www.codejie.net/" target="_blank">源码街</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-3">
+					<h4>联系方式</h4>
+					<ul class="fh5co-footer-links">
+						<li>tel:<a href="tel://18883768578">18883768578</a></li>
+						<li>e mail:<a href="mailto:1017962047@qq.com">1017962047@qq.com</a></li>
+						<li><a href="http://www.qinpl.cn/">www.qinpl.cn</a></li>
+					</ul>
+				</div>
+
+			</div>
+
+			<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+						<small class="block"><a href="http://www.qinpl.cn/sitemap.xml" target="_blank">网站地图</a> Design by DanceSmile <a href="http://www.miitbeian.gov.cn" target="_blank">蜀ICP备17013559号-1</a></small>
+					</p>
+					<p>
+						<ul class="fh5co-social-icons">
+							<li><a href="#"><i class="icon-twitter"></i></a></li>
+							<li><a href="#"><i class="icon-facebook"></i></a></li>
+							<li><a href="#"><i class="icon-linkedin"></i></a></li>
+							<li>
+								<script type="text/javascript">
+  		var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+  		document.write(unescape("%3Cspan id='cnzz_stat_icon_1261808781'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261808781%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+                               </script>                  
+							</li>
+						</ul>
+					</p>
+				</div>
+			</div>
+		</footer>
+	</div><!-- END container-wrap -->	
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.flexslider-min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.magnific-popup.min.js"></script>
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\magnific-popup-options.js"></script>
+	<!-- Counters -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.countTo.js"></script>
+	<!-- Main -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\main.js"></script>
+
+	<div class="list_zezao">
+	<div class="v_k">
+      <div class="cols"><span>X</span></div>
+      <div id="u_login"></div>
+     
+      		<a href="http://www.qinpl.cn/admin/Qqlater/Login?qurl=oZKvKfK/50"></a>
+
+	</div>
+</div>
+	<script type="text/javascript" src="http://www.qinpl.cn\api\admin\vendor\static/js/config.js" ></script>
+	<script type="text/javascript" src="http://www.qinpl.cn\api\admin\vendor\static/js/new.js" ></script>
+
+	</body>
+</html>
+

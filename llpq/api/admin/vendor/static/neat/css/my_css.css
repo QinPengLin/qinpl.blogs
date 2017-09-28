@@ -1,0 +1,112 @@
+.page{ text-align:center; width:100%;overflow: hidden;padding: 10px 0 10px 0;}
+.page a b {color: #999;}
+.page>b,.page a {margin: 0 2px;height: 26px;line-height: 26px;border-radius: 50%;width: 26px;text-align: center;display: inline-block}
+.page a {margin: 0 2px;height: 26px;line-height: 26px;border-radius: 50%;width: 26px;text-align: center;display: inline-block}/* 针对IE6 */
+.page>b,.page a:hover{background: #333;color: #FFF;}
+.page a {color: #F33;border: rgba(102, 211, 126, 0.8) 1px solid;}
+.discuss{
+	color: #099;
+}
+.discuss_essay{
+    margin-top: 10px;
+    margin-right: 20px;
+    padding-bottom: 8px;
+    border: 1px solid #F0F0F0;
+}
+.discuss_essay_list{
+	margin-top: 12px;
+	margin-left: 8px;
+	margin-right: 8px;
+	padding-bottom: 8px;
+	padding-top: 8px;
+	border-top: 1px solid #D4D4D4;
+}
+.discuss_essay_list_img img{
+	width: 50px;
+	height: 50px;
+	margin-right: 8px;
+	float: left;
+}
+.discuss_essay_list_top{
+	margin-left: 5px;
+	font-family: "微软雅黑";
+	font-size: 10px;
+}
+.discuss_essay_c_list{
+	margin-top: 5px;
+	margin-left: 55px;
+	padding-top: 5px;
+	border-top: 1px dotted #D4D4D4;
+}
+.discuss_essay_list_top span{
+	color: #04489D;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	margin-right: 10px;
+}
+.discuss_essay_list_top_h{
+	float: right;
+}
+.discuss_essay_list_info textarea{
+	width: 100%;
+    height: 50px;
+    border: 1px solid #72B939;
+    display: block;
+}
+.discuss_essay_list_info span{
+	margin-left: 10px;
+    background: #72B939;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+    color: #FFFFFF;
+    display: block;
+    margin-top: 10px;
+    width: 70px;
+    text-align: center;
+}
+.list_zezao{
+	width: 100%;
+    height: 100%;
+    background: url(../../img/bejj.png);
+    padding: 0;
+    margin: 0;
+    position: absolute;
+     z-index: 301; 
+    top: 0;
+    position: fixed;
+    text-align: center;
+    display: none;
+}
+.v_k{
+	height: 100px;
+	width: 200px;
+	margin-top: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	background: #FFFFFF;
+}
+.cols{
+	width: 100%;
+	height: 15px;
+	float: right;
+}
+.cols span{
+	float: right;
+	display: block;
+	width: 15px;
+	height: 15px;
+}
+.discuss_essay_list_cent{
+	min-height: 32px;
+	font-family: "微软雅黑";
+	font-size: 12px;
+}
+.v_k a{
+	display: block;
+	width: 41px;
+	height: 32px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	background: url(../../img/qqlogin.png);
+}

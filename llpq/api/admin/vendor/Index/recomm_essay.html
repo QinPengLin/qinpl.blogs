@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="<?php echo $this->www."\\css\\admin.css"; ?>" />
+	</head>
+	<body>
+	<?php  include($this->url."/Index/public/nav.html"); ?>
+	<div class="system_cent">
+		<div class="system_cent_c1" >
+			<div class="system_cent_cl">
+				
+					<?php  include($this->url."/Index/public/sysmeu.html"); ?>	
+				
+			</div>
+			
+			<div class="system_cent_cr">				
+					<div class="reess_l">
+						
+						<?php   foreach($c_1[1] as $v){ $pl=0; foreach($c_1[2] as $v2){ if($v2['p_id']==$v['id']) { $pl=1; break;} } ?>
+				
+				<div class="content_cen_l_l">
+					<?php if(!$pl){ ?>
+					<a href="RecommendEssayListIndex?c_id=<?php echo $v['id']; ?>"><div style="border-bottom: 0px solid #0782C1;" class="content_cen_l_l_n"><?php echo $v['name']; ?></div></a>
+					<?php }else{ ?>
+					<div  onclick="zcdxs(<?php echo $v['id']; ?>)" class="content_cen_l_l_n"><?php echo $v['name']; ?></div>
+					    <div id="cl_<?php echo $v['id']; ?>" class="content_cen_l_l_l">
+					    	<ul>
+					    		<?php foreach($c_1[2] as $v3){ if($v3['p_id']==$v['id']){ ?>
+					    		<a id="ccc_<?php echo $v3['id']; ?>" href="RecommendEssayListIndex?c_id=<?php echo $v3['id']; ?>"><li><?php echo $v3['name']; ?></li></a>
+					    		<?php }} ?>
+					    	</ul>
+					    </div>
+					<?php } ?>
+					   
+				</div>
+				
+				
+			    <?php } ?>
+			    	
+					</div>	
+					<div class="reess_r">
+					<table>
+						<input id="huoqu" type="hidden" value="<?php echo $get['c_id']; ?>" />
+						<tr><th style="width: 50px;">ID</th><th style="width: 150px;">标题</th><th style="width: 400px;">所选推荐位</th><th style="width: 80px;">操作</th></tr>
+						<?php if(isset($rel) && !empty($rel)){ foreach($rel as $k=>$v){ ?>
+						<tr id="tr_<?php echo $v['id']; ?>"><td><?php echo $v['id']; ?></td><td id='title_<?php echo $v['id']; ?>'><?php echo $v['title']; ?></td><td id="essay_<?php echo $v['id']; ?>"><?php echo $v['essay']; ?></td><td><span onclick="syscz(<?php echo $v['id']; ?>)">操作</span></td></tr>
+						<?php }} ?>
+						<tr><td style="text-align: center;" colspan='4'><span   onclick="nextsys('RecommendEssayListNext?c_id=<?php echo $get['c_id']; ?>&end_id=<?php echo $next; ?>',<?php echo $next; ?>)">下一页</span></td></tr>
+					</table>
+					</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	 <div  class='sys_essay_zezao' >
+		                        <div class="sys_essay_content">
+			                      <div class="sys_essay_clos_content" onclick="sys_clos()">X</div>
+			                          <span id='essay_title'></span>
+			                          <br /><br /> 
+			                          <input type="hidden" id='essay_id' value="" />
+                                                                           选择推荐位<br /><br /> 
+                                        <div id="essay_recom">
+                                        <?php foreach($recommend as $v){ ?>
+                                        <label><input id='recom_<?php echo $v['id']; ?>' name="recom"  type="checkbox" value="<?php echo $v['id']; ?>" /><?php echo $v['name']; ?></label> 
+                                        <?php } ?>
+                                        </div>
+                                        <br /><br />
+                                       <input type="button" onclick="re_essay_eit()" value="修改" />
+			                    </div>
+			       </div>
+	
+	            
+	
+	<script type="text/javascript" src="<?php echo $this->static."\\jquery.js"; ?>" ></script>
+	<script type="text/javascript" src="<?php echo $this->www."\\js\\config.js"; ?>" ></script>
+	<script type="text/javascript" src="<?php echo $this->www."\\js\\admin.js"; ?>" ></script>
+	</body>
+</html>

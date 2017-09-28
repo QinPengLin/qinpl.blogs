@@ -1,0 +1,56 @@
+<div class="container-wrap">
+		<footer id="fh5co-footer" role="contentinfo">
+			<div class="row">
+				<div class="col-md-3 fh5co-widget">
+					<h4>About Neat</h4>
+					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
+				</div>
+				<div class="col-md-3 col-md-push-1">
+					<h4>最新更新</h4>
+					<ul class="fh5co-footer-links">
+						<?php foreach(base::essayNew(5) as $k=>$v){  ?>
+                        <li><a href="<?php echo $v['html_url'];  ?>" target="_blank"><?php echo mb_substr($v['title'],0,13,'utf-8');  ?></a></li>
+                        <?php } ?>
+					</ul>
+				</div>
+
+				<div class="col-md-3 col-md-push-1">
+					<h4>友情链接</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="http://www.codejie.net/" target="_blank">源码街</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-3">
+					<h4>联系方式</h4>
+					<ul class="fh5co-footer-links">
+						<li>tel:<a href="tel://18883768578">18883768578</a></li>
+						<li>e mail:<a href="mailto:1017962047@qq.com">1017962047@qq.com</a></li>
+						<li><a href="http://www.qinpl.cn/">www.qinpl.cn</a></li>
+					</ul>
+				</div>
+
+			</div>
+
+			<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+						<small class="block"><a href="http://www.qinpl.cn/sitemap.xml" target="_blank">网站地图</a> Design by DanceSmile <a href="http://www.miitbeian.gov.cn" target="_blank">蜀ICP备17013559号-1</a></small>
+					</p>
+					<p>
+						<ul class="fh5co-social-icons">
+							<li><a href="#"><i class="icon-twitter"></i></a></li>
+							<li><a href="#"><i class="icon-facebook"></i></a></li>
+							<li><a href="#"><i class="icon-linkedin"></i></a></li>
+							<li>
+								<script type="text/javascript">
+  		var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+  		document.write(unescape("%3Cspan id='cnzz_stat_icon_1261808781'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261808781%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+                               </script>                  
+							</li>
+						</ul>
+					</p>
+				</div>
+			</div>
+		</footer>
+	</div><!-- END container-wrap -->

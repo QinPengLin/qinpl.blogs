@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="<?php echo $this->www."\\css\\admin.css"; ?>" />
+	</head>
+	<body>
+	<?php  include($this->url."/Index/public/nav.html"); ?>
+	<div class="system_cent">
+		<div class="system_cent_c1" >
+			<div class="system_cent_cl">
+				
+					<?php  include($this->url."/Index/public/sysmeu.html"); ?>	
+				
+			</div>
+			
+			<div class="system_cent_cr">				
+				<div class="system_cent_cr_calss">
+					<div onclick="re_add()">添加推荐位</div>
+					<table>
+						<tr><th style="width: 50px;">ID</th><th style="width: 150px;">简称</th><th style="width: 400px;">说明</th><th style="width: 80px;">操作</th></tr>					
+						<?php foreach($rel as $v){ ?>
+
+						<tr id=""><td><?php echo $v['id']; ?></td><td id='re_name_<?php echo $v['id']; ?>'><?php echo $v['name']; ?></td><td id="re_synopsis_<?php echo $v['id']; ?>"><?php echo $v['synopsis']; ?></td><td><span onclick="edit_recom(<?php echo $v['id']; ?>)">操作</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span onclick="edit_del(<?php echo $v['id']; ?>)">删除</span></td></tr>
+						
+						<?php } ?>
+						<tr><td style="text-align: center;" colspan='4'><span   onclick="next_recom('Recommend_next?end_id=<?php echo $next; ?>',<?php echo $next; ?>)">下一页</span></td></tr>
+					</table>
+				</div>				
+			</div>
+		</div>
+	</div>
+	
+	
+	               <div class="zezao_re" >
+		                        <div class="edit_content_re">
+			                      <div class="clos_content_re" onclick="clos_re()">X</div>
+			              ID：<span id='re_idc'></span></br></br>
+			                        简称：<input type="text" id='name' value="" /></br></br>
+			                        简介：<textarea style="width: 300px;height: 120px;" id="synopsis"></textarea></br></br>
+			                  <input type="hidden" id='re_id' value="" />
+			                <input onclick="re_eit()" type="button" value="修改" />
+			                    </div>
+			       </div>
+			       
+			       <div  id='re_add_zezao' >
+		                        <div class="edit_content_re">
+			                      <div class="clos_content_re" onclick="re_add_clos()">X</div>
+			                 <form action="http://<?php echo HTTP_HOST; ?>/admin/System/Recommend_add" method="post">
+			                        简称：<input type="text" name='name' value="" /></br></br>
+			                        简介：<textarea style="width: 300px;height: 120px;" name="synopsis"></textarea></br></br>              
+			                <input type="submit" value="增加" />
+			                </form>
+			                    </div>
+			       </div>
+	
+	<script type="text/javascript" src="<?php echo $this->static."\\jquery.js"; ?>" ></script>
+	<script type="text/javascript" src="<?php echo $this->www."\\js\\config.js"; ?>" ></script>
+	<script type="text/javascript" src="<?php echo $this->www."\\js\\recommend.js"; ?>" ></script>
+	</body>
+</html>

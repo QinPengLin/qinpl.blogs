@@ -1,0 +1,299 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>搜索获取淘宝商品信息 - 秦鹏林的个人博客</title>
+    	<!-- Facebook and Twitter integration -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!--<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\css.css" rel="stylesheet">
+	<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\css_f.css" rel="stylesheet">-->
+	<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\my_css.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\magnific-popup.css">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\flexslider.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\style.css">
+
+	<!-- Modernizr JS -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+
+	</head>
+	<style>
+		img{width: 100%;}
+	</style>
+	<body>
+		
+	<!--<div class="fh5co-loader"></div>-->
+	
+	<div id="page">
+	<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<div style="display: none;" >
+				<img src="http://www.qinpl.cn\api\admin\vendor\static\img\logo.png" />
+</div>
+<nav class="fh5co-nav" role="navigation">
+            
+		<div class="container-wrap">
+			<div class="top-menu">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="/">Qin</a></div>
+					</div>
+					
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+						
+							<li ><a href="/">首页</a></li>
+				            				            							<li class="  active   has-dropdown "><a href="/Mypl/">我的编程人生</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/Myplphp/">php</a></li>
+                                    									<li><a href="/Mypljs/">js</a></li>
+                                    									<li><a href="/Mypllinux/">linux</a></li>
+                                    									<li><a href="/Myplnginx/">nginx</a></li>
+                                    									<li><a href="/Myplmsql/">msql</a></li>
+                                    								</ul>
+							   							</li>
+											            							<li class="   has-dropdown "><a href="/fare/">旅行</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/fare2012/">2012</a></li>
+                                    									<li><a href="/fare2017/">2017</a></li>
+                                    								</ul>
+							   							</li>
+											            							<li class="   has-dropdown "><a href="/Download/">下载区</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/Downloadjs/">js下载</a></li>
+                                    									<li><a href="/Downloadphp/">php下载</a></li>
+                                    									<li><a href="/Downloadxtym/">系统源码下载</a></li>
+                                    									<li><a href="/Downloadqtmb/">前台模板下载</a></li>
+                                    								</ul>
+							   							</li>
+													</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>	<div class="container-wrap">	
+		<div id="fh5co-work">
+			<div class="row">
+			
+				<div class="col-md-8" >
+					<span style="border-bottom: 1px solid #CCCCCC;width: 100%;padding-bottom: 10px;" class="fh5co-project-sub qin_list_span">您当前的位置：<a href="/">首页</a>&nbsp;&gt;&nbsp;<a href="/Mypl/">我的编程人生</a>&nbsp;&gt;&nbsp;<a href="/Myplphp/">php</a></span>
+					<h2 style="margin: 20px 0 10px 0;" class="fh5co-project-title qin_list_h">搜索获取淘宝商品信息</h2>
+					<span style="margin-bottom: 20px;" class="fh5co-project-sub">发布时间：2017-05-22 05 作者：秦</span>
+					 <p>在留言处留下你的QQ我将会把源码的百度下载地址给你</p>
+
+				    </div>
+	              <div class="col-md-4 fh5co-project-detail">
+	              	<div class="fh5co-project-service">
+	              	<h3>评论</h3>
+	              						 	
+					  <div id="discuss_essay" class="discuss_essay">
+   	
+   	
+   	
+   	<script>
+			var re=[{"id":"74","name":"\u6709\u4f60~\u5e78\u798f","u_id":"6","text":"1781977221\uff0c\u611f\u8c22\u697c\u4e3b\uff0c\u8c22\u8c22\u5206\u4eab\n","essay_id":"43","p_u_id":"0","info_time":"2017-05-22 19:03:29","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/98AC4192F66F2A5DC9D58B1B5E282F0C\/100"},{"id":"75","name":"\u98ce\u8365","u_id":"7","text":"\u8c22\u8c22\u697c\u4e3b\u4e48\u4e48\u54d2","essay_id":"43","p_u_id":"0","info_time":"2017-05-22 19:25:27","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/1C6DF7FEEFF9144C454DDB24B0F65556\/100"},{"id":"76","name":"Ding\u2022\u51fa\u5c18~","u_id":"8","text":"583175706","essay_id":"43","p_u_id":"0","info_time":"2017-05-22 21:41:09","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4140F62F4F68BFACCDC015AF6D5FFD71\/100"},{"id":"77","name":"\u66ae\u57ce","u_id":"9","text":"86254741  \u697c\u4e3b\u597d\u4eba \u975e\u5e38\u611f\u8c22 \u8f9b\u82e6\u4e86","essay_id":"43","p_u_id":"0","info_time":"2017-05-22 23:43:55","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/BBC5D6FD712473B4D6A1DF93849E5EBE\/100"},{"id":"78","name":" \u949f...","u_id":"10","text":"307105151\n\u697c\u4e3b\u8f9b\u82e6\u4e86\uff0c\u53d1\u6765\u6211\u770b\u770b\u54af","essay_id":"43","p_u_id":"0","info_time":"2017-05-23 00:20:51","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/CA46F3291D2DDD1F012484034145A4E0\/100"},{"id":"79","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u4f60\u628aQQ\u53f7\u53d1\u7ed9\u6211\u554a","essay_id":"43","p_u_id":"75","info_time":"2017-05-23 09:13:57","p_name":"\u98ce\u8365","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"80","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u53d1\u4f60\u90ae\u7bb1\u91cc\u9762\u4e86","essay_id":"43","p_u_id":"74","info_time":"2017-05-23 09:22:52","p_name":"\u6709\u4f60~\u5e78\u798f","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"81","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u53d1\u4f60\u90ae\u7bb1\u91cc\u9762\u4e86","essay_id":"43","p_u_id":"76","info_time":"2017-05-23 09:32:23","p_name":"Ding\u2022\u51fa\u5c18~","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"82","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u53d1\u4f60\u90ae\u7bb1\u91cc\u9762\u4e86","essay_id":"43","p_u_id":"77","info_time":"2017-05-23 09:37:54","p_name":"\u66ae\u57ce","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"83","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u53d1\u4f60\u90ae\u7bb1\u91cc\u9762\u4e86","essay_id":"43","p_u_id":"0","info_time":"2017-05-23 09:40:57","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"84","name":"\u4f24\u5fc3\u3001\u70b9\u5230\u4e3a\u6b62\u2121","u_id":"11","text":"2486147931@qq.com","essay_id":"43","p_u_id":"0","info_time":"2017-05-23 09:45:35","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/3254CBA44099AAFBC178952FC2E73485\/100"},{"id":"85","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u53d1\u4f60\u90ae\u7bb1\u91cc\u9762\u4e86","essay_id":"43","p_u_id":"78","info_time":"2017-05-23 09:47:52","p_name":" \u949f...","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"86","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u53d1\u4e86","essay_id":"43","p_u_id":"84","info_time":"2017-05-23 09:51:43","p_name":"\u4f24\u5fc3\u3001\u70b9\u5230\u4e3a\u6b62\u2121","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"87","name":"\u91cd\u6765","u_id":"12","text":"719849595@qq.com\uff0c\u697c\u4e3b\u8f9b\u82e6\u4e86\uff01","essay_id":"43","p_u_id":"0","info_time":"2017-05-23 09:52:36","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/8F7C0EC2C026D03E37FB27DAB72AFC4E\/100"},{"id":"88","name":"\u5927\u5a03.\u4f55\u8dc3","u_id":"13","text":"\u597d\u4eba\u4e00\u751f\u5e73\u5b89\uff0c554305954@qq.com","essay_id":"43","p_u_id":"0","info_time":"2017-05-23 10:50:18","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/1A4BFBF202642730AA9305BDE754919D\/100"},{"id":"90","name":"\u5bb6\u6709\u6cfc\u76ae","u_id":"14","text":"747882830@qq.com","essay_id":"43","p_u_id":"0","info_time":"2017-05-23 14:33:27","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/3BD7918F826A6FD9E6F4ABC9F1C8069E\/100"},{"id":"91","name":"Y.c","u_id":"15","text":"525566309\uff0c\u8c22\u8c22\u697c\u4e3b","essay_id":"43","p_u_id":"0","info_time":"2017-05-23 16:42:41","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/7E4EEC3998E2213E4B5D1ECE7F145808\/100"},{"id":"92","name":"\u7434\u745f\u7435\u7436","u_id":"16","text":"405146868\uff0c\u611f\u8c22\u697c\u4e3b\u65e0\u79c1\u5206\u4eab","essay_id":"43","p_u_id":"0","info_time":"2017-05-23 17:37:28","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/0424E68FEB7330BC00D2D984DD0CDFCA\/100"},{"id":"93","name":"Echo","u_id":"17","text":"2698097442@qq.com,\u8c22\u8c22\u697c\u4e3b","essay_id":"43","p_u_id":"0","info_time":"2017-05-23 18:12:42","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/0BC5CE6AF82EF5C6AAE2B290C369DE5F\/100"},{"id":"94","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u540e\u9762\u7684\u660e\u5929\u6211\u518d\u53d1\u90ae\u4ef6\u7ed9\u4f60\u4eec","essay_id":"43","p_u_id":"0","info_time":"2017-05-23 18:15:25","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"95","name":"\u8def\u9014","u_id":"18","text":"798539218\uff0c\u611f\u8c22\u697c\u4e3b\uff0c\u8c22\u8c22\u5206\u4eab ","essay_id":"43","p_u_id":"0","info_time":"2017-05-24 09:41:08","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/59B28FCF490B367DF701BE8F0A9FAFAE\/100"},{"id":"96","name":"Shmily -\u51b7\u6708","u_id":"19","text":"1599546832@qq.com","essay_id":"43","p_u_id":"0","info_time":"2017-05-24 14:08:42","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/17249E60533C36C8FDF6C55888E7A5AE\/100"},{"id":"97","name":"Shmily -\u51b7\u6708","u_id":"19","text":"1599546832@qq.com   \u611f\u8c22\u611f\u8c22  \u697c\u4e3b\u8f9b\u82e6\uff01","essay_id":"43","p_u_id":"0","info_time":"2017-05-24 14:13:20","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/17249E60533C36C8FDF6C55888E7A5AE\/100"},{"id":"98","name":"..","u_id":"20","text":"605273095\u611f\u8c22\u697c\u4e3b\uff0c\u697c\u4e3b\u8f9b\u82e6\u4e86","essay_id":"43","p_u_id":"0","info_time":"2017-05-24 21:37:51","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/545EB3A32E7E06E451C5D2B4865D889B\/100"},{"id":"99","name":"\u6349\u8ff7\u85cf\u306e\u627f\u8bfa","u_id":"21","text":"389625819\uff0c\u611f\u8c22","essay_id":"43","p_u_id":"0","info_time":"2017-05-25 15:39:17","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/50687B8954F819CF63BC15B726E75A34\/100"},{"id":"100","name":"\u4f17\u53cb\u8d2d-\u6587\u51b0","u_id":"22","text":"297779667@qq.com \u8c22\u8c22\u4e86","essay_id":"43","p_u_id":"0","info_time":"2017-05-25 16:28:19","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/9090B94E475AB975D671E7A791F8CFA2\/100"},{"id":"101","name":"\u5fc3\u65e0\u5b9a\u6240","u_id":"3","text":"\u53d1\u4e86","essay_id":"43","p_u_id":"100","info_time":"2017-05-25 18:28:46","p_name":"\u4f17\u53cb\u8d2d-\u6587\u51b0","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/56BE465F8A6ED9886E7E36EA0606439A\/100"},{"id":"102","name":"\u5fc3\u65e0\u5b9a\u6240","u_id":"3","text":"\u53d1\u4e86","essay_id":"43","p_u_id":"99","info_time":"2017-05-25 18:40:36","p_name":"\u6349\u8ff7\u85cf\u306e\u627f\u8bfa","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/56BE465F8A6ED9886E7E36EA0606439A\/100"},{"id":"103","name":"\u5fc3\u65e0\u5b9a\u6240","u_id":"3","text":"\u5df2\u53d1","essay_id":"43","p_u_id":"98","info_time":"2017-05-25 18:57:49","p_name":"..","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/56BE465F8A6ED9886E7E36EA0606439A\/100"},{"id":"104","name":"\u631a\u7231","u_id":"23","text":"773037977","essay_id":"43","p_u_id":"0","info_time":"2017-05-26 09:54:47","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/0135EDC0C39B7ED0A3B3790C4F3AE1E8\/100"},{"id":"105","name":"\u9f99","u_id":"24","text":"\u611f\u8c22\u697c\u4e3b\u5206\u4eab\uff1a838808603@qq.com","essay_id":"43","p_u_id":"0","info_time":"2017-05-26 14:44:19","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/F3F37034CD7D216C8803AC97311E9EB1\/100"},{"id":"106","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u5df2\u53d1","essay_id":"43","p_u_id":"105","info_time":"2017-05-26 17:30:49","p_name":"\u9f99","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"107","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u53d1\u4e86","essay_id":"43","p_u_id":"104","info_time":"2017-05-26 17:45:07","p_name":"\u631a\u7231","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"},{"id":"108","name":"\u8fc7\u53bb","u_id":"25","text":"\u8c22\u8c22\u697c\u4e3b,1097225031@qq.com","essay_id":"43","p_u_id":"0","info_time":"2017-05-26 18:30:10","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/5BB1D48FCCB7B59165AB6F2EC90CFC78\/100"},{"id":"109","name":" \u5c0f\u83ab","u_id":"26","text":"\u8c22\u8c22\u697c\u4e3b\uff0c365413248@qq.com","essay_id":"43","p_u_id":"0","info_time":"2017-05-30 15:04:09","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/61A4CB88AA875604CF7B2F9EB932284A\/100"},{"id":"110","name":"\u5343\u76ca\u8f74\u627f","u_id":"27","text":"9988768@qq.com  \u8c22\u8c22\u697c\u4e3b\uff0c\u697c\u4e3b\u8f9b\u82e6\u4e86\uff01","essay_id":"43","p_u_id":"0","info_time":"2017-05-31 17:17:54","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/6EE75C7E03C00AD67CFBB626A92AD9AB\/100"},{"id":"111","name":"\u6539\u7248\u7684\u6e29\u67d4","u_id":"28","text":"970192537@qq.com \u8c22\u8c22\u697c\u4e3b","essay_id":"43","p_u_id":"0","info_time":"2017-06-01 09:49:36","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/E4E39F812476A999E567DCB8446D92D9\/100"},{"id":"112","name":"\u6635\u79f0","u_id":"29","text":"479123584 \u8c22\u8c22\u697c\u4e3b","essay_id":"43","p_u_id":"0","info_time":"2017-06-08 12:00:38","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/08788A4E95D7A721A266D50100F59EB3\/100"},{"id":"113","name":"\u5468\u534a\u4ed9","u_id":"30","text":"1137065056@qq.com\u8c22\u8c22","essay_id":"43","p_u_id":"0","info_time":"2017-06-10 00:00:54","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/D33FEFD18B50347205E73F1F963F563F\/100"},{"id":"114","name":"Wow\u25b2\u02c7","u_id":"31","text":"604953521 \uff0c\u611f\u8c22\u697c\u4e3b\n","essay_id":"43","p_u_id":"0","info_time":"2017-06-11 12:58:18","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/BA480D8C7D682F853A264BEF21BF7ED2\/100"},{"id":"115","name":"\u571f\u8c46\u571f\u8c46\u6211\u662f\u85af\u6761","u_id":"32","text":"535158420","essay_id":"43","p_u_id":"0","info_time":"2017-06-12 14:26:42","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/D9F58E0C52D31E608F8C61BE52E4ABA6\/100"},{"id":"116","name":"jimchen","u_id":"33","text":"896693741@qq.com \u611f\u8c22\u697c\u4e3b","essay_id":"43","p_u_id":"0","info_time":"2017-06-13 16:11:04","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/53996D1AEBB68683FD9D320C6D77EBA9\/100"},{"id":"117","name":"369694441","u_id":"34","text":"369694441@qq.com\uff0c\u611f\u8c22\u697c\u4e3b","essay_id":"43","p_u_id":"0","info_time":"2017-06-28 19:42:17","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/0D14A0E2425020DBE641114F511B3E4F\/100"},{"id":"118","name":"\u5047\u5982","u_id":"35","text":"1579028835@qq.com   \u8c22\u8c22\u697c\u4e3b ","essay_id":"43","p_u_id":"0","info_time":"2017-07-08 22:51:23","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/6A25C78AFC1500E54294C899422C354D\/100"},{"id":"119","name":"\u5466\u897f\u5427","u_id":"36","text":"1031913170@qq.com  \u697c\u4e3b\u597d\u4eba","essay_id":"43","p_u_id":"0","info_time":"2017-07-10 17:30:16","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/02F4302A38315A22FEA6F8230D34847A\/100"},{"id":"120","name":"\u592a\u9633","u_id":"37","text":"416136165","essay_id":"43","p_u_id":"0","info_time":"2017-07-10 18:34:55","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/F95796D870FBDBA90F07D9117AFAD33F\/100"},{"id":"121","name":"\u56db\u6708\u662f\u4f60\u7ed9\u7684\u8c0e\u8a00","u_id":"38","text":"2387762766@qq.com","essay_id":"43","p_u_id":"0","info_time":"2017-07-17 21:59:09","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/D54E03CDA75CF0457C18BAA6A9F08BBD\/100"},{"id":"122","name":"\u5915\u9633","u_id":"39","text":"734362286@qq.com\n\u8c22\u8c22","essay_id":"43","p_u_id":"0","info_time":"2017-07-21 14:44:52","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/AD8B916B33CEDDAD690923E5EDA399BE\/100"},{"id":"123","name":"\u8ffd \u98ce","u_id":"40","text":"56044335@qq.com \u8c22\u8c22\uff01","essay_id":"43","p_u_id":"0","info_time":"2017-07-28 03:51:39","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/B4D1763A2C03B80E1FDB54A862A4DA4C\/100"},{"id":"124","name":"\u6e6b\u4e4b","u_id":"41","text":"1531555719","essay_id":"43","p_u_id":"0","info_time":"2017-08-07 13:47:20","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/ED5F6F71C8656CB7376E8FDA3DEB3F03\/100"},{"id":"125","name":"\u2026","u_id":"42","text":"916385516@qq.com","essay_id":"43","p_u_id":"0","info_time":"2017-08-08 23:34:35","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/675527DFE2A3DC8909E43E6F74D01373\/100"},{"id":"126","name":"\u56db\u6708\u662f\u4f60\u7ed9\u7684\u8c0e\u8a00","u_id":"38","text":"2387762766","essay_id":"43","p_u_id":"0","info_time":"2017-08-11 10:41:46","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/D54E03CDA75CF0457C18BAA6A9F08BBD\/100"},{"id":"127","name":"\u65f6\u5149@\u52a9\u7406e\u5bb6@\u674e\u6839","u_id":"43","text":"996479563","essay_id":"43","p_u_id":"0","info_time":"2017-08-11 13:36:39","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/04FFFAE9C722D2B25D014B02212EEE27\/100"},{"id":"128","name":"Deep Night","u_id":"44","text":"195111540\u8c22\u8c22","essay_id":"43","p_u_id":"0","info_time":"2017-08-14 02:47:05","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/625505A4DC1E7D1FF4D7B439B4C81E76\/100"},{"id":"129","name":"SoSo","u_id":"45","text":"746309831 \u8c22\u8c22\u697c\u4e3b","essay_id":"43","p_u_id":"0","info_time":"2017-08-23 19:34:53","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/42AA3282C68C171C5D707CD1CAE3FDF2\/100"},{"id":"130","name":"~ embrace ~","u_id":"46","text":"112738102@qq.com\u8c22\u8c22\u697c\u4e3b","essay_id":"43","p_u_id":"0","info_time":"2017-09-03 11:26:11","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4F60EF93AA22B1973F43DFDB18D3801D\/100"},{"id":"131","name":"Woody","u_id":"47","text":"553775169 \u8c22\u8c22\u697c\u4e3b","essay_id":"43","p_u_id":"0","info_time":"2017-09-10 17:21:21","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/566F4C8C9271AB0E53BB59E1B8F3DB66\/100"},{"id":"132","name":"\u84dd\u9b54\u4e4b\u6cea","u_id":"48","text":"292962146 \u8c22\u8c22\u697c\u4e3b","essay_id":"43","p_u_id":"0","info_time":"2017-09-14 15:05:21","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/07585C495375B60FD298A9A114D9BAAD\/100"},{"id":"133","name":"King","u_id":"49","text":"rocyo@vip.qq.com \u8c22\u8c22\u5927\u795e,\u597d\u4eba\u4e00\u751f\u5e73\u5b89","essay_id":"43","p_u_id":"0","info_time":"2017-09-19 01:58:08","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/FE41B30032B5DB72EBCA7658D7AB5FC8\/100"},{"id":"134","name":"\u256d(\u256f^\u2570)\u256e","u_id":"50","text":"790115010\uff0c\u8c22\u8c22\u697c\u4e3b","essay_id":"43","p_u_id":"0","info_time":"2017-09-20 17:18:36","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/F6C3D2DDE3BB77282BD4C3D502ECCA91\/100"},{"id":"135","name":"\u6469\u5361\u6469\u5361","u_id":"2","text":"\u6700\u8fd1\u5de5\u4f5c\u6709\u70b9\u5fd9\uff0c\u524d\u9762\u6ca1\u6709\u53d1\u7684\u6211\u5df2\u7ecf\u90ae\u4ef6\u53d1\u9001\u7ed9\u4f60\u4eec\u4e86\uff0c\u4e3a\u4e86\u4ee5\u540e\u4f60\u4eec\u80fd\u53ca\u65f6\u62ff\u5230\u4ee3\u7801\u6211\u5728\u8fd9\u91cc\u628a\u767e\u5ea6\u4e0b\u8f7d\u5730\u5740\u653e\u8fd9\u91cc\uff0c\u767e\u5ea6\u7f51\u76d8\u4e0b\u8f7d\u5730\u5740\u4e3a\uff1ahttp:\/\/pan.baidu.com\/s\/1bpMUFb5","essay_id":"43","p_u_id":"0","info_time":"2017-09-21 18:17:36","p_name":"","u_haerd":"http:\/\/qzapp.qlogo.cn\/qzapp\/101401232\/4D1FF45AAF414617892ED6FA446C1F69\/100"}];
+			var a_id=43;
+			var html='';
+		     
+			var h=tree(re,0);
+			document.getElementById("discuss_essay").innerHTML =h;
+			function tree(arr,pid){	
+				var lsz='';
+				for(var v in arr){ 
+					    if(arr[v]['p_u_id']==pid){
+		
+		if(arr[v]['p_u_id']==0){
+		lsz='</div><div class="discuss_essay_list">'+
+		'<a class="discuss_essay_list_img" href="#"><img src="'+arr[v]['u_haerd']+'" /></a>'+
+   		'<div class="discuss_essay_list_top"><span>'+arr[v]['name']+'</span>'+arr[v]['info_time']+'<span reply="'+arr[v]['id']+'" class="discuss_essay_list_top_h">回复</span></div>'+
+   		'<div class="discuss_essay_list_cent">'+arr[v]['text']+'</div>';
+   	    }else{
+   	    lsz='</div><div class="discuss_essay_c_list">'+
+		'<a class="discuss_essay_list_img" href="#"><img src="'+arr[v]['u_haerd']+'" /></a>'+
+   		'<div class="discuss_essay_list_top"><span>'+arr[v]['name']+' 回复 '+arr[v]['p_name']+'</span>'+arr[v]['info_time']+'<span reply="'+arr[v]['id']+'" class="discuss_essay_list_top_h">回复</span></div>'+
+   		'<div class="discuss_essay_list_cent">'+arr[v]['text']+'</div>';	
+   	    }
+					    	html=html+lsz;
+					    	tree(arr,arr[v]['id']);					    	
+					    }
+                         }
+				return html;
+			}
+			
+			
+		</script> 	
+   	<div class="discuss_essay_list">
+   		<div class="discuss_essay_c_list">
+   	     	<div class="discuss_essay_list_info">
+   	     		<textarea id="info"></textarea>
+   	     		<span onclick="tj(43,0)">提交</span>
+   	     	</div>
+   	     </div>
+   	</div>
+   	
+   </div>
+	              	
+	              	
+	              	</div>
+					<div class="fh5co-project-service">
+						<h3>栏目最新</h3>
+						<ul>
+							                                <li><a href="http://www.qinpl.cn/Myplphp/50.html" title="UCenter API使用入门" target="_blank">UCenter API使用入门</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/49.html" title="sphinx的配置文件" target="_blank">sphinx的配置文件</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/48.html" title="PHP中利用PHPMailer配合QQ邮箱实现发邮件" target="_blank">PHP中利用PHPMailer配合QQ邮箱实现发邮件</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/43.html" title="搜索获取淘宝商品信息" target="_blank">搜索获取淘宝商品信息</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/42.html" title="PHP 5.3.6及以前版本的PDO的bindParam,bindValue潜在的安全隐患" target="_blank">PHP 5.3.6及以前版本的PDO的bindParam,bindValue潜在的安全隐患</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/41.html" title="高并发常用手段" target="_blank">高并发常用手段</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/40.html" title="递归方式和迭代方式实现无限极分类" target="_blank">递归方式和迭代方式实现无限极分类</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/39.html" title="PHP常用算法和数据结构示例" target="_blank">PHP常用算法和数据结构示例</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/38.html" title="php 实现的基本数据结构" target="_blank">php 实现的基本数据结构</a></li>
+                              						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!-- END container-wrap -->
+
+	<div class="container-wrap">
+		<footer id="fh5co-footer" role="contentinfo">
+			<div class="row">
+				<div class="col-md-3 fh5co-widget">
+					<h4>About Neat</h4>
+					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
+				</div>
+				<div class="col-md-3 col-md-push-1">
+					<h4>最新更新</h4>
+					<ul class="fh5co-footer-links">
+						                        <li><a href="http://www.qinpl.cn/Mypllinux/53.html" target="_blank">Nginx和PHP-FPM</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplmsql/52.html" target="_blank">MySQL replace</a></li>
+                                                <li><a href="http://www.qinpl.cn/Mypllinux/51.html" target="_blank">Linux 定时任务</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplphp/50.html" target="_blank">UCenter API使用</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplphp/49.html" target="_blank">sphinx的配置文件</a></li>
+                        					</ul>
+				</div>
+
+				<div class="col-md-3 col-md-push-1">
+					<h4>友情链接</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="http://www.codejie.net/" target="_blank">源码街</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-3">
+					<h4>联系方式</h4>
+					<ul class="fh5co-footer-links">
+						<li>tel:<a href="tel://18883768578">18883768578</a></li>
+						<li>e mail:<a href="mailto:1017962047@qq.com">1017962047@qq.com</a></li>
+						<li><a href="http://www.qinpl.cn/">www.qinpl.cn</a></li>
+					</ul>
+				</div>
+
+			</div>
+
+			<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+						<small class="block"><a href="http://www.qinpl.cn/sitemap.xml" target="_blank">网站地图</a> Design by DanceSmile <a href="http://www.miitbeian.gov.cn" target="_blank">蜀ICP备17013559号-1</a></small>
+					</p>
+					<p>
+						<ul class="fh5co-social-icons">
+							<li><a href="#"><i class="icon-twitter"></i></a></li>
+							<li><a href="#"><i class="icon-facebook"></i></a></li>
+							<li><a href="#"><i class="icon-linkedin"></i></a></li>
+							<li>
+								<script type="text/javascript">
+  		var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+  		document.write(unescape("%3Cspan id='cnzz_stat_icon_1261808781'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261808781%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+                               </script>                  
+							</li>
+						</ul>
+					</p>
+				</div>
+			</div>
+		</footer>
+	</div><!-- END container-wrap -->	
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.flexslider-min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.magnific-popup.min.js"></script>
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\magnific-popup-options.js"></script>
+	<!-- Counters -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.countTo.js"></script>
+	<!-- Main -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\main.js"></script>
+
+	<div class="list_zezao">
+	<div class="v_k">
+      <div class="cols"><span>X</span></div>
+      <div id="u_login"></div>
+     
+      		<a href="http://www.qinpl.cn/admin/Qqlater/Login?qurl=oZKvKfK/43"></a>
+
+	</div>
+</div>
+	<script type="text/javascript" src="http://www.qinpl.cn\api\admin\vendor\static/js/config.js" ></script>
+	<script type="text/javascript" src="http://www.qinpl.cn\api\admin\vendor\static/js/new.js" ></script>
+
+	</body>
+</html>
+

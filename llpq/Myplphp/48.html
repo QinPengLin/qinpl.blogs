@@ -1,0 +1,440 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>PHP中利用PHPMailer配合QQ邮箱实现发邮件 - 秦鹏林的个人博客</title>
+    	<!-- Facebook and Twitter integration -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!--<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\css.css" rel="stylesheet">
+	<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\css_f.css" rel="stylesheet">-->
+	<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\my_css.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\magnific-popup.css">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\flexslider.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\style.css">
+
+	<!-- Modernizr JS -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+
+	</head>
+	<style>
+		img{width: 100%;}
+	</style>
+	<body>
+		
+	<!--<div class="fh5co-loader"></div>-->
+	
+	<div id="page">
+	<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<div style="display: none;" >
+				<img src="http://www.qinpl.cn\api\admin\vendor\static\img\logo.png" />
+</div>
+<nav class="fh5co-nav" role="navigation">
+            
+		<div class="container-wrap">
+			<div class="top-menu">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="/">Qin</a></div>
+					</div>
+					
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+						
+							<li ><a href="/">首页</a></li>
+				            				            							<li class="  active   has-dropdown "><a href="/Mypl/">我的编程人生</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/Myplphp/">php</a></li>
+                                    									<li><a href="/Mypljs/">js</a></li>
+                                    									<li><a href="/Mypllinux/">linux</a></li>
+                                    									<li><a href="/Myplnginx/">nginx</a></li>
+                                    									<li><a href="/Myplmsql/">msql</a></li>
+                                    								</ul>
+							   							</li>
+											            							<li class="   has-dropdown "><a href="/fare/">旅行</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/fare2012/">2012</a></li>
+                                    									<li><a href="/fare2017/">2017</a></li>
+                                    								</ul>
+							   							</li>
+											            							<li class="   has-dropdown "><a href="/Download/">下载区</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/Downloadjs/">js下载</a></li>
+                                    									<li><a href="/Downloadphp/">php下载</a></li>
+                                    									<li><a href="/Downloadxtym/">系统源码下载</a></li>
+                                    									<li><a href="/Downloadqtmb/">前台模板下载</a></li>
+                                    								</ul>
+							   							</li>
+													</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>	<div class="container-wrap">	
+		<div id="fh5co-work">
+			<div class="row">
+			
+				<div class="col-md-8" >
+					<span style="border-bottom: 1px solid #CCCCCC;width: 100%;padding-bottom: 10px;" class="fh5co-project-sub qin_list_span">您当前的位置：<a href="/">首页</a>&nbsp;&gt;&nbsp;<a href="/Mypl/">我的编程人生</a>&nbsp;&gt;&nbsp;<a href="/Myplphp/">php</a></span>
+					<h2 style="margin: 20px 0 10px 0;" class="fh5co-project-title qin_list_h">PHP中利用PHPMailer配合QQ邮箱实现发邮件</h2>
+					<span style="margin-bottom: 20px;" class="fh5co-project-sub">发布时间：2017-06-02 05 作者：秦 转</span>
+					 <p>作为PHP入门开发者，常常有这种述求：自己的网站中需要添加一个使用自己的域名作为发件人邮件地址的自动发送邮件的方法，用于诸如给用户发送验证码、通知信息等。比如：我的某个用户注册模块，需要使用register@jjonline.cn作为邮件发送人给注册用户发送一封包含账号激活链接的html格式的邮件，效验用户注册账号时填写的邮箱就是其本人的。</p>
+
+<p>那么，PHP下这种使用自己的域名作为发送邮件的邮件地址的方法如何实现呢？</p>
+
+<p>PHP环境下，是提供了发送邮件的函数mail()的，不过该函数要求服务器支持sendmail或者必须设置一台不需要中继的邮件发送服务器，但现在要找到一台不需要身份验证的邮件发送中继几乎不可能，所以使用mail函数往往无法成功发送电子邮件。那么php就无法发送邮件了么？答案是否定的，自己如果熟悉POP3/SMTP协议，结合socket功能就可以编写高效稳定的邮件发送程序，但这种变通方法相当于使用php编写了一个POP3/SMTP客户端了，对一般用户来说尚有难度。</p>
+
+<p>好在互联网上的资源非常多，这不PHPMailer映入眼帘。</p>
+
+<p><strong>PHPMailer有什么优点？</strong></p>
+
+<ul>
+	<li>可运行在任何平台之上</li>
+	<li>支持SMTP验证</li>
+	<li>发送邮时指定多个收件人，抄送地址，暗送地址和回复地址；注：添加抄送、暗送仅win平台下smtp方式支持</li>
+	<li>支持多种邮件编码包括：8bit，base64，binary和quoted-printable</li>
+	<li>支持冗余SMTP服务器，即可以指定主smtp服务器地址也只可以指定备份smtp服务器</li>
+	<li>支持带附件的邮件，可以为邮件添加任意格式的附件---当然得你的服务器有足够大的带宽支撑</li>
+	<li>自定义邮件头信息，这跟php中通过header函数发送头信息类似</li>
+	<li>支持将邮件正文制作成HTMl内容，那么就可以在邮件正文中插入图片</li>
+	<li>灵活的debug支持</li>
+	<li>经测试兼容的SMTP服务器包括：Sendmail,qmail,Postfix,Imail,Exchange等</li>
+</ul>
+
+<p><strong>如何下载PHPMailer代码包？</strong></p>
+
+<p>PHPMailer项目地址：<a href="https://github.com/PHPMailer/PHPMailer" target="_blank">https://github.com/PHPMailer/PHPMailer</a>&nbsp;使用git命令克隆到本地，或直接在该项目页面的右下方点击&ldquo; Download ZIP &rdquo;即可获取到完整的PHPMailer代码包。</p>
+
+<p>怎样使用PHPMailer配合qq邮箱下的&ldquo;域名邮箱&rdquo;使用自己的域名作为邮箱地址来发送邮件？</p>
+
+<p>====</p>
+
+<p>以下分两部分，讲解使用自己的域名<strong>免费</strong>开通qq邮箱下的&ldquo;域名邮箱&rdquo;以及PHP环境中使用PHPMailer并配合刚开通的&ldquo;域名邮箱&rdquo;自动发送邮件。</p>
+
+<p>====</p>
+
+<p><strong>第一部分：开通qq邮箱下的&ldquo;域名邮箱&rdquo;</strong></p>
+
+<p>由于开通&ldquo;域名邮箱&rdquo;仅是操作方式的理解，这部分仅作略讲。</p>
+
+<ul>
+	<li>进入QQ邮箱，点击页面左上方&ldquo;设置&rdquo;，再点击&ldquo;邮箱设置&rdquo;下的&ldquo;账户&rdquo;选项卡，拖动滚动条，即可看到&ldquo;域名邮箱&rdquo;，点击&ldquo;管理域名邮箱&rdquo;即可进入域名邮箱添加的页面；或者直接点击<a href="http://domain.mail.qq.com/" target="_blank">http://domain.mail.qq.com/</a></li>
+	<li>点击&ldquo;创建域名邮箱&rdquo;，按页面提示添加自己的域名并验证。PS：若您的qq邮箱下成功添加了&ldquo;域名邮箱&rdquo;，那么进入qq邮箱后，页面左上方&ldquo;设置&rdquo;按钮之后会有&ldquo;域名邮箱&rdquo;的文字</li>
+	<li>为该域名邮箱添加自己专属的邮件地址，点击审核通过的&ldquo;域名邮箱&rdquo;中的&ldquo;成员管理&rdquo;，点击&ldquo;添加成员&rdquo;，输入自己的域名下心仪的邮箱名，然后添加qq号（该qq号即作为该新添加的邮箱的使用者，该qq号需开通qq邮箱且未关闭数字账号）</li>
+	<li>刚刚输入的那个qq号的qq邮箱会收到一封开通域名邮箱的通知邮件，在邮件中点击&ldquo;接受这个邮箱账号&rdquo;，利用PHPMailer发送邮件的发件人邮箱地址即设置完成，为了便于叙述这个邮箱地址称之为&ldquo;发件人邮箱&rdquo;。</li>
+	<li>为了该qq号的登录密码安全，请为该qq好设置&ldquo;独立密码&rdquo;，在qq邮箱&ldquo;设置&rdquo;-&ldquo;账户&rdquo;-&ldquo;账户安全&rdquo;进行设置，在该处设置的密码，为了便于本文叙述，称之为&ldquo;独立密码&rdquo;。</li>
+</ul>
+
+<p>至此qq邮箱下的&ldquo;域名邮箱&rdquo;开通并添加了待会使用PHPMailer发送作为发件人的邮箱地址。这里列出几项关键的待会PHPMailer需要使用的信息：QQ号，上述第三步添加的qq号码、&ldquo;独立密码&rdquo;、&ldquo;发件人邮箱&rdquo;、发件人姓名...</p>
+
+<p><strong>第二部分：使用PHPMailer编写发送邮箱的代码</strong></p>
+
+<p>PHPMailer需PHP的socket扩展支持，而PHPMailer链接qq域名邮箱时需要ssl加密方式（qq邮箱最近做了限制，新开域名邮箱不再允许通过smtp协议的25端口的普通链接方式链接，只允许ssl的465或587端口[我的一个域名邮箱内测期开通的域名邮箱目前25端口还是可以链接的，可能是安全策略，限制了新开域名邮箱账户的25端口]），固php还得openssl的支持，可以查看phpinfo，如下两项均存在则可以使用，其中openssl版本号之类不用管；许多虚拟主机中的php是不支持openssl扩展的，那你可能就悲剧了。</p>
+
+<p><img alt="支持socket与openssl的示例" src="http://blog.jjonline.cn/Upload/image/201403/20140302140346.jpg" title="支持socket与openssl的示例" /></p>
+
+<p>这部分仅作代码示例，代码中有部分注释解释，做抛砖引玉。</p>
+
+<p>下载下来的PHPMailer解压后进行瘦身，仅需要class.phpmailer.php、class.pop3.php、class.smtp.php以及PHPMailerAutoload.php四个文件，language文件夹可要可不要，那个主要用于debug调试时的显示信息。看下class.phpmailer.php的文件大小，110kb多，挺吓人的。</p>
+
+<pre>
+
+&nbsp;</pre>
+
+<ol>
+	<li>&lt;?PHP</li>
+	<li>//引入PHPMailer的核心文件 使用require_once包含避免出现PHPMailer类重复定义的警告</li>
+	<li>require_once(&quot;phpmailer/class.phpmailer.php&quot;);</li>
+	<li>//示例化PHPMailer核心类</li>
+	<li>$mail = new PHPMailer();</li>
+	<li>&nbsp;</li>
+	<li>//是否启用smtp的debug进行调试 开发环境建议开启 生产环境注释掉即可 默认关闭debug调试模式</li>
+	<li>$mail-&gt;SMTPDebug = 1;</li>
+	<li>&nbsp;</li>
+	<li>//使用smtp鉴权方式发送邮件，当然你可以选择pop方式 sendmail方式等 本文不做详解</li>
+	<li>//可以参考http://phpmailer.github.io/PHPMailer/当中的详细介绍</li>
+	<li>$mail-&gt;isSMTP();</li>
+	<li>//smtp需要鉴权 这个必须是true</li>
+	<li>$mail-&gt;SMTPAuth=true;</li>
+	<li>//链接qq域名邮箱的服务器地址</li>
+	<li>$mail-&gt;Host = &#39;smtp.qq.com&#39;;</li>
+	<li>//设置使用ssl加密方式登录鉴权</li>
+	<li>$mail-&gt;SMTPSecure = &#39;ssl&#39;;</li>
+	<li>//设置ssl连接smtp服务器的远程服务器端口号 可选465或587</li>
+	<li>$mail-&gt;Port = 465;</li>
+	<li>//设置smtp的helo消息头 这个可有可无 内容任意</li>
+	<li>$mail-&gt;Helo = &#39;Hello smtp.qq.com Server&#39;;</li>
+	<li>//设置发件人的主机域 可有可无 默认为localhost 内容任意，建议使用你的域名</li>
+	<li>$mail-&gt;Hostname = &#39;jjonline.cn&#39;;</li>
+	<li>//设置发送的邮件的编码 可选GB2312 我喜欢utf-8 据说utf8在某些客户端收信下会乱码</li>
+	<li>$mail-&gt;CharSet = &#39;UTF-8&#39;;</li>
+	<li>//设置发件人姓名（昵称） 任意内容，显示在收件人邮件的发件人邮箱地址前的发件人姓名</li>
+	<li>$mail-&gt;FromName = &#39;晶晶在线&#39;;</li>
+	<li>//smtp登录的账号 这里填入字符串格式的qq号即可</li>
+	<li>$mail-&gt;Username =&#39;888888&#39;;</li>
+	<li>//smtp登录的密码 这里填入&ldquo;独立密码&rdquo; 若为设置&ldquo;独立密码&rdquo;则填入登录qq的密码 建议设置&ldquo;独立密码&rdquo;</li>
+	<li>$mail-&gt;Password = &#39;xxxxxxx&#39;;</li>
+	<li>//设置发件人邮箱地址 这里填入上述提到的&ldquo;发件人邮箱&rdquo;</li>
+	<li>$mail-&gt;From = &#39;register@jjonline.cn&#39;;</li>
+	<li>//邮件正文是否为html编码 注意此处是一个方法 不再是属性 true或false</li>
+	<li>$mail-&gt;isHTML(true);</li>
+	<li>//设置收件人邮箱地址 该方法有两个参数 第一个参数为收件人邮箱地址 第二参数为给该地址设置的昵称 不同的邮箱系统会自动进行处理变动 这里第二个参数的意义不大</li>
+	<li>$mail-&gt;addAddress(&#39;xxx@qq.com&#39;,&#39;晶晶在线用户&#39;);</li>
+	<li>//添加多个收件人 则多次调用方法即可</li>
+	<li>$mail-&gt;addAddress(&#39;xxx@163.com&#39;,&#39;晶晶在线用户&#39;);</li>
+	<li>//添加该邮件的主题</li>
+	<li>$mail-&gt;Subject = &#39;PHPMailer发送邮件的示例&#39;;</li>
+	<li>//添加邮件正文 上方将isHTML设置成了true，则可以是完整的html字符串 如：使用file_get_contents函数读取本地的html文件</li>
+	<li>$mail-&gt;Body = &quot;这是一个&lt;b style=\&quot;color:red;\&quot;&gt;PHPMailer&lt;/b&gt;发送邮件的一个测试用例&quot;;</li>
+	<li>//为该邮件添加附件 该方法也有两个参数 第一个参数为附件存放的目录（相对目录、或绝对目录均可） 第二参数为在邮件附件中该附件的名称</li>
+	<li>$mail-&gt;addAttachment(&#39;./d.jpg&#39;,&#39;mm.jpg&#39;);</li>
+	<li>//同样该方法可以多次调用 上传多个附件</li>
+	<li>$mail-&gt;addAttachment(&#39;./Jlib-1.1.0.js&#39;,&#39;Jlib.js&#39;);</li>
+	<li>&nbsp;</li>
+	<li>&nbsp;</li>
+	<li>//发送命令 返回布尔值</li>
+	<li>//PS：经过测试，要是收件人不存在，若不出现错误依然返回true 也就是说在发送之前 自己需要些方法实现检测该邮箱是否真实有效</li>
+	<li>$status = $mail-&gt;send();</li>
+	<li>&nbsp;</li>
+	<li>//简单的判断与提示信息</li>
+	<li>if($status) {</li>
+	<li>echo &#39;发送邮件成功&#39;;</li>
+	<li>}else{</li>
+	<li>echo &#39;发送邮件失败，错误信息未：&#39;.$mail-&gt;ErrorInfo;</li>
+	<li>}</li>
+	<li>?&gt;</li>
+</ol>
+
+<p>特别提示：上述代码段仅作参考，若要集成到网站系统中，则可以将代码段封装成函数或类库进行调用；另外PHPMailer在win32平台下是支持添加抄送、暗送的。因为鄙人服务器用的centos，未作测试。</p>
+
+<p>以下是本次测试用例发送的邮件截图。</p>
+
+<p>===</p>
+
+<p><img alt="163收件邮箱收到的邮件截图" src="http://blog.jjonline.cn/Upload/image/201403/20140302150528.jpg" title="163收件邮箱收到的邮件截图" /></p>
+
+<p>（网易163收到的本次测试邮件的截图）</p>
+
+<p><img alt="QQ邮箱收到的邮件的截图" src="http://blog.jjonline.cn/Upload/image/201403/20140302150602.jpg" title="QQ邮箱收到的邮件的截图" /></p>
+
+<p>（QQ邮箱收到的本次测试的邮件截图）</p>
+
+<p>===</p>
+
+				    </div>
+	              <div class="col-md-4 fh5co-project-detail">
+	              	<div class="fh5co-project-service">
+	              	<h3>评论</h3>
+	              						 	
+					  <div id="discuss_essay" class="discuss_essay">
+   	
+   	
+   	
+   	<script>
+			var re=[];
+			var a_id=48;
+			var html='';
+		     
+			var h=tree(re,0);
+			document.getElementById("discuss_essay").innerHTML =h;
+			function tree(arr,pid){	
+				var lsz='';
+				for(var v in arr){ 
+					    if(arr[v]['p_u_id']==pid){
+		
+		if(arr[v]['p_u_id']==0){
+		lsz='</div><div class="discuss_essay_list">'+
+		'<a class="discuss_essay_list_img" href="#"><img src="'+arr[v]['u_haerd']+'" /></a>'+
+   		'<div class="discuss_essay_list_top"><span>'+arr[v]['name']+'</span>'+arr[v]['info_time']+'<span reply="'+arr[v]['id']+'" class="discuss_essay_list_top_h">回复</span></div>'+
+   		'<div class="discuss_essay_list_cent">'+arr[v]['text']+'</div>';
+   	    }else{
+   	    lsz='</div><div class="discuss_essay_c_list">'+
+		'<a class="discuss_essay_list_img" href="#"><img src="'+arr[v]['u_haerd']+'" /></a>'+
+   		'<div class="discuss_essay_list_top"><span>'+arr[v]['name']+' 回复 '+arr[v]['p_name']+'</span>'+arr[v]['info_time']+'<span reply="'+arr[v]['id']+'" class="discuss_essay_list_top_h">回复</span></div>'+
+   		'<div class="discuss_essay_list_cent">'+arr[v]['text']+'</div>';	
+   	    }
+					    	html=html+lsz;
+					    	tree(arr,arr[v]['id']);					    	
+					    }
+                         }
+				return html;
+			}
+			
+			
+		</script> 	
+   	<div class="discuss_essay_list">
+   		<div class="discuss_essay_c_list">
+   	     	<div class="discuss_essay_list_info">
+   	     		<textarea id="info"></textarea>
+   	     		<span onclick="tj(48,0)">提交</span>
+   	     	</div>
+   	     </div>
+   	</div>
+   	
+   </div>
+	              	
+	              	
+	              	</div>
+					<div class="fh5co-project-service">
+						<h3>栏目最新</h3>
+						<ul>
+							                                <li><a href="http://www.qinpl.cn/Myplphp/50.html" title="UCenter API使用入门" target="_blank">UCenter API使用入门</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/49.html" title="sphinx的配置文件" target="_blank">sphinx的配置文件</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/48.html" title="PHP中利用PHPMailer配合QQ邮箱实现发邮件" target="_blank">PHP中利用PHPMailer配合QQ邮箱实现发邮件</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/43.html" title="搜索获取淘宝商品信息" target="_blank">搜索获取淘宝商品信息</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/42.html" title="PHP 5.3.6及以前版本的PDO的bindParam,bindValue潜在的安全隐患" target="_blank">PHP 5.3.6及以前版本的PDO的bindParam,bindValue潜在的安全隐患</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/41.html" title="高并发常用手段" target="_blank">高并发常用手段</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/40.html" title="递归方式和迭代方式实现无限极分类" target="_blank">递归方式和迭代方式实现无限极分类</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/39.html" title="PHP常用算法和数据结构示例" target="_blank">PHP常用算法和数据结构示例</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/38.html" title="php 实现的基本数据结构" target="_blank">php 实现的基本数据结构</a></li>
+                              						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!-- END container-wrap -->
+
+	<div class="container-wrap">
+		<footer id="fh5co-footer" role="contentinfo">
+			<div class="row">
+				<div class="col-md-3 fh5co-widget">
+					<h4>About Neat</h4>
+					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
+				</div>
+				<div class="col-md-3 col-md-push-1">
+					<h4>最新更新</h4>
+					<ul class="fh5co-footer-links">
+						                        <li><a href="http://www.qinpl.cn/Mypllinux/53.html" target="_blank">Nginx和PHP-FPM</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplmsql/52.html" target="_blank">MySQL replace</a></li>
+                                                <li><a href="http://www.qinpl.cn/Mypllinux/51.html" target="_blank">Linux 定时任务</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplphp/50.html" target="_blank">UCenter API使用</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplphp/49.html" target="_blank">sphinx的配置文件</a></li>
+                        					</ul>
+				</div>
+
+				<div class="col-md-3 col-md-push-1">
+					<h4>友情链接</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="http://www.codejie.net/" target="_blank">源码街</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-3">
+					<h4>联系方式</h4>
+					<ul class="fh5co-footer-links">
+						<li>tel:<a href="tel://18883768578">18883768578</a></li>
+						<li>e mail:<a href="mailto:1017962047@qq.com">1017962047@qq.com</a></li>
+						<li><a href="http://www.qinpl.cn/">www.qinpl.cn</a></li>
+					</ul>
+				</div>
+
+			</div>
+
+			<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+						<small class="block"><a href="http://www.qinpl.cn/sitemap.xml" target="_blank">网站地图</a> Design by DanceSmile <a href="http://www.miitbeian.gov.cn" target="_blank">蜀ICP备17013559号-1</a></small>
+					</p>
+					<p>
+						<ul class="fh5co-social-icons">
+							<li><a href="#"><i class="icon-twitter"></i></a></li>
+							<li><a href="#"><i class="icon-facebook"></i></a></li>
+							<li><a href="#"><i class="icon-linkedin"></i></a></li>
+							<li>
+								<script type="text/javascript">
+  		var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+  		document.write(unescape("%3Cspan id='cnzz_stat_icon_1261808781'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261808781%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+                               </script>                  
+							</li>
+						</ul>
+					</p>
+				</div>
+			</div>
+		</footer>
+	</div><!-- END container-wrap -->	
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.flexslider-min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.magnific-popup.min.js"></script>
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\magnific-popup-options.js"></script>
+	<!-- Counters -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.countTo.js"></script>
+	<!-- Main -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\main.js"></script>
+
+	<div class="list_zezao">
+	<div class="v_k">
+      <div class="cols"><span>X</span></div>
+      <div id="u_login"></div>
+     
+      		<a href="http://www.qinpl.cn/admin/Qqlater/Login?qurl=oZKvKfK/48"></a>
+
+	</div>
+</div>
+	<script type="text/javascript" src="http://www.qinpl.cn\api\admin\vendor\static/js/config.js" ></script>
+	<script type="text/javascript" src="http://www.qinpl.cn\api\admin\vendor\static/js/new.js" ></script>
+
+	</body>
+</html>
+

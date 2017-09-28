@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title><?php echo base::GetKw()['title']; ?></title>
+		<meta name="keywords" content="<?php echo base::GetKw()['keywords']; ?>" />
+        <meta name="description" content="<?php echo base::GetKw()['description']; ?>" />
+        <meta name="baidu-site-verification" content="i5fPUO0ek8" />
+
+
+		<?php  include($this->itp."/qin/base.html");//公共文件引入 ?>
+		<link rel="stylesheet" href="<?php echo STATICL.'\css\index.css';    ?>" />
+	</head>
+
+	<body>
+		<!--
+        	首页模板
+        -->
+			<?php  include($this->itp."/qin/nav.html");//头部导航引入 ?>
+<div class="banner">
+  <section class="box">
+    <ul class="texts">
+      <p>我们不停的翻弄着回忆</p>
+      <p>却再也找不回那时的自己</p>
+      <p>红尘一梦，不再追寻</p>
+    </ul>
+    <div class="avatar"><a href="#"><span>秦鹏林</span></a> </div>
+  </section>
+</div>
+
+
+<article>
+  <h2 class="title_tj">
+    <p>文章<span>推荐</span></p>
+  </h2>
+  <div class="bloglist left">
+  	
+  	<?php foreach(base::recommend(16,4) as $k=>$v){ ?>
+  	
+    <h3><a href="<?php echo $v['html_url'];  ?>"><?php echo $v['title'];  ?></a></h3>
+    <figure><img src="<?php echo $v['outline_img'];  ?>" alt="<?php echo $v['title'];  ?>"></figure>
+    <ul>
+      <p><?php echo $v['outline'];  ?></p>
+      <a title="<?php echo $v['title'];  ?>" href="<?php echo $v['html_url'];  ?>" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
+    </ul>
+    <p class="dateview"><span><?php echo $v['create_time'];  ?></span><span>作者：<?php echo $v['author'];  ?></span><span>个人博客：[<a href="<?php echo $v['class_url'];  ?>"><?php echo $v['class_c'];  ?></a>]</span></p>
+    
+    <?php } ?>
+  </div>
+
+
+
+<aside class="right">
+    <div class="news">
+    
+    <h3>
+      <p>最新<span>文章</span></p>
+    </h3>
+    <ul class="rank">
+    	<?php foreach(base::essayNew(10) as $k=>$v){  ?>
+       <li><a href="<?php echo $v['html_url'];  ?>" title="<?php echo $v['title'];  ?>" target="_blank"><?php echo $v['title'];  ?></a></li>
+        <?php } ?>
+    </ul>
+    
+    
+    
+    <h3 class="links">
+      <p>友情<span>链接</span></p>
+    </h3>
+    <ul class="website">
+      <li><a href="http://www.codejie.net/" target="_blank">源码街</a></li>
+    </ul>     
+
+    </div>
+</aside>
+
+
+</article>
+
+<?php  include($this->itp."/qin/footer.html");//尾部导航引入 ?>
+
+	</body>
+
+
+</html>

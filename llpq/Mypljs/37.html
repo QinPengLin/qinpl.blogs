@@ -1,0 +1,568 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Web文件上传方法总结大全 - 秦鹏林的个人博客</title>
+    	<!-- Facebook and Twitter integration -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!--<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\css.css" rel="stylesheet">
+	<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\css_f.css" rel="stylesheet">-->
+	<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\my_css.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\magnific-popup.css">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\flexslider.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\style.css">
+
+	<!-- Modernizr JS -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+
+	</head>
+	<style>
+		img{width: 100%;}
+	</style>
+	<body>
+		
+	<!--<div class="fh5co-loader"></div>-->
+	
+	<div id="page">
+	<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<div style="display: none;" >
+				<img src="http://www.qinpl.cn\api\admin\vendor\static\img\logo.png" />
+</div>
+<nav class="fh5co-nav" role="navigation">
+            
+		<div class="container-wrap">
+			<div class="top-menu">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="/">Qin</a></div>
+					</div>
+					
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+						
+							<li ><a href="/">首页</a></li>
+				            				            							<li class="  active   has-dropdown "><a href="/Mypl/">我的编程人生</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/Myplphp/">php</a></li>
+                                    									<li><a href="/Mypljs/">js</a></li>
+                                    									<li><a href="/Mypllinux/">linux</a></li>
+                                    									<li><a href="/Myplnginx/">nginx</a></li>
+                                    									<li><a href="/Myplmsql/">msql</a></li>
+                                    								</ul>
+							   							</li>
+											            							<li class="   has-dropdown "><a href="/fare/">旅行</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/fare2012/">2012</a></li>
+                                    									<li><a href="/fare2017/">2017</a></li>
+                                    								</ul>
+							   							</li>
+											            							<li class="   has-dropdown "><a href="/Download/">下载区</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/Downloadjs/">js下载</a></li>
+                                    									<li><a href="/Downloadphp/">php下载</a></li>
+                                    									<li><a href="/Downloadxtym/">系统源码下载</a></li>
+                                    									<li><a href="/Downloadqtmb/">前台模板下载</a></li>
+                                    								</ul>
+							   							</li>
+													</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>	<div class="container-wrap">	
+		<div id="fh5co-work">
+			<div class="row">
+			
+				<div class="col-md-8" >
+					<span style="border-bottom: 1px solid #CCCCCC;width: 100%;padding-bottom: 10px;" class="fh5co-project-sub qin_list_span">您当前的位置：<a href="/">首页</a>&nbsp;&gt;&nbsp;<a href="/Mypl/">我的编程人生</a>&nbsp;&gt;&nbsp;<a href="/Mypljs/">js</a></span>
+					<h2 style="margin: 20px 0 10px 0;" class="fh5co-project-title qin_list_h">Web文件上传方法总结大全</h2>
+					<span style="margin-bottom: 20px;" class="fh5co-project-sub">发布时间：2017-04-28 02 作者：秦</span>
+					 <p>文件上传在WEB开发中应用很广泛，我们经常发微博、发微信朋友圈都用到了图片上传功能。</p>
+
+<p>文件上传是指将本地图片、视频、音频等文件上传到服务器上，可以供其他用户浏览或下载的过程。</p>
+
+<p>今天我给大家聊聊常见的文件（图片）上传的方式和要点处理。</p>
+
+<h2>表单上传</h2>
+
+<p>这是传统的form表单上传，使用form表单的input[type=&rdquo;file&rdquo;]控件，可以打开系统的文件选择对话框，从而达到选择文件并上传的目的，它的好处是多浏览器兼容，它是web开发者最常用的一种文件上传方式。</p>
+
+<p>表单的代码如下：</p>
+
+<pre>
+<code>&lt;form method=&quot;post&quot; action=&quot;http://uploadUrl&quot; enctype=&quot;multipart/form-data&quot;&gt;
+    &lt;input name=&quot;file&quot; type=&quot;file&quot; accept=&quot;image/gif,image.jpg&quot; /&gt;
+    &lt;input name=&quot;token&quot; type=&quot;hidden&quot; /&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;提交&quot; /&gt; 
+&lt;/form&gt;</code></pre>
+
+<p>以下是表单上传几个关键点：</p>
+
+<ul>
+	<li>method=&rdquo;post&rdquo;： 采用post方式提交数据</li>
+	<li>enctype=&rdquo;multipart/form- data&rdquo;：采用multipart格式上传文件，此时request头会显示 Content-Type:multipart/form-data; boundary=&mdash;-WebKitFormBoundaryzr34cwJ67R95KQC9</li>
+	<li>action：标明上传的服务端处理地址</li>
+	<li>type=&rdquo;file&rdquo;：使用input的file控件上传</li>
+	<li>如果是多文件批量上传，可以将input[type=&rdquo;file&rdquo;]的name属性设置为如：name=&rdquo;file[]&rdquo;</li>
+	<li>accept属性是HTML5的新属性，它规定了可通过文件上传提交的文件类型</li>
+	<li>上传的触发事件可以是：input[type=&rdquo;file&rdquo;]的onChange触发，也可以由一个独立的按钮的onClick使整个表单提交，此时还可以用input[type=&rdquo;hidden&rdquo;]带一些其它的参数，比如Token来源验证等等。</li>
+</ul>
+
+<h2>Ajax无刷新上传</h2>
+
+<p>Ajax无刷新上传的方式，本质上与表单上传无异，只是把表单里的内容提出来采用ajax提交，并且由前端决定请求结果回传后的展示结果，不用像直接表单上传那样刷新和跳转页面。在这里，我们采用<a href="http://lib.csdn.net/base/jquery" target="_blank" title="jQuery知识库">jQuery</a>来作为操作DOM和创建ajax提交的js基础库。</p>
+
+<p>html代码片段如下：</p>
+
+<pre>
+<code>&lt;form&gt;
+    &lt;input id=&quot;file&quot; name=&quot;file&quot; type=&quot;file&quot; /&gt;
+    &lt;input id=&quot;token&quot; name=&quot;token&quot; type=&quot;hidden&quot; /&gt;
+&lt;/form&gt;</code></pre>
+
+<p><a href="http://lib.csdn.net/base/javascript" target="_blank" title="JavaScript知识库">JavaScript</a>代码片段如下：</p>
+
+<pre>
+<code>$(&quot;#file&quot;).on(&quot;change&quot;, function(){
+  var formData = new FormData();
+  formData.append(&quot;file&quot;, $(&quot;#file&quot;)[0].files);
+  formData.append(&quot;token&quot;, $(&quot;#token&quot;).val());
+  $.ajax({
+      url: &quot;http://uploadUrl&quot;,
+      type: &quot;POST&quot;,
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function(response){
+              // 根据返回结果指定界面操作
+      }
+  });
+});</code></pre>
+
+<p><code>原生js编写的ajax无刷新上传</code></p>
+
+<p><code>js例子代码如下：</code></p>
+
+<p>&nbsp;</p>
+
+<p><code>&lt;input type=&#39;text&#39; name=&#39;textfield&#39; id=&#39;textfield&#39; class=&#39;txt&#39; /&gt;</code></p>
+
+<p><code>&lt;span onclick=&quot;file.click()&quot; &nbsp;class=&quot;mybtn&quot;&gt;浏览...&lt;/span&gt;<br />
+&lt;input type=&quot;file&quot; name=&quot;file&quot; style=&quot;display: none;&quot; class=&quot;file&quot; id=&quot;file&quot; size=&quot;28&quot; onchange=&quot;document.getElementById(&#39;textfield&#39;).value=this.value&quot; /&gt;<br />
+&lt;span onclick=&quot;UpladFile()&quot; class=&quot;mybtn&quot;&gt;上传&lt;/span&gt;<br />
+&lt;input id=&quot;imgjj&quot; name=&quot;imgjj&quot; type=&quot;hidden&quot; value=&quot;&quot; /&gt;<br />
+&lt;img src=&quot;&quot; id=&quot;jjimg&quot; &nbsp;style=&quot;width: 100px;height: 100px;&quot;/&gt;</code></p>
+
+<p>&lt;script&gt;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;window.onload=function(){&nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var v=document.getElementById(&quot;imgjj&quot;).value;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;document.getElementById(&quot;jjimg&quot;).src =v;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}&nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;var xhr;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; function createXMLHttpRequest(){<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(window.ActiveXObject){<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; xhr = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}else if(window.XMLHttpRequest){<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;xhr = new XMLHttpRequest();<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; function UpladFile(){<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var fileObj = document.getElementById(&quot;file&quot;).files[0];//获取上传文件<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var FileController = &#39;请求地址&#39;;//上传地址</p>
+
+<p>controller=pic&amp;action=upload_json&amp;dir=image<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var form = new FormData();<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; form.append(&quot;imgFile&quot;, fileObj);//设置上传名称<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; createXMLHttpRequest();<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; xhr.onreadystatechange = handleStateChange;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; xhr.open(&quot;post&quot;, FileController, true);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; xhr.send(form);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; function handleStateChange(){//回调函数<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(xhr.readyState == 4){<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (xhr.status == 200 || xhr.status == 0){<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var result = xhr.responseText; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var obj = new Function(&quot;return&quot; + result)();//转换后的JSON对象&nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log(obj);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;document.getElementById(&quot;jjimg&quot;).src =obj.url;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;document.getElementById(&quot;imgjj&quot;).value =obj.url;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;/script&gt;</p>
+
+<p>&nbsp;</p>
+
+<p>我们使用了file控件的change来触发上传事件，当然你也可以使用某个按钮来触发表单提交。提交数据时，我 用到了FormData对象来发送二进制文件，FormData构造函数提供的append()方法，除了直接添加二进制文件还可以附带一些其它的参数， 作为XMLHttpRequest实例的参数提交给服务端。</p>
+
+<p>使用jQuery提供的ajax方法来发送二进制文件，还需要附加两个参数：</p>
+
+<ul>
+	<li>processData: false // 不要对data参数进行序列化处理，默认为true</li>
+	<li>contentType: false // 不要设置Content-Type请求头，因为文件数据是以 multipart/form-data 来编码</li>
+</ul>
+
+<h2>Flash上传</h2>
+
+<p>很 多时候上传的需求要求显示上传进度、中断上传过程、大文件分片上传等等，这时传统的表单上传很难实现这些功能，于是产生了使用Flash上传的方式，它采 用Flash作为一个中间代理层，代替客户端跟服务端通信，此外，它也对客户端的文件选择方面拥有更多的控制权，比input[type=&rdquo;file&rdquo;] 要大得多。</p>
+
+<p>在这里我使用了jQuery封装好的uploadify插件来进行演示，一般这类插件都自带了上传用的Flash文件，因为跟服务端回传的数据和展示跟客户端的交互，都是Flash文件的接口跟插件来对接的。</p>
+
+<pre>
+<code>&lt;div id=&quot;file_upload&quot;&gt;&lt;/div&gt;</code></pre>
+
+<p>html部分很简单，预留一个hook后，插件会在这个节点内部创建Flash的object，并且还附带创建了上传进度、取消控件和多文件队列展示等界面。</p>
+
+<pre>
+<code>$(function() {
+  $(&quot;#file_upload&quot;).uploadify({
+      auto: true,
+      method: &quot;Post&quot;,
+      width: 120,
+      height: 30,
+      swf: &#39;./uploadify.swf&#39;,
+      uploader: &#39;http://uploadUrl&#39;,
+      formData: {
+          token: $(&quot;#token&quot;).val()
+      },
+      fileObjName: &quot;file&quot;,
+      onUploadSuccess: function(file, data, response){
+          // 根据返回结果指定界面操作
+      }
+  });
+});</code></pre>
+
+<p>关于jQuery.uploadify可以访问了解：<a href="http://www.uploadify.com/documentation/" rel="nofollow" target="_blank">http://www.uploadify.com/documentation/</a>。值得注意的是flash并不适合手机端应用，更好的解决方案是使用flash+<a href="http://lib.csdn.net/base/html5" target="_blank" title="HTML5知识库">HTML5</a>来解决平台的兼容性问题。</p>
+
+<h2>截图粘贴上传</h2>
+
+<p>我们发现现在有好多上传应用已经提供了截图粘贴上传功能，如WebUploader，它就支持QQ截图然后粘贴上传。</p>
+
+<p>首先，截图粘贴上传的核心思想是，监听粘贴事件，然后获取剪切板中的数据，如果是一张图片，则触发上传事件。</p>
+
+<p>代码片段如下：</p>
+
+<pre>
+<code>$(&quot;textarea&quot;).on(&quot;paste&quot;, function(e){
+   e.stopPropagation();
+   var self = this;
+   var clipboardData = e.originalEvent.clipboardData;
+   if (clipboardData.items.length &lt;= 0) {
+       return;
+   }
+   var file = clipboardData.items[0].getAsFile();
+   if (!file) {
+       return;
+   }
+   var formData = new FormData();
+   formData.append(&quot;file&quot;, file);
+   formData.append(&quot;token&quot;, $(&quot;#token&quot;).val());
+   $.ajax({
+       url: &quot;http://uploadUrl&quot;,
+       type: &quot;POST&quot;,
+       data: formData,
+   }).done(function(response) {
+       // 根据返回结果指定界面操作
+   });
+   e.preventDefault();
+});</code></pre>
+
+<p>从上面代码可以看出，上传的过程都是一样的，主要是获取文件的方式。 当进行粘贴（右键paste/ctrl+v）操作时，触发剪贴板事件&rsquo;paste&rsquo;，从系统剪切板获取内容，而系统剪切板的数据在不同浏览器保存在不同的位置：</p>
+
+<ul>
+	<li>IE内核：windows.clipboardData</li>
+	<li>其它：e.originalEvent.clipboardData</li>
+</ul>
+
+<h2>拖拽上传</h2>
+
+<p>拖拽上传的方式，支持的浏览器比较少，因为它用到了<a href="http://lib.csdn.net/base/html5" target="_blank" title="HTML5知识库">Html5</a>的两个新的属性（API）一个是Drag and Drop,一个是File API。</p>
+
+<p>上传域监听拖拽的三个事件：dragEnter、dragOver和drop，分别对应拖拽至、拖拽时和释放三个操作的处理机制，当然你也可以监听dragLeave事件。</p>
+
+<p>HTML5的File API提供了一个FileList的接口，它可以通过拖拽事件的e.dataTransfer.files来传递的文件信息，获取本地文件列表信息。</p>
+
+<p>File API在HTML5规范中只是草案，在 W3C 草案中，File 对象只包含文件名、文件类型和文件大小等只读属性。但部分浏览器在草案之外提供了一个名为 FileReader 的对象，用以读取文件内容，并且可以监控读取状态，它提供的方法有： &ldquo;readAsBinaryString&rdquo; ，&rdquo;readAsDataURL&rdquo; ，&rdquo;readAsText&rdquo; ，&rdquo;abort&rdquo; 等。</p>
+
+<p>代码片段如下：</p>
+
+<pre>
+<code>// dragenter
+$(&quot;#textarea&quot;).on(&quot;dragenter&quot;, function(e){
+    e.preventDefault();
+});
+// dragover
+$(&quot;#textarea&quot;).on(&quot;dragover&quot;, function(e){
+    e.preventDefault();
+});
+// drop
+$(&quot;#textarea&quot;).on(&quot;drop&quot;, function(e){
+    e.stopPropagation();
+    e.preventDefault();
+    var files = e.originalEvent.dataTransfer.files;
+    _.each(files, function(file) {
+        if (!/^image*/.test(file.type)) {
+          return;
+        }
+        var fileReader = new FileReader();
+        fileReader.onload = function() {
+          //uploadFile(file);
+        };
+        fileReader.readAsDataURL(file);
+    });
+});</code></pre>
+
+<p>拖拽上传过程中的几个关键点：</p>
+
+<ul>
+	<li>在drop事件触发后通过e.dataTransfer.files获取拖拽文件列表，在jQuery中是e.originalEvent.dataTransfer.files</li>
+	<li>拖拽上传仅支持图片，文件对象中file.type标识了文件类型。</li>
+	<li>由于可能是多图拖拽，所以可以遍历图片上传，这里用了Underscore的each方法。</li>
+	<li>这里用readAsDataURL读取文件内容为二进制文件，你还可以将其转换为Base64方式上传，只是http协议里面存在对非二进制数据的上传大小限制为2M。</li>
+	<li>上传的过程跟前面的方式相同，即：创建FormData对象并发起Ajax请求。</li>
+</ul>
+
+<h2>拍照上传</h2>
+
+<p>拍照上传可以是PC上的摄像头拍照上传也可以是手机等移动设备的拍照上传。手机上的拍照上传最常见就是我们使用微信发照片了。</p>
+
+<p>手机实现拍照上传的代码：</p>
+
+<pre>
+<code>
+&lt;input type=file accept=&quot;image/*&quot;&gt;
+
+&lt;input type=file accept=&quot;video/*&quot;&gt;</code></pre>
+
+<p><a href="http://lib.csdn.net/base/ios" target="_blank" title="iOS知识库">iOS</a>&nbsp;有拍照、录像、选取本地图片功能，部分<a href="http://lib.csdn.net/base/android" target="_blank" title="Android知识库">Android</a>只有选取本地图片功能。</p>
+
+<h2>上传与安全</h2>
+
+<p>上传文件时必须做好文件的安全性，除了前端必要的验证，如文件类型、后缀、大小等验证，重要的还是要在后台做安全策略。</p>
+
+<p>这里我列举几个注意点：</p>
+
+<ul>
+	<li>后台需要进行文件类型、大小、来源等验证</li>
+	<li>定义一个.htaccess文件，只允许访问指定扩展名的文件。</li>
+	<li>将上传后的文件生成一个随机的文件名，并且加上此前生成的文件扩展名。</li>
+	<li>设置上传目录执行权限，避免不怀好意的人绕过如图片扩展名进行恶意攻击，拒绝脚本执行的可能性。</li>
+</ul>
+
+				    </div>
+	              <div class="col-md-4 fh5co-project-detail">
+	              	<div class="fh5co-project-service">
+	              	<h3>评论</h3>
+	              						 	
+					  <div id="discuss_essay" class="discuss_essay">
+   	
+   	
+   	
+   	<script>
+			var re=[];
+			var a_id=37;
+			var html='';
+		     
+			var h=tree(re,0);
+			document.getElementById("discuss_essay").innerHTML =h;
+			function tree(arr,pid){	
+				var lsz='';
+				for(var v in arr){ 
+					    if(arr[v]['p_u_id']==pid){
+		
+		if(arr[v]['p_u_id']==0){
+		lsz='</div><div class="discuss_essay_list">'+
+		'<a class="discuss_essay_list_img" href="#"><img src="'+arr[v]['u_haerd']+'" /></a>'+
+   		'<div class="discuss_essay_list_top"><span>'+arr[v]['name']+'</span>'+arr[v]['info_time']+'<span reply="'+arr[v]['id']+'" class="discuss_essay_list_top_h">回复</span></div>'+
+   		'<div class="discuss_essay_list_cent">'+arr[v]['text']+'</div>';
+   	    }else{
+   	    lsz='</div><div class="discuss_essay_c_list">'+
+		'<a class="discuss_essay_list_img" href="#"><img src="'+arr[v]['u_haerd']+'" /></a>'+
+   		'<div class="discuss_essay_list_top"><span>'+arr[v]['name']+' 回复 '+arr[v]['p_name']+'</span>'+arr[v]['info_time']+'<span reply="'+arr[v]['id']+'" class="discuss_essay_list_top_h">回复</span></div>'+
+   		'<div class="discuss_essay_list_cent">'+arr[v]['text']+'</div>';	
+   	    }
+					    	html=html+lsz;
+					    	tree(arr,arr[v]['id']);					    	
+					    }
+                         }
+				return html;
+			}
+			
+			
+		</script> 	
+   	<div class="discuss_essay_list">
+   		<div class="discuss_essay_c_list">
+   	     	<div class="discuss_essay_list_info">
+   	     		<textarea id="info"></textarea>
+   	     		<span onclick="tj(37,0)">提交</span>
+   	     	</div>
+   	     </div>
+   	</div>
+   	
+   </div>
+	              	
+	              	
+	              	</div>
+					<div class="fh5co-project-service">
+						<h3>栏目最新</h3>
+						<ul>
+							                                <li><a href="http://www.qinpl.cn/Mypljs/37.html" title="Web文件上传方法总结大全" target="_blank">Web文件上传方法总结大全</a></li>
+                              						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!-- END container-wrap -->
+
+	<div class="container-wrap">
+		<footer id="fh5co-footer" role="contentinfo">
+			<div class="row">
+				<div class="col-md-3 fh5co-widget">
+					<h4>About Neat</h4>
+					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
+				</div>
+				<div class="col-md-3 col-md-push-1">
+					<h4>最新更新</h4>
+					<ul class="fh5co-footer-links">
+						                        <li><a href="http://www.qinpl.cn/Mypllinux/53.html" target="_blank">Nginx和PHP-FPM</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplmsql/52.html" target="_blank">MySQL replace</a></li>
+                                                <li><a href="http://www.qinpl.cn/Mypllinux/51.html" target="_blank">Linux 定时任务</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplphp/50.html" target="_blank">UCenter API使用</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplphp/49.html" target="_blank">sphinx的配置文件</a></li>
+                        					</ul>
+				</div>
+
+				<div class="col-md-3 col-md-push-1">
+					<h4>友情链接</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="http://www.codejie.net/" target="_blank">源码街</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-3">
+					<h4>联系方式</h4>
+					<ul class="fh5co-footer-links">
+						<li>tel:<a href="tel://18883768578">18883768578</a></li>
+						<li>e mail:<a href="mailto:1017962047@qq.com">1017962047@qq.com</a></li>
+						<li><a href="http://www.qinpl.cn/">www.qinpl.cn</a></li>
+					</ul>
+				</div>
+
+			</div>
+
+			<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+						<small class="block"><a href="http://www.qinpl.cn/sitemap.xml" target="_blank">网站地图</a> Design by DanceSmile <a href="http://www.miitbeian.gov.cn" target="_blank">蜀ICP备17013559号-1</a></small>
+					</p>
+					<p>
+						<ul class="fh5co-social-icons">
+							<li><a href="#"><i class="icon-twitter"></i></a></li>
+							<li><a href="#"><i class="icon-facebook"></i></a></li>
+							<li><a href="#"><i class="icon-linkedin"></i></a></li>
+							<li>
+								<script type="text/javascript">
+  		var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+  		document.write(unescape("%3Cspan id='cnzz_stat_icon_1261808781'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261808781%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+                               </script>                  
+							</li>
+						</ul>
+					</p>
+				</div>
+			</div>
+		</footer>
+	</div><!-- END container-wrap -->	
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.flexslider-min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.magnific-popup.min.js"></script>
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\magnific-popup-options.js"></script>
+	<!-- Counters -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.countTo.js"></script>
+	<!-- Main -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\main.js"></script>
+
+	<div class="list_zezao">
+	<div class="v_k">
+      <div class="cols"><span>X</span></div>
+      <div id="u_login"></div>
+     
+      		<a href="http://www.qinpl.cn/admin/Qqlater/Login?qurl=oZKviq/37"></a>
+
+	</div>
+</div>
+	<script type="text/javascript" src="http://www.qinpl.cn\api\admin\vendor\static/js/config.js" ></script>
+	<script type="text/javascript" src="http://www.qinpl.cn\api\admin\vendor\static/js/new.js" ></script>
+
+	</body>
+</html>
+

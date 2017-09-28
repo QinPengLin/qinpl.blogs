@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="<?php echo $this->www."\\css\\admin.css"; ?>" />
+	</head>
+	<body>
+	<?php  include($this->url."/Index/public/nav.html"); ?>
+	<div class="class_cent">
+		<div class="class_cent_c1">
+			<div class="class_cent_c1_l">
+				<ul>					
+					<?php foreach($c_1[1] as $k=>$v){  ?>
+						<li  i="<?php echo $v['id']; ?>"><i id="li_<?php echo $v['id']; ?>"><?php echo $v['name']; ?></i><span><em onclick="edit(<?php echo $v['id']; ?>)">编辑</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em onclick="dlet(<?php echo $v['id']; ?>)">删除</em></span></li>
+					<?php }  ?>
+						<li style="text-align: center;" onclick="edit_add(0)">+</li>
+				</ul>
+			</div>
+			<div class="class_cent_c1_c">
+				=>
+			</div>
+			<div class="class_cent_c1_r">
+				<?php foreach($c_1[1] as $k=>$v){  ?>
+				<div class="class_cent_c1_rx" id="r_<?php echo $v['id']; ?>">
+					<ul>
+						<?php foreach($c_1[2] as $k2=>$v2){ if($v2['p_id']==$v['id']){ ?>
+							<li><i id="li_<?php echo $v2['id']; ?>"><?php echo $v2['name']; ?></i><span><em onclick="edit(<?php echo $v2['id']; ?>)">编辑</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em onclick="dlet(<?php echo $v2['id']; ?>)">删除</em></span></li>
+						<?php }}  ?>	
+							<li style="text-align: center;" onclick="edit_add(<?php echo $v['id']; ?>)">+</li>
+				  </ul>
+				</div>
+				<?php }  ?>
+				
+			</div>
+		</div>
+	</div>	
+	<div class="zezao">
+		
+		<div class="edit">
+			<div class="clos" onclick="clos()">X</div>
+			<?php foreach($re as $k=>$v){  ?>
+			<div class="edit_cent" id="edit_<?php echo $v['id']; ?>">
+				<ul>
+					<li>名称：<input id="edit_name_<?php echo $v['id']; ?>" type="text" value="<?php echo $v['name']; ?>"/></li>
+					<li>静态页面存放文件夹：<input id="edit_file_<?php echo $v['id']; ?>" type="text" value="<?php echo $v['file_name']; ?>"/></li>
+					<li>
+				       栏目或者分类模板：<select id="edit_tem_<?php echo $v['id']; ?>">
+				       	<?php $pkv=0; foreach($file as $v1){ if($v['templet_name']==$v1){
+				       		$pkv=1; 
+				       		?>
+				       		
+				       		  <option value="<?php echo $v1; ?>" selected = "selected"><?php echo $v1; ?></option>
+				       		<?php }else{ ?>
+				       		 <option value="<?php echo $v1; ?>"  ><?php echo $v1; ?></option>
+				       	<?php }}  
+				       		if(!$pkv){ 
+				       	?>
+				       			<option value="<?php echo $v['templet_name']; ?>" selected = "selected"><?php echo $v['templet_name']; ?></option>
+				       		
+				       		<?php } ?>
+				     </select>
+					</li>
+					
+					
+					<li>
+				       内容页模板：<select id="edit_c_tem_<?php echo $v['id']; ?>">
+				       	<?php $c_pkv=0; foreach($file as $v1){ if($v['c_templet_name']==$v1){
+				       		$c_pkv=1; 
+				       		?>
+				       		
+				       		  <option value="<?php echo $v1; ?>" selected = "selected"><?php echo $v1; ?></option>
+				       		<?php }else{ ?>
+				       		 <option value="<?php echo $v1; ?>"  ><?php echo $v1; ?></option>
+				       	<?php }}  
+				       		if(!$c_pkv){ 
+				       	?>
+				       			<option value="<?php echo $v['c_templet_name']; ?>" selected = "selected"><?php echo $v['c_templet_name']; ?></option>
+				       		
+				       		<?php } ?>
+				     </select>
+					</li>
+					
+					<input id="edit_id_<?php echo $v['id']; ?>" type="hidden" value="<?php echo $v['id']; ?>" />
+					<li style="float: right;margin-right: 20px;"><input onclick="tijiao(<?php echo $v['id']; ?>)" type="button" value="提交"/></li>
+				</ul>
+			</div>
+			<?php } ?>
+				
+				
+		  
+		  <div class="edit_cent" id="edit_add">
+				<ul>
+					<li>名称：<input id="edit_add_name" type="text" value=""/></li>
+					<li>静态页面存放文件夹：<input id="edit_add_file" type="text" value=""/></li>
+					<li>
+				       栏目或者分类模板：<select id="edit_add_tem">
+				       	<?php foreach($file as $v1){?>
+				       		 <option value="<?php echo $v1; ?>" ><?php echo $v1; ?></option>
+				       	<?php } ?>
+				     </select>
+					</li>
+					<li>
+				       内容页模板：<select id="edit_add_c_tem">
+				       	<?php foreach($file as $v1){?>
+				       		 <option value="<?php echo $v1; ?>" ><?php echo $v1; ?></option>
+				       	<?php } ?>
+				     </select>
+					</li>
+					<input id="edit_add_pid" type="hidden" value="" />
+					<li style="float: right;margin-right: 20px;"><input onclick="tijiao_add()" type="button" value="添加"/></li>
+				</ul>
+			</div>
+		  
+		</div>
+	</div>
+	<script type="text/javascript" src="<?php echo $this->static."\\jquery.js"; ?>" ></script>
+	<script type="text/javascript" src="<?php echo $this->www."\\js\\config.js"; ?>" ></script>
+	<script type="text/javascript" src="<?php echo $this->www."\\js\\admin.js"; ?>" ></script>
+	</body>
+</html>

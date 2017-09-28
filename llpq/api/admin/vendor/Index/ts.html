@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<SCRIPT LANGUAGE="JavaScript">
+var time = 5; //时间,秒
+var timelong = 0;
+function diplaytime(){ //时间递减
+document.all.his.innerHTML = time -timelong ;
+timelong ++;
+}
+function redirect(){ //跳转页
+//history.back();
+window.location.href="<?php echo $url; ?>";//指定要跳转到的目标页面
+}
+timer=setInterval('diplaytime()', 1000);//显示时间
+timer=setTimeout('redirect()',time * 1000); //跳转
+</SCRIPT> 
+	<body>
+		<DIV ALIGN="CENTER" style="font-size:15;color:threeddarkshadow;" >
+<?php echo $ts; ?>，系统会在5秒后自动返回！
+</DIV>
+<DIV ALIGN="CENTER" style="font-size:15;color:threeddarkshadow;" id="his">
+5秒钟后自动返回.....
+</DIV>
+	</body>
+</html>

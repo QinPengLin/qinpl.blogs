@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title><?php echo $c_name; ?> - <?php echo base::GetKw()['title']; ?></title>
+	<?php  include($this->itp."/neat/base.html");//公共文件引入 ?>
+
+	</head>
+	<body>
+		<?php //我的编程人生栏目首页 ?>
+	<!--<div class="fh5co-loader"></div>-->
+	
+	<div id="page">
+    <?php  include($this->itp."/neat/nav.html");//头部导航引入 ?>
+    	
+	<div class="container-wrap">
+
+		
+		
+		<div id="fh5co-blog">
+			<div class="row">
+				
+				<?php foreach(base::recommend(24,6) as $k=>$v){ ?>	
+				<div class="col-md-4">
+					<div class="fh5co-blog animate-box">
+						<a href="<?php echo $v['html_url'];  ?>" class="blog-bg" style="background-image: url(<?php echo $v['outline_img'];  ?>);"></a>
+						<div class="blog-text">
+							<span class="posted_on"><?php echo $v['create_time'];  ?></span>
+							<h3><a href="<?php echo $v['html_url'];  ?>"><?php echo $v['title'];  ?></a></h3>
+							<p><?php echo mb_substr($v['outline'],0,50,'utf-8');  ?></p>
+							<ul class="stuff">
+								<li>作者：<?php echo mb_substr($v['author'],0,4,'utf-8');  ?></li>
+								<li><a href="<?php echo $v['class_url'];  ?>"><?php echo $v['class_c'];  ?></a></li>
+								<li><a href="<?php echo $v['html_url'];  ?>">Read More<i class="icon-arrow-right22"></i></a></li>
+							</ul>
+						</div> 
+					</div>
+				</div>
+				<?php } ?>
+			</div>
+		</div>
+	</div><!-- END container-wrap -->
+
+	<?php  include($this->itp."/neat/footer_nav.html");//尾部导航引入 ?>
+	</div>
+
+	<?php  include($this->itp."/neat/footer_base.html");//尾部公共文件引入 ?>
+
+	</body>
+</html>
+

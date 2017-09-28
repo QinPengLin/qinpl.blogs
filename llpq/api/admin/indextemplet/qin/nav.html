@@ -1,0 +1,25 @@
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<header>
+			<div id="logo">
+				<a href="/"><img src="<?php echo STATICL.'\img\logo.png';    ?>" /></a>
+			</div>
+			<nav class="topnav" id="topnav">
+				<a href="/"><span>首页</span><span class="en">Index</span></a>
+				<?php  foreach($lm as $v){ if($v['p_id']==0){ ?>
+				<a href="/<?php echo $v['file_name']; ?>/"><span><?php echo $v['name']; ?></span><span class="en"><?php echo $v['file_name']; ?></span></a>
+				<?php  }} ?>
+			</nav>
+</header>

@@ -1,0 +1,696 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>递归方式和迭代方式实现无限极分类 - 秦鹏林的个人博客</title>
+    	<!-- Facebook and Twitter integration -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!--<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\css.css" rel="stylesheet">
+	<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\css_f.css" rel="stylesheet">-->
+	<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\my_css.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\magnific-popup.css">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\flexslider.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\style.css">
+
+	<!-- Modernizr JS -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+
+	</head>
+	<style>
+		img{width: 100%;}
+	</style>
+	<body>
+		
+	<!--<div class="fh5co-loader"></div>-->
+	
+	<div id="page">
+	<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<div style="display: none;" >
+				<img src="http://www.qinpl.cn\api\admin\vendor\static\img\logo.png" />
+</div>
+<nav class="fh5co-nav" role="navigation">
+            
+		<div class="container-wrap">
+			<div class="top-menu">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="/">Qin</a></div>
+					</div>
+					
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+						
+							<li ><a href="/">首页</a></li>
+				            				            							<li class="  active   has-dropdown "><a href="/Mypl/">我的编程人生</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/Myplphp/">php</a></li>
+                                    									<li><a href="/Mypljs/">js</a></li>
+                                    									<li><a href="/Mypllinux/">linux</a></li>
+                                    									<li><a href="/Myplnginx/">nginx</a></li>
+                                    									<li><a href="/Myplmsql/">msql</a></li>
+                                    								</ul>
+							   							</li>
+											            							<li class="   has-dropdown "><a href="/fare/">旅行</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/fare2012/">2012</a></li>
+                                    									<li><a href="/fare2017/">2017</a></li>
+                                    								</ul>
+							   							</li>
+											            							<li class="   has-dropdown "><a href="/Download/">下载区</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/Downloadjs/">js下载</a></li>
+                                    									<li><a href="/Downloadphp/">php下载</a></li>
+                                    									<li><a href="/Downloadxtym/">系统源码下载</a></li>
+                                    									<li><a href="/Downloadqtmb/">前台模板下载</a></li>
+                                    								</ul>
+							   							</li>
+													</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>	<div class="container-wrap">	
+		<div id="fh5co-work">
+			<div class="row">
+			
+				<div class="col-md-8" >
+					<span style="border-bottom: 1px solid #CCCCCC;width: 100%;padding-bottom: 10px;" class="fh5co-project-sub qin_list_span">您当前的位置：<a href="/">首页</a>&nbsp;&gt;&nbsp;<a href="/Mypl/">我的编程人生</a>&nbsp;&gt;&nbsp;<a href="/Myplphp/">php</a></span>
+					<h2 style="margin: 20px 0 10px 0;" class="fh5co-project-title qin_list_h">递归方式和迭代方式实现无限极分类</h2>
+					<span style="margin-bottom: 20px;" class="fh5co-project-sub">发布时间：2017-05-08 09 作者：秦</span>
+					 <p>首先来说说什么是无限极分类。按照我的理解，就是对数据完成多次分类，如同一棵树一样，从根开始，到主干、枝干、叶子&hellip;&hellip;</p>
+
+<p>完成无限极分类，主要运用了两种方法，一是递归方式，二是迭代方式。而主要运用无限极分类的地方有地址解析，面包屑<a href="http://www.51xuediannao.com/js/nav/" target="_blank"><u>导航</u></a>等等。下面就来具体介绍两种方法的原理及实现方法。</p>
+
+<h2>&nbsp;家谱树与子孙树</h2>
+
+<p>家谱树是无限极分类的表现形式之一，另一个是子孙树。一开始学习无限极分类时，我时常弄混这两棵树，现在看来自然是明白很多。从汉语的意思也能够看出其中的区别。</p>
+
+<p>家谱，现在很多地方都流行起修家谱，那怎么修家谱，按照我理解，就是给自己找一个祖宗，一代代找上去，形成了一个体系，这样编篡而成的叫家谱。家谱树就与之类似，从某个节点开始向上寻找其父节点，再找父节点的父节点，直到找不到为止。按照这种寻找，形成的一个类似树状的结构，就叫做家谱树。</p>
+
+<p>而子孙树与其相反，子孙树类似于生物书中的遗传图，从某个节点开始寻找它的子节点，再找子节点的子节点，直到寻找完毕。这样形成的树状结构就叫做子孙树。</p>
+
+<p>从上面对家谱树与子孙树的描述，将其转换为代码时，我的第一印象就是利用递归方式，家谱树，找父节点的父节点，子孙树，找子节点的子节点。完全符合递归思想。所以首先我们来说说利用递归方式完成家谱树与子孙树。</p>
+
+<h2>&nbsp;递归方式</h2>
+
+<h3>家谱树的实现</h3>
+
+<p>为更清楚的讲解，我先将即将分类的数据贴在下面，是关于地址的数据：</p>
+
+<pre>
+$address = array(
+    array(&#39;id&#39;=&gt;1  , &#39;address&#39;=&gt;&#39;安徽&#39; , &#39;parent_id&#39; =&gt; 0),
+    array(&#39;id&#39;=&gt;2  , &#39;address&#39;=&gt;&#39;江苏&#39; , &#39;parent_id&#39; =&gt; 0),
+    array(&#39;id&#39;=&gt;3  , &#39;address&#39;=&gt;&#39;合肥&#39; , &#39;parent_id&#39; =&gt; 1),
+    array(&#39;id&#39;=&gt;4  , &#39;address&#39;=&gt;&#39;庐阳区&#39; , &#39;parent_id&#39; =&gt; 3),
+    array(&#39;id&#39;=&gt;5  , &#39;address&#39;=&gt;&#39;大杨镇&#39; , &#39;parent_id&#39; =&gt; 4),
+    array(&#39;id&#39;=&gt;6  , &#39;address&#39;=&gt;&#39;南京&#39; , &#39;parent_id&#39; =&gt; 2),
+    array(&#39;id&#39;=&gt;7  , &#39;address&#39;=&gt;&#39;玄武区&#39; , &#39;parent_id&#39; =&gt; 6),
+    array(&#39;id&#39;=&gt;8  , &#39;address&#39;=&gt;&#39;梅园新村街道&#39;, &#39;parent_id&#39; =&gt; 7),
+    array(&#39;id&#39;=&gt;9  , &#39;address&#39;=&gt;&#39;上海&#39; , &#39;parent_id&#39; =&gt; 0),
+    array(&#39;id&#39;=&gt;10 , &#39;address&#39;=&gt;&#39;黄浦区&#39; , &#39;parent_id&#39; =&gt; 9),
+    array(&#39;id&#39;=&gt;11 , &#39;address&#39;=&gt;&#39;外滩&#39; , &#39;parent_id&#39; =&gt; 10)
+    array(&#39;id&#39;=&gt;12 , &#39;address&#39;=&gt;&#39;安庆&#39; , &#39;parent_id&#39; =&gt; 1)
+    );</pre>
+
+<p>按照上文的介绍，对上面数据进行家谱树无限极分类，假设我们想要寻找大杨镇的家谱树，先找到与之相关的信息。</p>
+
+<pre>
+&#39;id&#39;=&gt;5  , &#39;address&#39;=&gt;&#39;大杨镇&#39; , &#39;parent_id&#39; =&gt; 4</pre>
+
+<p>可以看出它的父节点的id，即parent_id == 4，那么id==4的节点就是其父节点，由此找到庐阳区：</p>
+
+<pre>
+&#39;id&#39;=&gt;4  , &#39;address&#39;=&gt;&#39;庐阳区&#39; , &#39;parent_id&#39; =&gt; 3</pre>
+
+<p>与上面类似，寻找id=3的节点，依次向上寻找，找到大杨镇的家谱</p>
+
+<blockquote>
+<p>大杨镇 -&gt; 庐阳区 -&gt; 合肥 -&gt; 安徽</p>
+</blockquote>
+
+<p>那么怎么用代码来完成它呢？其实很简单，只需要判断寻找的父id是否与节点的id相等，即parent_id ?= id，相等就是要寻找的父节点，并把该节点的parent_id作为寻找的id，递归进行寻找。如下面的流程图：</p>
+
+<p><img alt="递归方式和迭代方式实现无限极分类" src="http://www.51xuediannao.com/uploads/allimg/170110/14243A420-0.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+
+<h4>递归方法求家谱树</h4>
+
+<p>下面就开始编写代码：</p>
+
+<pre>
+/**
+ * 获取家谱树
+ * @param   array        $data   待分类的数据
+ * @param   int/string   $pid    要找的祖先节点
+ */
+function Ancestry($data , $pid) {
+    static $ancestry = array();
+
+    foreach($data as $key =&gt; $value) {
+        if($value[&#39;id&#39;] == $pid) {
+            $ancestry[] = $value;
+
+            Ancestry($data , $value[&#39;parent_id&#39;]);
+        }
+    }
+    return $ancestry;
+}</pre>
+
+<p>根据流程图，代码编写完成。注意上面存储结点的数组，即$ancestry，要添加静态化关键字static，否则每次递归都会将该数组初始化。当然也可以使用array_merge将每次返回的数组与上一次的进行合并。</p>
+
+<p>寻找家谱的关键就是条件判断，寻找的parent_id等于某个节点的id值，显然该节点就是要寻找的父节点。</p>
+
+<p>代码编写完成，来看看是否符合我们的预期，来寻找大杨镇的家谱：</p>
+
+<pre>
+Ancestry($address , 4);</pre>
+
+<p>结果：</p>
+
+<pre>
+Array
+(
+    [0] =&gt; Array
+        (
+            [id] =&gt; 4
+            [address] =&gt; 庐阳区
+            [parent_id] =&gt; 3
+        )
+    [1] =&gt; Array
+        (
+            [id] =&gt; 3
+            [address] =&gt; 合肥
+            [parent_id] =&gt; 1
+        )
+    [2] =&gt; Array
+        (
+            [id] =&gt; 1
+            [address] =&gt; 安徽
+            [parent_id] =&gt; 0
+        )
+)</pre>
+
+<p>可以看出结果与我们预期相符。那么家谱树的递归方法就完成了，下面来讲子孙树的实现。</p>
+
+<h3>子孙树的实现</h3>
+
+<p>依然使用上面的数据，子孙树是从父节点开始，向下寻找其子孙节点，而形成的一个树状图形。</p>
+
+<p>假设寻找id=0的子孙节点，那么就要注意所有parent_id=0的节点，这些节点都是id=0的子节点。然后，把parent_id=0节点的id作为查询id继续向下查询，直到查不到任何子节点为止。如下：</p>
+
+<p><img alt="子孙树的实现" src="http://www.51xuediannao.com/uploads/allimg/170110/14243AD4-1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+
+<h4>子孙树</h4>
+
+<p>流程图如下：</p>
+
+<p><img alt="子孙树流程图" src="http://www.51xuediannao.com/uploads/allimg/170110/14243642N-2.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+
+<h4>子孙树流程图</h4>
+
+<p>其流程与家谱树类似，不同点，也是关键点就是条件语句的执行。家谱树判断的是当前节点的id是否与上一个节点的parent_id相等；子孙树判断的是当前节点的parent_id与上一个节点的id相等，按照这种条件判断子孙树能够有多个子孙节点，而家谱树只能存在一个祖先。代码如下：</p>
+
+<pre>
+/**
+ * 获取子孙树
+ * @param   array        $data   待分类的数据
+ * @param   int/string   $id     要找的子节点id
+ * @param   int          $lev    节点等级
+ * <a href="http://www.51xuediannao.com/" target="_blank"><u>懒人建站</u></a>http://www.51xuediannao.com/
+ */
+ function getSubTree($data , $id = 0 , $lev = 0) {
+     static $son = array();
+
+     foreach($data as $key =&gt; $value) {
+         if($value[&#39;parent_id&#39;] == $id) {
+             $value[&#39;lev&#39;] = $lev;
+             $son[] = $value;
+             getSubTree($data , $value[&#39;id&#39;] , $lev+1);
+         }
+     }
+
+     return $son;
+ }</pre>
+
+<p>在函数中我添加了一个变量lev，为的是给存入的节点标注等级，方便看出子孙树的结构。下面来测试结果：</p>
+
+<pre>
+getSubTree($data , 0 , 0);</pre>
+
+<p>因篇幅有限，将结果进行部分处理：</p>
+
+<pre>
+foreach($tree as $k =&gt; $v) {
+    echo str_repeat(&#39;--&#39; , $v[&#39;lev&#39;]) . $v[&#39;address&#39;] . &#39;&lt;br/&gt;&#39;;
+}</pre>
+
+<p>结果：</p>
+
+<pre>
+安徽
+--合肥
+----庐阳区
+------大杨镇
+--安庆
+江苏
+--南京
+----玄武区
+------梅园新村街道
+上海
+--黄浦区
+----外滩</pre>
+
+<p>递归方式的家谱树与子孙树比较容易理解，只要对递归思想比较了解，一步步写下来不是很难。比起递归方式，迭代方式可能更加让人难以理解。下面就来介绍迭代方式的家谱树与子孙树编写。</p>
+
+<h2>&nbsp;迭代方式</h2>
+
+<h3>家谱树</h3>
+
+<p>完成跌代方式的家谱树之前，首先说一下寻找祖先节点的终止条件。虽然叫无限极分类，它不是绝对的无限，只是理论的无限。</p>
+
+<p>如同我国上下五千年历史，任一个大的姓氏，向上找其祖先，不是找到炎帝就是找到黄帝，在往前就没有历史记载了。所以在家谱树的寻找中也有终止条件，就是在分类数据中再也找不到它的父节点时，表现在实例数据上，就是不存在parent_id &lt; 0的节点。</p>
+
+<p>这也是完成迭代的关键，以其作为迭代条件，对数据进行循环判断，并把每次找到的节点的parent_id再次作为迭代条件，直到不满足迭代条件。流程图如下：</p>
+
+<p><img alt="家谱树迭代流程" src="http://www.51xuediannao.com/uploads/allimg/170110/14243B563-3.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+
+<h4>家谱树迭代流程</h4>
+
+<p>理清流程，现在开始完成代码编写：</p>
+
+<pre>
+function Ancestry($data , $pid) {
+    $ancestry = array();
+
+    while($pid &gt; 0) {
+        foreach($data as $v) {
+            if($v[&#39;id&#39;] == $pid) {
+                $ancestry[] = $v;
+
+                $pid = $v[&#39;parent_id&#39;];
+            }
+        }
+    }
+
+    return $ancestry;
+}</pre>
+
+<p>迭代条件$pid&gt;0，当pid&gt;0时说明还有祖先存在，可以继续迭代，否则说明没有祖先，迭代终止。$pid = $v[&#39;parent_id&#39;]是迭代继续进行的关键，每次找到祖先节点，就将祖先节点的父id传递给pid，进行下一次迭代。</p>
+
+<p>运行这个函数，结果与使用递归方式的结果一致。</p>
+
+<h3>子孙树的实现</h3>
+
+<p>使用迭代方式完成子孙树，更为复杂，需要运用的栈的思想。在进行迭代的过程中，将每次寻找的id入栈，找到一个节点，就将该节点从原数据中删除，当寻找到叶子节点时，即不存在子孙节点时，就将该叶子节点对应的id从栈中弹出，再寻找栈顶id的子孙节点，直到栈清空为止，迭代结束。下面用一个例子来说明：</p>
+
+<pre>
+$address = array(
+    array(&#39;id&#39;=&gt;1  , &#39;address&#39;=&gt;&#39;安徽&#39; , &#39;parent_id&#39; =&gt; 0),
+    array(&#39;id&#39;=&gt;2  , &#39;address&#39;=&gt;&#39;江苏&#39; , &#39;parent_id&#39; =&gt; 0),
+    array(&#39;id&#39;=&gt;3  , &#39;address&#39;=&gt;&#39;合肥&#39; , &#39;parent_id&#39; =&gt; 1),
+    array(&#39;id&#39;=&gt;4  , &#39;address&#39;=&gt;&#39;庐阳区&#39; , &#39;parent_id&#39; =&gt; 3),
+    array(&#39;id&#39;=&gt;5  , &#39;address&#39;=&gt;&#39;大杨镇&#39; , &#39;parent_id&#39; =&gt; 4),
+    array(&#39;id&#39;=&gt;6  , &#39;address&#39;=&gt;&#39;南京&#39; , &#39;parent_id&#39; =&gt; 2),
+    array(&#39;id&#39;=&gt;7  , &#39;address&#39;=&gt;&#39;玄武区&#39; , &#39;parent_id&#39; =&gt; 6),
+    array(&#39;id&#39;=&gt;8  , &#39;address&#39;=&gt;&#39;梅园新村街道&#39;, &#39;parent_id&#39; =&gt; 7),
+    array(&#39;id&#39;=&gt;9  , &#39;address&#39;=&gt;&#39;上海&#39; , &#39;parent_id&#39; =&gt; 0),
+    array(&#39;id&#39;=&gt;10 , &#39;address&#39;=&gt;&#39;黄浦区&#39; , &#39;parent_id&#39; =&gt; 9),
+    array(&#39;id&#39;=&gt;11 , &#39;address&#39;=&gt;&#39;外滩&#39; , &#39;parent_id&#39; =&gt; 10)
+    array(&#39;id&#39;=&gt;12 , &#39;address&#39;=&gt;&#39;安庆&#39; , &#39;parent_id&#39; =&gt; 1)
+    );</pre>
+
+<p>寻找id=0的子孙节点，id=0入栈，寻找到该节点，为</p>
+
+<pre>
+array(&#39;id&#39;=&gt;1  , &#39;address&#39;=&gt;&#39;安徽&#39; , &#39;parent_id&#39; =&gt; 0)</pre>
+
+<p>此时栈为[0]，并且将该节点从原数据中删除，再将id=1入栈，寻找id=1的子孙节点，找到为：</p>
+
+<pre>
+array(&#39;id&#39;=&gt;3  , &#39;address&#39;=&gt;&#39;合肥&#39; , &#39;parent_id&#39; =&gt; 1),</pre>
+
+<p>此时栈[0][1],将该节点删除，id=3入栈，寻找id=3的子孙节点，找到：</p>
+
+<pre>
+array(&#39;id&#39;=&gt;4  , &#39;address&#39;=&gt;&#39;庐阳区&#39; , &#39;parent_id&#39; =&gt; 3)</pre>
+
+<p>栈[0][1][3]，将该节点删除，id=4入栈，寻找id=4的子孙节点，找到：</p>
+
+<pre>
+array(&#39;id&#39;=&gt;5  , &#39;address&#39;=&gt;&#39;大杨镇&#39;         , &#39;parent_id&#39; =&gt; 4),</pre>
+
+<p>栈[0][1][3][4]，将该节点删除，id=5入栈，栈[0][1][3][4][5]，并寻找id=5的子节点，遍历后未找到，于是将id=5出栈，再次寻找id=4的子孙节点，依次进行。最后完成整个迭代。</p>
+
+<p>期间，栈的情况如下：</p>
+
+<pre>
+[0]
+[0][1]
+[0][1][3]
+[0][1][3][4]
+[0][1][3][4][5]
+[0][1][3][4]
+[0][1][3]
+[0][1]
+[0][1][12]
+[0][1]
+[0]
+&hellip;&hellip;</pre>
+
+<p>代码如下：</p>
+
+<pre>
+function getSubTree($data , $id = 0) {
+    $task = array($id);                          # 栈 任务表
+    $son = array();
+    //懒人建站http://www.51xuediannao.com/
+    while(!empty($task)) {
+        $flag = false;                           # 是否找到节点标志
+        foreach($data as $k =&gt; $v) {
+
+            # 判断是否是子孙节点的条件 与 递归方式一致
+            if($v[&#39;parent_id&#39;] == $id) {
+                $son[] = $v;                     # 节点存入数组
+                array_push($task , $v[&#39;id&#39;]);    # 节点id入栈
+                $id = $v[&#39;id&#39;];                  # 判断条件切换
+                unset($data[$k]);                # 删除节点
+                $flag = true;                    # 找到节点标志
+            }
+        }
+
+        # flag == false说明已经到了叶子节点 无子孙节点了
+        if($flag == false) {
+            array_pop($task);                    # 出栈
+            $id = end($task);                    # 寻找栈顶id的子节点
+        }
+    }
+    return $son;
+}</pre>
+
+<p>这里找到节点后必须把该节点从原数据中删除，否则会造成每次都找到该节点，形成无限迭代的bug。在这里利用数组函数array_push与array_pop模拟进栈与出栈操作。</p>
+
+<p>利用迭代完成子孙树比较复杂，且我没有测试过这个与递归方式谁的效率高，不过利用迭代完成家谱树明显比起递归方法效率高。</p>
+
+<h2>&nbsp;无限极分类方法的实际应用</h2>
+
+<h3>面包屑导航</h3>
+
+<p>说完了无限极分类的实现原理与方法，现在来说说在网站中对无限极分类的应用。最常用的就是面包屑导航了。</p>
+
+<p>什么是面包屑导航，这个称呼来自于童话故事&quot;汉赛尔和格莱特&quot;，具体什么故事就不叙述了，有兴趣的可以去谷歌一下。面包屑导航的作用就是告诉访问者他们目前在网站中的位置以及如何返回。下图就是一个典型的面包屑导航。</p>
+
+<p><img alt="面包屑导航" src="http://www.51xuediannao.com/uploads/allimg/170110/14243C260-4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+
+<h4>面包屑导航</h4>
+
+<p>面包屑是一个典型家谱树的应用，不要看它是从左到右，分类级数越来越低，就认为它是子孙树应用，要知道子孙树是可能存在多个分支，而面包屑导航要求的是一条主干。</p>
+
+<p>将上面家谱树代码做一定修改，就能够完成面包屑导航。我们采用递归方式的家谱树。代码如下：</p>
+
+<pre>
+function Ancestry($data , $pid) {
+    static $ancestry = array();
+
+    foreach($data as $key =&gt; $value) {
+        if($value[&#39;id&#39;] == $pid) {
+
+            Ancestry($data , $value[&#39;parent_id&#39;]);
+
+            $ancestry[] = $value;                
+        }
+    }
+    return $ancestry;
+}</pre>
+
+<p>如果先进行递归调用，在递归结束再将找到的节点存入数组中，就能够使祖先节点排列在数组前列，子孙节点排列在数组后列，方便进行提取数据。</p>
+
+<p>简化演示步骤，不从数据库中取出数据，改为模拟数据：</p>
+
+<pre>
+ $tmp = array(
+    array(&#39;cate_id&#39;=1 , &#39;name&#39;=&gt;&#39;首页&#39; , &#39;parent_id&#39;=&gt;&#39;0&#39;),
+    array(&#39;cate_id&#39;=2 , &#39;name&#39;=&gt;&#39;新闻中心&#39; , &#39;parent_id&#39;=&gt;&#39;1&#39;),
+    array(&#39;cate_id&#39;=3 , &#39;name&#39;=&gt;&#39;娱乐新闻&#39; , &#39;parent_id&#39;=&gt;&#39;2&#39;),
+    array(&#39;cate_id&#39;=4 , &#39;name&#39;=&gt;&#39;军事要闻&#39; , &#39;parent_id&#39;=&gt;&#39;2&#39;),
+    array(&#39;cate_id&#39;=5 , &#39;name&#39;=&gt;&#39;体育新闻&#39; , &#39;parent_id&#39;=&gt;&#39;2&#39;),
+    array(&#39;cate_id&#39;=6 , &#39;name&#39;=&gt;&#39;博客&#39; , &#39;parent_id&#39;=&gt;&#39;1&#39;),
+    array(&#39;cate_id&#39;=7 , &#39;name&#39;=&gt;&#39;旅游日志&#39; , &#39;parent_id&#39;=&gt;&#39;6&#39;),
+    array(&#39;cate_id&#39;=8 , &#39;name&#39;=&gt;&#39;心情&#39; , &#39;parent_id&#39;=&gt;&#39;6&#39;),
+    array(&#39;cate_id&#39;=9 , &#39;name&#39;=&gt;&#39;小小说&#39; , &#39;parent_id&#39;=&gt;&#39;6&#39;),
+    array(&#39;cate_id&#39;=10 , &#39;name&#39;=&gt;&#39;明星&#39; , &#39;parent_id&#39;=&gt;&#39;3&#39;),
+    array(&#39;cate_id&#39;=11 , &#39;name&#39;=&gt;&#39;网红&#39; , &#39;parent_id&#39;=&gt;&#39;3&#39;)
+    );</pre>
+
+<p>假设用户点进明星导航，那么在网站显示的导航为：</p>
+
+<pre>
+$tree = Ancestry($tmp , 10);
+foreach ($tree as $key =&gt; $value) {
+    echo $value[&#39;name&#39;] . &#39;&gt;&#39;;
+}</pre>
+
+<p><img src="http://www.51xuediannao.com/uploads/allimg/170110/14243A636-5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+
+<p>面包屑导航</p>
+
+<h3>防止设置父类为子类</h3>
+
+<p>在网站建立中，可能会碰到用户进行编辑时出现误操作，将某个栏目的父节点设置成了该栏目的子节点，进行这样的设置后会导致数据库中的数据丢失，因此在进行数据更新之前应该注意这一点。</p>
+
+<p>利用家谱树，就能够避免发生这种错误。在用户提交表单时，我们将即将修改栏目的父节点的家谱树取出，并对家谱树进行遍历，如果发现该家谱树中发现了要修改的节点，就说明是错误操作。有点绕，举个例子来说明：</p>
+
+<p>修改栏目新闻中心的父节点为娱乐新闻，就把娱乐新闻的家谱树取出来：</p>
+
+<blockquote>
+<p>娱乐新闻 新闻中心 首页</p>
+</blockquote>
+
+<p>在该家谱树中发现要修改的节点，新闻中心，那么说明出现了错误。具体代码如下：</p>
+
+<pre>
+$data = Ancestry($tmp , 3);
+foreach ($data as $key =&gt; $value) {
+    if($value[&#39;cate_id&#39;] == 3) {
+        echo  &#39;Error&#39;;
+        break;
+    }
+}</pre>
+
+				    </div>
+	              <div class="col-md-4 fh5co-project-detail">
+	              	<div class="fh5co-project-service">
+	              	<h3>评论</h3>
+	              						 	
+					  <div id="discuss_essay" class="discuss_essay">
+   	
+   	
+   	
+   	<script>
+			var re=[];
+			var a_id=40;
+			var html='';
+		     
+			var h=tree(re,0);
+			document.getElementById("discuss_essay").innerHTML =h;
+			function tree(arr,pid){	
+				var lsz='';
+				for(var v in arr){ 
+					    if(arr[v]['p_u_id']==pid){
+		
+		if(arr[v]['p_u_id']==0){
+		lsz='</div><div class="discuss_essay_list">'+
+		'<a class="discuss_essay_list_img" href="#"><img src="'+arr[v]['u_haerd']+'" /></a>'+
+   		'<div class="discuss_essay_list_top"><span>'+arr[v]['name']+'</span>'+arr[v]['info_time']+'<span reply="'+arr[v]['id']+'" class="discuss_essay_list_top_h">回复</span></div>'+
+   		'<div class="discuss_essay_list_cent">'+arr[v]['text']+'</div>';
+   	    }else{
+   	    lsz='</div><div class="discuss_essay_c_list">'+
+		'<a class="discuss_essay_list_img" href="#"><img src="'+arr[v]['u_haerd']+'" /></a>'+
+   		'<div class="discuss_essay_list_top"><span>'+arr[v]['name']+' 回复 '+arr[v]['p_name']+'</span>'+arr[v]['info_time']+'<span reply="'+arr[v]['id']+'" class="discuss_essay_list_top_h">回复</span></div>'+
+   		'<div class="discuss_essay_list_cent">'+arr[v]['text']+'</div>';	
+   	    }
+					    	html=html+lsz;
+					    	tree(arr,arr[v]['id']);					    	
+					    }
+                         }
+				return html;
+			}
+			
+			
+		</script> 	
+   	<div class="discuss_essay_list">
+   		<div class="discuss_essay_c_list">
+   	     	<div class="discuss_essay_list_info">
+   	     		<textarea id="info"></textarea>
+   	     		<span onclick="tj(40,0)">提交</span>
+   	     	</div>
+   	     </div>
+   	</div>
+   	
+   </div>
+	              	
+	              	
+	              	</div>
+					<div class="fh5co-project-service">
+						<h3>栏目最新</h3>
+						<ul>
+							                                <li><a href="http://www.qinpl.cn/Myplphp/50.html" title="UCenter API使用入门" target="_blank">UCenter API使用入门</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/49.html" title="sphinx的配置文件" target="_blank">sphinx的配置文件</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/48.html" title="PHP中利用PHPMailer配合QQ邮箱实现发邮件" target="_blank">PHP中利用PHPMailer配合QQ邮箱实现发邮件</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/43.html" title="搜索获取淘宝商品信息" target="_blank">搜索获取淘宝商品信息</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/42.html" title="PHP 5.3.6及以前版本的PDO的bindParam,bindValue潜在的安全隐患" target="_blank">PHP 5.3.6及以前版本的PDO的bindParam,bindValue潜在的安全隐患</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/41.html" title="高并发常用手段" target="_blank">高并发常用手段</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/40.html" title="递归方式和迭代方式实现无限极分类" target="_blank">递归方式和迭代方式实现无限极分类</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/39.html" title="PHP常用算法和数据结构示例" target="_blank">PHP常用算法和数据结构示例</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/38.html" title="php 实现的基本数据结构" target="_blank">php 实现的基本数据结构</a></li>
+                              						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!-- END container-wrap -->
+
+	<div class="container-wrap">
+		<footer id="fh5co-footer" role="contentinfo">
+			<div class="row">
+				<div class="col-md-3 fh5co-widget">
+					<h4>About Neat</h4>
+					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
+				</div>
+				<div class="col-md-3 col-md-push-1">
+					<h4>最新更新</h4>
+					<ul class="fh5co-footer-links">
+						                        <li><a href="http://www.qinpl.cn/Mypllinux/53.html" target="_blank">Nginx和PHP-FPM</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplmsql/52.html" target="_blank">MySQL replace</a></li>
+                                                <li><a href="http://www.qinpl.cn/Mypllinux/51.html" target="_blank">Linux 定时任务</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplphp/50.html" target="_blank">UCenter API使用</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplphp/49.html" target="_blank">sphinx的配置文件</a></li>
+                        					</ul>
+				</div>
+
+				<div class="col-md-3 col-md-push-1">
+					<h4>友情链接</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="http://www.codejie.net/" target="_blank">源码街</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-3">
+					<h4>联系方式</h4>
+					<ul class="fh5co-footer-links">
+						<li>tel:<a href="tel://18883768578">18883768578</a></li>
+						<li>e mail:<a href="mailto:1017962047@qq.com">1017962047@qq.com</a></li>
+						<li><a href="http://www.qinpl.cn/">www.qinpl.cn</a></li>
+					</ul>
+				</div>
+
+			</div>
+
+			<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+						<small class="block"><a href="http://www.qinpl.cn/sitemap.xml" target="_blank">网站地图</a> Design by DanceSmile <a href="http://www.miitbeian.gov.cn" target="_blank">蜀ICP备17013559号-1</a></small>
+					</p>
+					<p>
+						<ul class="fh5co-social-icons">
+							<li><a href="#"><i class="icon-twitter"></i></a></li>
+							<li><a href="#"><i class="icon-facebook"></i></a></li>
+							<li><a href="#"><i class="icon-linkedin"></i></a></li>
+							<li>
+								<script type="text/javascript">
+  		var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+  		document.write(unescape("%3Cspan id='cnzz_stat_icon_1261808781'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261808781%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+                               </script>                  
+							</li>
+						</ul>
+					</p>
+				</div>
+			</div>
+		</footer>
+	</div><!-- END container-wrap -->	
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.flexslider-min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.magnific-popup.min.js"></script>
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\magnific-popup-options.js"></script>
+	<!-- Counters -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.countTo.js"></script>
+	<!-- Main -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\main.js"></script>
+
+	<div class="list_zezao">
+	<div class="v_k">
+      <div class="cols"><span>X</span></div>
+      <div id="u_login"></div>
+     
+      		<a href="http://www.qinpl.cn/admin/Qqlater/Login?qurl=oZKvKfK/40"></a>
+
+	</div>
+</div>
+	<script type="text/javascript" src="http://www.qinpl.cn\api\admin\vendor\static/js/config.js" ></script>
+	<script type="text/javascript" src="http://www.qinpl.cn\api\admin\vendor\static/js/new.js" ></script>
+
+	</body>
+</html>
+

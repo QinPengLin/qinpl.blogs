@@ -1,0 +1,641 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>PHP常用算法和数据结构示例 - 秦鹏林的个人博客</title>
+    	<!-- Facebook and Twitter integration -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!--<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\css.css" rel="stylesheet">
+	<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\css_f.css" rel="stylesheet">-->
+	<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\my_css.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\magnific-popup.css">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\flexslider.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\style.css">
+
+	<!-- Modernizr JS -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+
+	</head>
+	<style>
+		img{width: 100%;}
+	</style>
+	<body>
+		
+	<!--<div class="fh5co-loader"></div>-->
+	
+	<div id="page">
+	<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<div style="display: none;" >
+				<img src="http://www.qinpl.cn\api\admin\vendor\static\img\logo.png" />
+</div>
+<nav class="fh5co-nav" role="navigation">
+            
+		<div class="container-wrap">
+			<div class="top-menu">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="/">Qin</a></div>
+					</div>
+					
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+						
+							<li ><a href="/">首页</a></li>
+				            				            							<li class="  active   has-dropdown "><a href="/Mypl/">我的编程人生</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/Myplphp/">php</a></li>
+                                    									<li><a href="/Mypljs/">js</a></li>
+                                    									<li><a href="/Mypllinux/">linux</a></li>
+                                    									<li><a href="/Myplnginx/">nginx</a></li>
+                                    									<li><a href="/Myplmsql/">msql</a></li>
+                                    								</ul>
+							   							</li>
+											            							<li class="   has-dropdown "><a href="/fare/">旅行</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/fare2012/">2012</a></li>
+                                    									<li><a href="/fare2017/">2017</a></li>
+                                    								</ul>
+							   							</li>
+											            							<li class="   has-dropdown "><a href="/Download/">下载区</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/Downloadjs/">js下载</a></li>
+                                    									<li><a href="/Downloadphp/">php下载</a></li>
+                                    									<li><a href="/Downloadxtym/">系统源码下载</a></li>
+                                    									<li><a href="/Downloadqtmb/">前台模板下载</a></li>
+                                    								</ul>
+							   							</li>
+													</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>	<div class="container-wrap">	
+		<div id="fh5co-work">
+			<div class="row">
+			
+				<div class="col-md-8" >
+					<span style="border-bottom: 1px solid #CCCCCC;width: 100%;padding-bottom: 10px;" class="fh5co-project-sub qin_list_span">您当前的位置：<a href="/">首页</a>&nbsp;&gt;&nbsp;<a href="/Mypl/">我的编程人生</a>&nbsp;&gt;&nbsp;<a href="/Myplphp/">php</a></span>
+					<h2 style="margin: 20px 0 10px 0;" class="fh5co-project-title qin_list_h">PHP常用算法和数据结构示例</h2>
+					<span style="margin-bottom: 20px;" class="fh5co-project-sub">发布时间：2017-05-05 06 作者：秦</span>
+					 <p>&lt;/pre&gt;&lt;pre name=&quot;code&quot; class=&quot;php&quot;&gt;&lt;?php &nbsp;<br />
+/**&nbsp;<br />
+&nbsp;* Created by PhpStorm.&nbsp;<br />
+&nbsp;* User: qishou&nbsp;<br />
+&nbsp;* Date: 15-8-2&nbsp;<br />
+&nbsp;* Time: 上午9:12&nbsp;<br />
+&nbsp;*/ &nbsp;<br />
+header(&quot;content-type:text/html;charset=utf-8&quot;); &nbsp;<br />
+$arr = array(3,5,8,4,9,6,1,7,2); &nbsp;<br />
+echo implode(&quot; &quot;,$arr).&quot;&lt;br/&gt;&quot;; &nbsp;<br />
+//--------------------------------------- &nbsp;<br />
+// &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;常用排序算法 &nbsp;<br />
+//--------------------------------------- &nbsp;<br />
+//冒泡排序 &nbsp;<br />
+function BubbleSort($arr){ &nbsp;<br />
+&nbsp; &nbsp; $length = count($arr); &nbsp;<br />
+&nbsp; &nbsp; if($length&lt;=1){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; return $arr; &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; for($i=0;$i&lt;$length;$i++){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; for($j=$length-1;$j&gt;$i;$j--){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if($arr[$j]&lt;$arr[$j-1]){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $tmp = $arr[$j]; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $arr[$j] = $arr[$j-1]; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $arr[$j-1] = $tmp; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; return $arr; &nbsp;<br />
+} &nbsp;<br />
+echo &#39;冒泡排序：&#39;; &nbsp;<br />
+echo implode(&#39; &#39;,BubbleSort($arr)).&quot;&lt;br/&gt;&quot;; &nbsp;<br />
+&nbsp;&nbsp;<br />
+//快速排序 &nbsp;<br />
+function QSort($arr){ &nbsp;<br />
+&nbsp; &nbsp; $length = count($arr); &nbsp;<br />
+&nbsp; &nbsp; if($length &lt;=1){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; return $arr; &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; $pivot = $arr[0];//枢轴 &nbsp;<br />
+&nbsp; &nbsp; $left_arr = array(); &nbsp;<br />
+&nbsp; &nbsp; $right_arr = array(); &nbsp;<br />
+&nbsp; &nbsp; for($i=1;$i&lt;$length;$i++){//注意$i从1开始0是枢轴 &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; if($arr[$i]&lt;=$pivot){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $left_arr[] = $arr[$i]; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }else{ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $right_arr[] = $arr[$i]; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; $left_arr = QSort($left_arr);//递归排序左半部分 &nbsp;<br />
+&nbsp; &nbsp; $right_arr = QSort($right_arr);//递归排序右半部份 &nbsp;<br />
+&nbsp; &nbsp; return array_merge($left_arr,array($pivot),$right_arr);//合并左半部分、枢轴、右半部分 &nbsp;<br />
+} &nbsp;<br />
+echo &quot;快速排序：&quot;; &nbsp;<br />
+echo implode(&#39; &#39;,QSort($arr)).&quot;&lt;br/&gt;&quot;; &nbsp;<br />
+&nbsp;&nbsp;<br />
+//选择排序(不稳定) &nbsp;<br />
+function SelectSort($arr){ &nbsp;<br />
+&nbsp; &nbsp; $length = count($arr); &nbsp;<br />
+&nbsp; &nbsp; if($length&lt;=1){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; return $arr; &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; for($i=0;$i&lt;$length;$i++){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $min = $i; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; for($j=$i+1;$j&lt;$length;$j++){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if($arr[$j]&lt;$arr[$min]){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $min = $j; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; if($i != $min){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $tmp = $arr[$i]; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $arr[$i] = $arr[$min]; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $arr[$min] = $tmp; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; return $arr; &nbsp;<br />
+} &nbsp;<br />
+echo &quot;选择排序：&quot;; &nbsp;<br />
+echo implode(&#39; &#39;,SelectSort($arr)).&quot;&lt;br/&gt;&quot;; &nbsp;<br />
+&nbsp;&nbsp;<br />
+//插入排序 &nbsp;<br />
+function InsertSort($arr){ &nbsp;<br />
+&nbsp; &nbsp; $length = count($arr); &nbsp;<br />
+&nbsp; &nbsp; if($length &lt;=1){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; return $arr; &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; for($i=1;$i&lt;$length;$i++){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $x = $arr[$i]; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $j = $i-1; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; while($x&lt;$arr[$j] &amp;&amp; $j&gt;=0){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $arr[$j+1] = $arr[$j]; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $j--; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $arr[$j+1] = $x; &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; return $arr; &nbsp;<br />
+} &nbsp;<br />
+echo &#39;插入排序：&#39;; &nbsp;<br />
+echo implode(&#39; &#39;,InsertSort($arr)).&quot;&lt;br/&gt;&quot;; &nbsp;<br />
+//--------------------------------------- &nbsp;<br />
+// &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;常用查找算法 &nbsp;<br />
+//--------------------------------------- &nbsp;<br />
+//二分查找 &nbsp;<br />
+function binary_search($arr,$low,$high,$key){ &nbsp;<br />
+&nbsp; &nbsp; while($low&lt;=$high){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $mid = intval(($low+$high)/2); &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; if($key == $arr[$mid]){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return $mid+1; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }elseif($key&lt;$arr[$mid]){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $high = $mid-1; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }elseif($key&gt;$arr[$mid]){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $low = $mid+1; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; return -1; &nbsp;<br />
+} &nbsp;<br />
+$key = 6; &nbsp;<br />
+echo &quot;二分查找{$key}的位置：&quot;; &nbsp;<br />
+echo binary_search(QSort($arr),0,8,$key); &nbsp;<br />
+&nbsp;&nbsp;<br />
+//顺序查找 &nbsp;<br />
+function SqSearch($arr,$key){ &nbsp;<br />
+&nbsp; &nbsp; $length = count($arr); &nbsp;<br />
+&nbsp; &nbsp; for($i=0;$i&lt;$length;$i++){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; if($key == $arr[$i]){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return $i+1; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; return -1; &nbsp;<br />
+} &nbsp;<br />
+$key = 8; &nbsp;<br />
+echo &quot;&lt;br/&gt;顺序常规查找{$key}的位置：&quot;; &nbsp;<br />
+echo SqSearch($arr,$key); &nbsp;<br />
+//--------------------------------------- &nbsp;<br />
+// &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;常用数据结构 &nbsp;<br />
+//--------------------------------------- &nbsp;<br />
+//线性表的删除(数组实现) &nbsp;<br />
+function delete_array_element($arr,$pos){ &nbsp;<br />
+&nbsp; &nbsp; $length = count($arr); &nbsp;<br />
+&nbsp; &nbsp; if($pos&lt;1 || $pos&gt;$length){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; return &quot;删除位置出错!&quot;; &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; for($i=$pos-1;$i&lt;$length-1;$i++){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $arr[$i] = $arr[$i+1]; &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; array_pop($arr); &nbsp;<br />
+&nbsp; &nbsp; return $arr; &nbsp;<br />
+} &nbsp;<br />
+$pos = 3; &nbsp;<br />
+echo &quot;&lt;br/&gt;除第{$pos}位置上的元素后：&quot;; &nbsp;<br />
+echo implode(&#39; &#39;,delete_array_element($arr,$pos)).&quot;&lt;br/&gt;&quot;; &nbsp;<br />
+&nbsp;&nbsp;<br />
+/**&nbsp;<br />
+&nbsp;* Class Node&nbsp;<br />
+&nbsp;* PHP模拟链表的基本操作&nbsp;<br />
+&nbsp;*/ &nbsp;<br />
+class Node{ &nbsp;<br />
+&nbsp; &nbsp; public $data = &#39;&#39;; &nbsp;<br />
+&nbsp; &nbsp; public &nbsp;$next = null; &nbsp;<br />
+} &nbsp;<br />
+//初始化 &nbsp;<br />
+function init($linkList){ &nbsp;<br />
+&nbsp; &nbsp; $linkList-&gt;data = 0; //用来记录链表长度 &nbsp;<br />
+&nbsp; &nbsp; $linkList-&gt;next = null; &nbsp;<br />
+} &nbsp;<br />
+//头插法创建链表 &nbsp;<br />
+function createHead(&amp;$linkList,$length){ &nbsp;<br />
+&nbsp; &nbsp; for($i=0;$i&lt;$length;$i++){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $newNode = new Node(); &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $newNode-&gt;data = $i; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $newNode-&gt;next = $linkList-&gt;next;//因为PHP中对象本身就是引用所以不用再可用&ldquo;&amp;&rdquo; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $linkList-&gt;next = $newNode; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $linkList-&gt;data++; &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+} &nbsp;<br />
+//尾插法创建链表 &nbsp;<br />
+function createTail(&amp;$linkList,$length){ &nbsp;<br />
+&nbsp; &nbsp; $r = $linkList; &nbsp;<br />
+&nbsp; &nbsp; for($i=0;$i&lt;$length;$i++){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $newNode = new Node(); &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $newNode-&gt;data = $i; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $newNode-&gt;next = $r-&gt;next; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $r-&gt;next = $newNode; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $r = $newNode; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $linkList-&gt;data++; &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+} &nbsp;<br />
+//在指定位置插入指定元素 &nbsp;<br />
+function insert($linkList,$pos,$elem){ &nbsp;<br />
+&nbsp; &nbsp; if($pos&lt;1 &amp;&amp; $pos&gt;$linkList-&gt;data+1){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; echo &quot;插入位置错误！&quot;; &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; $p = $linkList; &nbsp;<br />
+&nbsp; &nbsp; for($i=1;$i&lt;$pos;$i++){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $p = $p-&gt;next; &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; $newNode = new Node(); &nbsp;<br />
+&nbsp; &nbsp; $newNode-&gt;data = $elem; &nbsp;<br />
+&nbsp; &nbsp; $newNode-&gt;next = $p-&gt;next; &nbsp;<br />
+&nbsp; &nbsp; $p-&gt;next = $newNode; &nbsp;<br />
+} &nbsp;<br />
+//删除指定位置的元素 &nbsp;<br />
+function delete($linkList,$pos){ &nbsp;<br />
+&nbsp; &nbsp; if($pos&lt;1 &amp;&amp; $pos&gt;$linkList-&gt;data+1){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; echo &quot;位置不存在！&quot;; &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; $p = $linkList; &nbsp;<br />
+&nbsp; &nbsp; for($i=1;$i&lt;$pos;$i++){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $p = $p-&gt;next; &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; $q = $p-&gt;next; &nbsp;<br />
+&nbsp; &nbsp; $p-&gt;next = $q-&gt;next; &nbsp;<br />
+&nbsp; &nbsp; unset($q); &nbsp;<br />
+&nbsp; &nbsp; $linkList-&gt;data--; &nbsp;<br />
+} &nbsp;<br />
+//输出链表数据 &nbsp;<br />
+function show($linkList){ &nbsp;<br />
+&nbsp; &nbsp; $p = $linkList-&gt;next; &nbsp;<br />
+&nbsp; &nbsp; while($p!=null){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; echo $p-&gt;data.&quot; &quot;; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $p = $p-&gt;next; &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; echo &#39;&lt;br/&gt;&#39;; &nbsp;<br />
+} &nbsp;<br />
+&nbsp;&nbsp;<br />
+$linkList = new Node(); &nbsp;<br />
+init($linkList);//初始化 &nbsp;<br />
+createTail($linkList,10);//尾插法创建链表 &nbsp;<br />
+show($linkList);//打印出链表 &nbsp;<br />
+insert($linkList,3,&#39;a&#39;);//插入 &nbsp;<br />
+show($linkList); &nbsp;<br />
+delete($linkList,3);//删除 &nbsp;<br />
+show($linkList); &nbsp;<br />
+&nbsp;&nbsp;<br />
+/**&nbsp;<br />
+&nbsp;* Class Stack&nbsp;<br />
+&nbsp;* 用PHP模拟顺序栈的基本操作&nbsp;<br />
+&nbsp;*/ &nbsp;<br />
+class Stack{ &nbsp;<br />
+&nbsp; &nbsp; //用默认值直接初始化栈了，也可用构造方法初始化栈 &nbsp;<br />
+&nbsp; &nbsp; private $top = -1; &nbsp;<br />
+&nbsp; &nbsp; private $maxSize = 5; &nbsp;<br />
+&nbsp; &nbsp; private $stack = array(); &nbsp;<br />
+&nbsp;&nbsp;<br />
+&nbsp; &nbsp; //入栈 &nbsp;<br />
+&nbsp; &nbsp; public function push($elem){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; if($this-&gt;top &gt;= $this-&gt;maxSize-1){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; echo &quot;栈已满！&lt;br/&gt;&quot;; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $this-&gt;top++; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $this-&gt;stack[$this-&gt;top] = $elem; &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; //出栈 &nbsp;<br />
+&nbsp; &nbsp; public function pop(){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; if($this-&gt;top == -1){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; echo &quot;栈是空的！&quot;; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return ; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $elem = $this-&gt;stack[$this-&gt;top]; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; unset($this-&gt;stack[$this-&gt;top]); &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $this-&gt;top--; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; return $elem; &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; //打印栈 &nbsp;<br />
+&nbsp; &nbsp; public function show(){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; for($i=$this-&gt;top;$i&gt;=0;$i--){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; echo $this-&gt;stack[$i].&quot; &quot;; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; echo &quot;&lt;br/&gt;&quot;; &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+} &nbsp;<br />
+&nbsp;&nbsp;<br />
+$stack = new Stack(); &nbsp;<br />
+$stack-&gt;push(3); &nbsp;<br />
+$stack-&gt;push(5); &nbsp;<br />
+$stack-&gt;push(8); &nbsp;<br />
+$stack-&gt;push(7); &nbsp;<br />
+$stack-&gt;push(9); &nbsp;<br />
+$stack-&gt;push(2); &nbsp;<br />
+$stack-&gt;show(); &nbsp;<br />
+$stack-&gt;pop(); &nbsp;<br />
+$stack-&gt;pop(); &nbsp;<br />
+$stack-&gt;pop(); &nbsp;<br />
+$stack-&gt;show(); &nbsp;<br />
+&nbsp;&nbsp;<br />
+/**&nbsp;<br />
+&nbsp;* Class Deque&nbsp;<br />
+&nbsp;* 使用PHP实现双向队列&nbsp;<br />
+&nbsp;*/ &nbsp;<br />
+class Deque{ &nbsp;<br />
+&nbsp; &nbsp; private $queue = array(); &nbsp;<br />
+&nbsp; &nbsp; public function addFirst($item){//头入队 &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; array_unshift($this-&gt;queue,$item); &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; public function addLast($item){//尾入队 &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; array_push($this-&gt;queue,$item); &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; public function removeFirst(){//头出队 &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; array_shift($this-&gt;queue); &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; public function removeLast(){//尾出队 &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; array_pop($this-&gt;queue); &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; public &nbsp;function show(){//打印 &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; foreach($this-&gt;queue as $item){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; echo $item.&quot; &quot;; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; echo &quot;&lt;br/&gt;&quot;; &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+} &nbsp;<br />
+$deque = new Deque(); &nbsp;<br />
+$deque-&gt;addFirst(2); &nbsp;<br />
+$deque-&gt;addLast(3); &nbsp;<br />
+$deque-&gt;addLast(4); &nbsp;<br />
+$deque-&gt;addFirst(5); &nbsp;<br />
+$deque-&gt;show(); &nbsp;<br />
+&nbsp;&nbsp;<br />
+//PHP解决约瑟夫环问题 &nbsp;<br />
+//方法一 &nbsp;<br />
+function joseph_ring($n,$m){ &nbsp;<br />
+&nbsp; &nbsp; $arr = range(1,$n); &nbsp;<br />
+&nbsp; &nbsp; $i = 0; &nbsp;<br />
+&nbsp; &nbsp; while(count($arr)&gt;1){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $i=$i+1; &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $head = array_shift($arr); &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; if($i%$m != 0){ //如果不是则重新压入数组 &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; array_push($arr,$head); &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; return $arr[0]; &nbsp;<br />
+} &nbsp;<br />
+//方法二 &nbsp;<br />
+function joseph_ring2($n,$m){ &nbsp;<br />
+&nbsp; &nbsp; $r = 0; &nbsp;<br />
+&nbsp; &nbsp; for($i=2;$i&lt;=$n;$i++){ &nbsp;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; $r = ($r+$m)%$i; &nbsp;<br />
+&nbsp; &nbsp; } &nbsp;<br />
+&nbsp; &nbsp; return $r + 1; &nbsp;<br />
+} &nbsp;<br />
+echo &quot;&lt;br/&gt;&quot;.joseph_ring(60,5).&quot;&lt;br/&gt;&quot;; &nbsp;<br />
+echo &quot;&lt;br/&gt;&quot;.joseph_ring2(60,5).&quot;&lt;br/&gt;&quot;;&nbsp;<br />
+&nbsp;</p>
+
+				    </div>
+	              <div class="col-md-4 fh5co-project-detail">
+	              	<div class="fh5co-project-service">
+	              	<h3>评论</h3>
+	              						 	
+					  <div id="discuss_essay" class="discuss_essay">
+   	
+   	
+   	
+   	<script>
+			var re=[];
+			var a_id=39;
+			var html='';
+		     
+			var h=tree(re,0);
+			document.getElementById("discuss_essay").innerHTML =h;
+			function tree(arr,pid){	
+				var lsz='';
+				for(var v in arr){ 
+					    if(arr[v]['p_u_id']==pid){
+		
+		if(arr[v]['p_u_id']==0){
+		lsz='</div><div class="discuss_essay_list">'+
+		'<a class="discuss_essay_list_img" href="#"><img src="'+arr[v]['u_haerd']+'" /></a>'+
+   		'<div class="discuss_essay_list_top"><span>'+arr[v]['name']+'</span>'+arr[v]['info_time']+'<span reply="'+arr[v]['id']+'" class="discuss_essay_list_top_h">回复</span></div>'+
+   		'<div class="discuss_essay_list_cent">'+arr[v]['text']+'</div>';
+   	    }else{
+   	    lsz='</div><div class="discuss_essay_c_list">'+
+		'<a class="discuss_essay_list_img" href="#"><img src="'+arr[v]['u_haerd']+'" /></a>'+
+   		'<div class="discuss_essay_list_top"><span>'+arr[v]['name']+' 回复 '+arr[v]['p_name']+'</span>'+arr[v]['info_time']+'<span reply="'+arr[v]['id']+'" class="discuss_essay_list_top_h">回复</span></div>'+
+   		'<div class="discuss_essay_list_cent">'+arr[v]['text']+'</div>';	
+   	    }
+					    	html=html+lsz;
+					    	tree(arr,arr[v]['id']);					    	
+					    }
+                         }
+				return html;
+			}
+			
+			
+		</script> 	
+   	<div class="discuss_essay_list">
+   		<div class="discuss_essay_c_list">
+   	     	<div class="discuss_essay_list_info">
+   	     		<textarea id="info"></textarea>
+   	     		<span onclick="tj(39,0)">提交</span>
+   	     	</div>
+   	     </div>
+   	</div>
+   	
+   </div>
+	              	
+	              	
+	              	</div>
+					<div class="fh5co-project-service">
+						<h3>栏目最新</h3>
+						<ul>
+							                                <li><a href="http://www.qinpl.cn/Myplphp/50.html" title="UCenter API使用入门" target="_blank">UCenter API使用入门</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/49.html" title="sphinx的配置文件" target="_blank">sphinx的配置文件</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/48.html" title="PHP中利用PHPMailer配合QQ邮箱实现发邮件" target="_blank">PHP中利用PHPMailer配合QQ邮箱实现发邮件</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/43.html" title="搜索获取淘宝商品信息" target="_blank">搜索获取淘宝商品信息</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/42.html" title="PHP 5.3.6及以前版本的PDO的bindParam,bindValue潜在的安全隐患" target="_blank">PHP 5.3.6及以前版本的PDO的bindParam,bindValue潜在的安全隐患</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/41.html" title="高并发常用手段" target="_blank">高并发常用手段</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/40.html" title="递归方式和迭代方式实现无限极分类" target="_blank">递归方式和迭代方式实现无限极分类</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/39.html" title="PHP常用算法和数据结构示例" target="_blank">PHP常用算法和数据结构示例</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Myplphp/38.html" title="php 实现的基本数据结构" target="_blank">php 实现的基本数据结构</a></li>
+                              						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!-- END container-wrap -->
+
+	<div class="container-wrap">
+		<footer id="fh5co-footer" role="contentinfo">
+			<div class="row">
+				<div class="col-md-3 fh5co-widget">
+					<h4>About Neat</h4>
+					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
+				</div>
+				<div class="col-md-3 col-md-push-1">
+					<h4>最新更新</h4>
+					<ul class="fh5co-footer-links">
+						                        <li><a href="http://www.qinpl.cn/Mypllinux/53.html" target="_blank">Nginx和PHP-FPM</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplmsql/52.html" target="_blank">MySQL replace</a></li>
+                                                <li><a href="http://www.qinpl.cn/Mypllinux/51.html" target="_blank">Linux 定时任务</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplphp/50.html" target="_blank">UCenter API使用</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplphp/49.html" target="_blank">sphinx的配置文件</a></li>
+                        					</ul>
+				</div>
+
+				<div class="col-md-3 col-md-push-1">
+					<h4>友情链接</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="http://www.codejie.net/" target="_blank">源码街</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-3">
+					<h4>联系方式</h4>
+					<ul class="fh5co-footer-links">
+						<li>tel:<a href="tel://18883768578">18883768578</a></li>
+						<li>e mail:<a href="mailto:1017962047@qq.com">1017962047@qq.com</a></li>
+						<li><a href="http://www.qinpl.cn/">www.qinpl.cn</a></li>
+					</ul>
+				</div>
+
+			</div>
+
+			<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+						<small class="block"><a href="http://www.qinpl.cn/sitemap.xml" target="_blank">网站地图</a> Design by DanceSmile <a href="http://www.miitbeian.gov.cn" target="_blank">蜀ICP备17013559号-1</a></small>
+					</p>
+					<p>
+						<ul class="fh5co-social-icons">
+							<li><a href="#"><i class="icon-twitter"></i></a></li>
+							<li><a href="#"><i class="icon-facebook"></i></a></li>
+							<li><a href="#"><i class="icon-linkedin"></i></a></li>
+							<li>
+								<script type="text/javascript">
+  		var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+  		document.write(unescape("%3Cspan id='cnzz_stat_icon_1261808781'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261808781%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+                               </script>                  
+							</li>
+						</ul>
+					</p>
+				</div>
+			</div>
+		</footer>
+	</div><!-- END container-wrap -->	
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.flexslider-min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.magnific-popup.min.js"></script>
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\magnific-popup-options.js"></script>
+	<!-- Counters -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.countTo.js"></script>
+	<!-- Main -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\main.js"></script>
+
+	<div class="list_zezao">
+	<div class="v_k">
+      <div class="cols"><span>X</span></div>
+      <div id="u_login"></div>
+     
+      		<a href="http://www.qinpl.cn/admin/Qqlater/Login?qurl=oZKvKfK/39"></a>
+
+	</div>
+</div>
+	<script type="text/javascript" src="http://www.qinpl.cn\api\admin\vendor\static/js/config.js" ></script>
+	<script type="text/javascript" src="http://www.qinpl.cn\api\admin\vendor\static/js/new.js" ></script>
+
+	</body>
+</html>
+

@@ -1,0 +1,535 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Linux系统挂载未分配硬盘例子 - 秦鹏林的个人博客</title>
+    	<!-- Facebook and Twitter integration -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!--<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\css.css" rel="stylesheet">
+	<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\css_f.css" rel="stylesheet">-->
+	<link href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\my_css.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\magnific-popup.css">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\flexslider.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="http://www.qinpl.cn\api\admin\vendor\static\neat\css\style.css">
+
+	<!-- Modernizr JS -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+
+	</head>
+	<style>
+		img{width: 100%;}
+	</style>
+	<body>
+		
+	<!--<div class="fh5co-loader"></div>-->
+	
+	<div id="page">
+	<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<div style="display: none;" >
+				<img src="http://www.qinpl.cn\api\admin\vendor\static\img\logo.png" />
+</div>
+<nav class="fh5co-nav" role="navigation">
+            
+		<div class="container-wrap">
+			<div class="top-menu">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="/">Qin</a></div>
+					</div>
+					
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+						
+							<li ><a href="/">首页</a></li>
+				            				            							<li class="  active   has-dropdown "><a href="/Mypl/">我的编程人生</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/Myplphp/">php</a></li>
+                                    									<li><a href="/Mypljs/">js</a></li>
+                                    									<li><a href="/Mypllinux/">linux</a></li>
+                                    									<li><a href="/Myplnginx/">nginx</a></li>
+                                    									<li><a href="/Myplmsql/">msql</a></li>
+                                    								</ul>
+							   							</li>
+											            							<li class="   has-dropdown "><a href="/fare/">旅行</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/fare2012/">2012</a></li>
+                                    									<li><a href="/fare2017/">2017</a></li>
+                                    								</ul>
+							   							</li>
+											            							<li class="   has-dropdown "><a href="/Download/">下载区</a>
+							   <i></i>
+							   	<ul class="dropdown">
+							   											<li><a href="/Downloadjs/">js下载</a></li>
+                                    									<li><a href="/Downloadphp/">php下载</a></li>
+                                    									<li><a href="/Downloadxtym/">系统源码下载</a></li>
+                                    									<li><a href="/Downloadqtmb/">前台模板下载</a></li>
+                                    								</ul>
+							   							</li>
+													</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>	<div class="container-wrap">	
+		<div id="fh5co-work">
+			<div class="row">
+			
+				<div class="col-md-8" >
+					<span style="border-bottom: 1px solid #CCCCCC;width: 100%;padding-bottom: 10px;" class="fh5co-project-sub qin_list_span">您当前的位置：<a href="/">首页</a>&nbsp;&gt;&nbsp;<a href="/Mypl/">我的编程人生</a>&nbsp;&gt;&nbsp;<a href="/Mypllinux/">linux</a></span>
+					<h2 style="margin: 20px 0 10px 0;" class="fh5co-project-title qin_list_h">Linux系统挂载未分配硬盘例子</h2>
+					<span style="margin-bottom: 20px;" class="fh5co-project-sub">发布时间：2017-06-02 09 作者：秦（转载）</span>
+					 <p>挂载未分配硬盘这个为linux系统中的叫法其实就是安装硬盘了这个在windows中叫做安装硬盘，只不过在linux中需要通过命令来解决了，今天我们就一起来看一篇关于Linux系统挂载未分配硬盘例子，具体的细节如下所示。</p>
+
+<div style="-webkit-text-stroke-width:0px; padding:0px; text-align:start"><span style="font-size:15px"><span style="color:#444444"><span style="font-family:Simsun">首先，SSH使用root用户登陆，检查下当前硬盘空间使用状况：</span></span></span></div>
+
+<table align="center" style="-webkit-text-stroke-width:0px; background:#ffbb77; border:undefined; color:#444444; font-family:Simsun; font-size:15px; font-style:normal; font-variant-caps:normal; font-variant-ligatures:normal; font-weight:normal; letter-spacing:normal; orphans:2; text-align:start; text-transform:none; white-space:normal; widows:2; width:620px; word-spacing:0px">
+	<tbody>
+		<tr>
+			<td style="background-color:#ffbb77">&nbsp;代码如下</td>
+			<td style="background-color:#ffbb77">复制代码</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="background-color:#ffbb77">
+			<div style="padding:10px"><span style="font-size:12px"><span style="color:#000000">fdisk &ndash;l</span></span></div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<div style="-webkit-text-stroke-width:0px; padding:0px; text-align:start"><span style="font-size:15px"><span style="color:#444444"><span style="font-family:Simsun"><img alt="disk01" src="http://www.111cn.net/get_pic/2016/02/11/20160211221350276.jpg" style="border:1px solid #e6e6e6; display:block; height:243px; margin:0px auto; max-width:100%; width:559px" title="disk01" /></span></span></span></div>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<div style="-webkit-text-stroke-width:0px; padding:0px; text-align:start"><span style="font-size:15px"><span style="color:#444444"><span style="font-family:Simsun">如上图我买的这个VPS硬盘为15GB，已分配10GB左右，剩余未分配约5GB。然后我们看看目前空间的使用情况：</span></span></span></div>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<table align="center" style="-webkit-text-stroke-width:0px; background:#ffbb77; border:undefined; color:#444444; font-family:Simsun; font-size:15px; font-style:normal; font-variant-caps:normal; font-variant-ligatures:normal; font-weight:normal; letter-spacing:normal; orphans:2; text-align:start; text-transform:none; white-space:normal; widows:2; width:620px; word-spacing:0px">
+	<tbody>
+		<tr>
+			<td style="background-color:#ffbb77">&nbsp;代码如下</td>
+			<td style="background-color:#ffbb77">复制代码</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="background-color:#ffbb77">&nbsp;
+			<div style="padding:10px"><span style="font-size:12px"><span style="color:#000000">df &ndash;hal</span></span></div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<div style="-webkit-text-stroke-width:0px; padding:0px; text-align:start"><span style="font-size:15px"><span style="color:#444444"><span style="font-family:Simsun"><img alt="disk02" src="http://www.111cn.net/get_pic/2016/02/11/20160211221355423.jpg" style="border:1px solid #e6e6e6; display:block; height:181px; margin:0px auto; max-width:100%; width:559px" title="disk02" /></span></span></span></div>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<div style="-webkit-text-stroke-width:0px; padding:0px; text-align:start"><span style="font-size:15px"><span style="color:#444444"><span style="font-family:Simsun">下面，我们要开始增加分区的操作了。首先如下命令：</span></span></span></div>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<table align="center" style="-webkit-text-stroke-width:0px; background:#ffbb77; border:undefined; color:#444444; font-family:Simsun; font-size:15px; font-style:normal; font-variant-caps:normal; font-variant-ligatures:normal; font-weight:normal; letter-spacing:normal; orphans:2; text-align:start; text-transform:none; white-space:normal; widows:2; width:620px; word-spacing:0px">
+	<tbody>
+		<tr>
+			<td style="background-color:#ffbb77">&nbsp;代码如下</td>
+			<td style="background-color:#ffbb77">复制代码</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="background-color:#ffbb77">&nbsp;
+			<div style="padding:10px"><span style="font-size:12px"><span style="color:#000000">fdisk /dev/xvdb</span></span></div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<div style="-webkit-text-stroke-width:0px; padding:0px; text-align:start"><span style="font-size:15px"><span style="color:#444444"><span style="font-family:Simsun"><img alt="disk03" src="http://www.111cn.net/get_pic/2016/02/11/20160211221357805.jpg" style="border:1px solid #e6e6e6; display:block; height:417px; margin:0px auto; max-width:100%; width:559px" title="disk03" /></span></span></span></div>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<div style="-webkit-text-stroke-width:0px; padding:0px; text-align:start"><span style="font-size:15px"><span style="color:#444444"><span style="font-family:Simsun">接下来，如上图中依次输入如下命令(#后面是注释)：</span></span></span></div>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<table align="center" style="-webkit-text-stroke-width:0px; background:#ffbb77; border:undefined; color:#444444; font-family:Simsun; font-size:15px; font-style:normal; font-variant-caps:normal; font-variant-ligatures:normal; font-weight:normal; letter-spacing:normal; orphans:2; text-align:start; text-transform:none; white-space:normal; widows:2; width:620px; word-spacing:0px">
+	<tbody>
+		<tr>
+			<td style="background-color:#ffbb77">&nbsp;代码如下</td>
+			<td style="background-color:#ffbb77">复制代码</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="background-color:#ffbb77">&nbsp;
+			<div style="padding:10px"><span style="font-size:12px"><span style="color:#000000">n #新建分区</span></span></div>
+			&nbsp;
+
+			<div style="padding:10px"><span style="font-size:12px"><span style="color:#000000">p #主分区</span></span></div>
+			&nbsp;
+
+			<div style="padding:10px"><span style="font-size:12px"><span style="color:#000000">3 #第3个分区</span></span></div>
+			&nbsp;
+
+			<div style="padding:10px"><span style="font-size:12px"><span style="color:#000000">回车 #默认即可</span></span></div>
+			&nbsp;
+
+			<div style="padding:10px"><span style="font-size:12px"><span style="color:#000000">回车 #默认即可</span></span></div>
+			&nbsp;
+
+			<div style="padding:10px"><span style="font-size:12px"><span style="color:#000000">t #指定分区格式</span></span></div>
+			&nbsp;
+
+			<div style="padding:10px"><span style="font-size:12px"><span style="color:#000000">8e #分区格式为LVM</span></span></div>
+			&nbsp;
+
+			<div style="padding:10px"><span style="font-size:12px"><span style="color:#000000">w #保存</span></span></div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<div style="-webkit-text-stroke-width:0px; padding:0px; text-align:start"><span style="font-size:15px"><span style="color:#444444"><span style="font-family:Simsun">最后，我们输入<span style="color:#ff0000">reboot</span>重启下VPS。这时，SSH连接会断开，待VPS重启完成后，再次SSH登陆。这时再次查看(<span style="color:#ff0000">fdisk &ndash;l</span>)，就能看到我们增加的分区了。</span></span></span></div>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<div style="-webkit-text-stroke-width:0px; padding:0px; text-align:start"><span style="font-size:15px"><span style="color:#444444"><span style="font-family:Simsun"><img alt="disk04" src="http://www.111cn.net/get_pic/2016/02/11/20160211221359694.jpg" style="border:1px solid #e6e6e6; display:block; height:259px; margin:0px auto; max-width:100%; width:559px" title="disk04" /></span></span></span></div>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<div style="-webkit-text-stroke-width:0px; padding:0px; text-align:start"><span style="font-size:15px"><span style="color:#444444"><span style="font-family:Simsun">下一步，创建物理卷和分区：</span></span></span></div>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<table align="center" style="-webkit-text-stroke-width:0px; background:#ffbb77; border:undefined; color:#444444; font-family:Simsun; font-size:15px; font-style:normal; font-variant-caps:normal; font-variant-ligatures:normal; font-weight:normal; letter-spacing:normal; orphans:2; text-align:start; text-transform:none; white-space:normal; widows:2; width:620px; word-spacing:0px">
+	<tbody>
+		<tr>
+			<td style="background-color:#ffbb77">&nbsp;代码如下</td>
+			<td style="background-color:#ffbb77">复制代码</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="background-color:#ffbb77">&nbsp;
+			<div style="padding:10px"><span style="font-size:12px"><span style="color:#000000">pvcreate /dev/xvdb4</span></span></div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<div style="-webkit-text-stroke-width:0px; padding:0px; text-align:start"><span style="font-size:15px"><span style="color:#444444"><span style="font-family:Simsun"><img alt="disk051" src="http://www.111cn.net/get_pic/2016/02/11/20160211221402271.jpg" style="border:1px solid #e6e6e6; display:block; height:36px; margin:0px auto; max-width:100%; width:559px" title="disk051" /></span></span></span></div>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<table align="center" style="-webkit-text-stroke-width:0px; background:#ffbb77; border:undefined; color:#444444; font-family:Simsun; font-size:15px; font-style:normal; font-variant-caps:normal; font-variant-ligatures:normal; font-weight:normal; letter-spacing:normal; orphans:2; text-align:start; text-transform:none; white-space:normal; widows:2; width:620px; word-spacing:0px">
+	<tbody>
+		<tr>
+			<td style="background-color:#ffbb77">&nbsp;代码如下</td>
+			<td style="background-color:#ffbb77">复制代码</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="background-color:#ffbb77">&nbsp;
+			<div style="padding:10px"><span style="font-size:12px"><span style="color:#000000">vgextend VolGroup00 /dev/xvdb4</span></span></div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<div style="-webkit-text-stroke-width:0px; padding:0px; text-align:start"><span style="font-size:15px"><span style="color:#444444"><span style="font-family:Simsun"><img alt="disk052" src="http://www.111cn.net/get_pic/2016/02/11/20160211221404137.jpg" style="border:1px solid #e6e6e6; display:block; height:29px; margin:0px auto; max-width:100%; width:559px" title="disk052" /></span></span></span></div>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<div style="-webkit-text-stroke-width:0px; padding:0px; text-align:start"><span style="font-size:15px"><span style="color:#444444"><span style="font-family:Simsun">后，我们查看物理卷情况，知道了需要增加的硬盘空间容量总量。</span></span></span></div>
+
+<table align="center" style="-webkit-text-stroke-width:0px; background:#ffbb77; border:undefined; color:#444444; font-family:Simsun; font-size:15px; font-style:normal; font-variant-caps:normal; font-variant-ligatures:normal; font-weight:normal; letter-spacing:normal; orphans:2; text-align:start; text-transform:none; white-space:normal; widows:2; width:620px; word-spacing:0px">
+	<tbody>
+		<tr>
+			<td style="background-color:#ffbb77">&nbsp;代码如下</td>
+			<td style="background-color:#ffbb77">复制代码</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="background-color:#ffbb77">
+			<div style="padding:10px"><span style="font-size:12px"><span style="color:#000000">vgdisplay</span></span></div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<div style="-webkit-text-stroke-width:0px; padding:0px; text-align:start"><span style="font-size:15px"><span style="color:#444444"><span style="font-family:Simsun"><img alt="disk061" src="http://www.111cn.net/get_pic/2016/02/11/20160211221406666.jpg" style="border:1px solid #e6e6e6; display:block; height:310px; margin:0px auto; max-width:100%; width:559px" title="disk061" /></span></span></span></div>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<div style="-webkit-text-stroke-width:0px; padding:0px; text-align:start"><span style="font-size:15px"><span style="color:#444444"><span style="font-family:Simsun">接下来就是重点了，按照实际大小酌情增加，比如我现在是4.97GB，略小于实际容量，趣4.95GB即可。</span></span></span></div>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<table align="center" style="-webkit-text-stroke-width:0px; background:#ffbb77; border:undefined; color:#444444; font-family:Simsun; font-size:15px; font-style:normal; font-variant-caps:normal; font-variant-ligatures:normal; font-weight:normal; letter-spacing:normal; orphans:2; text-align:start; text-transform:none; white-space:normal; widows:2; width:620px; word-spacing:0px">
+	<tbody>
+		<tr>
+			<td style="background-color:#ffbb77">&nbsp;代码如下</td>
+			<td style="background-color:#ffbb77">复制代码</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="background-color:#ffbb77">&nbsp;
+			<div style="padding:10px"><span style="font-size:12px"><span style="color:#000000">lvresize -L +4.95G /dev/VolGroup00/LogVol00</span></span></div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<div style="-webkit-text-stroke-width:0px; padding:0px; text-align:start"><span style="font-size:15px"><span style="color:#444444"><span style="font-family:Simsun">然后动态扩容分区的大小：</span></span></span></div>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<table align="center" style="-webkit-text-stroke-width:0px; background:#ffbb77; border:undefined; color:#444444; font-family:Simsun; font-size:15px; font-style:normal; font-variant-caps:normal; font-variant-ligatures:normal; font-weight:normal; letter-spacing:normal; orphans:2; text-align:start; text-transform:none; white-space:normal; widows:2; width:620px; word-spacing:0px">
+	<tbody>
+		<tr>
+			<td style="background-color:#ffbb77">&nbsp;代码如下</td>
+			<td style="background-color:#ffbb77">复制代码</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="background-color:#ffbb77">&nbsp;
+			<div style="padding:10px"><span style="font-size:12px"><span style="color:#000000">resize2fs /dev/VolGroup00/LogVol00</span></span></div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<div style="-webkit-text-stroke-width:0px; padding:0px; text-align:start"><span style="font-size:15px"><span style="color:#444444"><span style="font-family:Simsun"><img alt="disk07" src="http://www.111cn.net/get_pic/2016/02/11/20160211221408325.jpg" style="border:1px solid #e6e6e6; display:block; height:136px; margin:0px auto; max-width:100%; width:559px" title="disk07" /></span></span></span></div>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<div style="-webkit-text-stroke-width:0px; padding:0px; text-align:start"><span style="font-size:15px"><span style="color:#444444"><span style="font-family:Simsun">大功告成啦！我们再看看现在的空间大小吧。</span></span></span></div>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<div style="-webkit-text-stroke-width:0px; padding:0px; text-align:start"><span style="font-size:15px"><span style="color:#444444"><span style="font-family:Simsun"><img alt="disk08" src="http://www.111cn.net/get_pic/2016/02/11/20160211221410583.jpg" style="border:1px solid #e6e6e6; display:block; height:167px; margin:0px auto; max-width:100%; width:536px" title="disk08" /></span></span></span></div>
+
+<p style="text-align:start"><span style="font-size:14px"><span style="color:#444444"><span style="font-family:Simsun">&nbsp;</span></span></span></p>
+
+<div style="-webkit-text-stroke-width:0px; padding:0px; text-align:start"><span style="font-size:15px"><span style="color:#444444"><span style="font-family:Simsun">OK，整个挂载过程就是如此，之前装好的探针演示，DX，WP演示均完好无损，探针显示，硬盘空间增加了\(^o^)/</span></span></span></div>
+
+				    </div>
+	              <div class="col-md-4 fh5co-project-detail">
+	              	<div class="fh5co-project-service">
+	              	<h3>评论</h3>
+	              						 	
+					  <div id="discuss_essay" class="discuss_essay">
+   	
+   	
+   	
+   	<script>
+			var re=[];
+			var a_id=44;
+			var html='';
+		     
+			var h=tree(re,0);
+			document.getElementById("discuss_essay").innerHTML =h;
+			function tree(arr,pid){	
+				var lsz='';
+				for(var v in arr){ 
+					    if(arr[v]['p_u_id']==pid){
+		
+		if(arr[v]['p_u_id']==0){
+		lsz='</div><div class="discuss_essay_list">'+
+		'<a class="discuss_essay_list_img" href="#"><img src="'+arr[v]['u_haerd']+'" /></a>'+
+   		'<div class="discuss_essay_list_top"><span>'+arr[v]['name']+'</span>'+arr[v]['info_time']+'<span reply="'+arr[v]['id']+'" class="discuss_essay_list_top_h">回复</span></div>'+
+   		'<div class="discuss_essay_list_cent">'+arr[v]['text']+'</div>';
+   	    }else{
+   	    lsz='</div><div class="discuss_essay_c_list">'+
+		'<a class="discuss_essay_list_img" href="#"><img src="'+arr[v]['u_haerd']+'" /></a>'+
+   		'<div class="discuss_essay_list_top"><span>'+arr[v]['name']+' 回复 '+arr[v]['p_name']+'</span>'+arr[v]['info_time']+'<span reply="'+arr[v]['id']+'" class="discuss_essay_list_top_h">回复</span></div>'+
+   		'<div class="discuss_essay_list_cent">'+arr[v]['text']+'</div>';	
+   	    }
+					    	html=html+lsz;
+					    	tree(arr,arr[v]['id']);					    	
+					    }
+                         }
+				return html;
+			}
+			
+			
+		</script> 	
+   	<div class="discuss_essay_list">
+   		<div class="discuss_essay_c_list">
+   	     	<div class="discuss_essay_list_info">
+   	     		<textarea id="info"></textarea>
+   	     		<span onclick="tj(44,0)">提交</span>
+   	     	</div>
+   	     </div>
+   	</div>
+   	
+   </div>
+	              	
+	              	
+	              	</div>
+					<div class="fh5co-project-service">
+						<h3>栏目最新</h3>
+						<ul>
+							                                <li><a href="http://www.qinpl.cn/Mypllinux/53.html" title="Nginx和PHP-FPM配置和优化提示和技巧" target="_blank">Nginx和PHP-FPM配置和优化提示和技巧</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Mypllinux/51.html" title="Linux 定时任务" target="_blank">Linux 定时任务</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Mypllinux/46.html" title="Linux Shell脚本编写规范、例子" target="_blank">Linux Shell脚本编写规范、例子</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Mypllinux/44.html" title="Linux系统挂载未分配硬盘例子" target="_blank">Linux系统挂载未分配硬盘例子</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Mypllinux/35.html" title="Centos 7防火墙firewall开放80端口" target="_blank">Centos 7防火墙firewall开放80端口</a></li>
+                                                            <li><a href="http://www.qinpl.cn/Mypllinux/34.html" title="CentOS 7 yum nginx MySQL PHP 简易环境搭建" target="_blank">CentOS 7 yum nginx MySQL PHP 简易环境搭建</a></li>
+                              						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!-- END container-wrap -->
+
+	<div class="container-wrap">
+		<footer id="fh5co-footer" role="contentinfo">
+			<div class="row">
+				<div class="col-md-3 fh5co-widget">
+					<h4>About Neat</h4>
+					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
+				</div>
+				<div class="col-md-3 col-md-push-1">
+					<h4>最新更新</h4>
+					<ul class="fh5co-footer-links">
+						                        <li><a href="http://www.qinpl.cn/Mypllinux/53.html" target="_blank">Nginx和PHP-FPM</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplmsql/52.html" target="_blank">MySQL replace</a></li>
+                                                <li><a href="http://www.qinpl.cn/Mypllinux/51.html" target="_blank">Linux 定时任务</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplphp/50.html" target="_blank">UCenter API使用</a></li>
+                                                <li><a href="http://www.qinpl.cn/Myplphp/49.html" target="_blank">sphinx的配置文件</a></li>
+                        					</ul>
+				</div>
+
+				<div class="col-md-3 col-md-push-1">
+					<h4>友情链接</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="http://www.codejie.net/" target="_blank">源码街</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-3">
+					<h4>联系方式</h4>
+					<ul class="fh5co-footer-links">
+						<li>tel:<a href="tel://18883768578">18883768578</a></li>
+						<li>e mail:<a href="mailto:1017962047@qq.com">1017962047@qq.com</a></li>
+						<li><a href="http://www.qinpl.cn/">www.qinpl.cn</a></li>
+					</ul>
+				</div>
+
+			</div>
+
+			<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+						<small class="block"><a href="http://www.qinpl.cn/sitemap.xml" target="_blank">网站地图</a> Design by DanceSmile <a href="http://www.miitbeian.gov.cn" target="_blank">蜀ICP备17013559号-1</a></small>
+					</p>
+					<p>
+						<ul class="fh5co-social-icons">
+							<li><a href="#"><i class="icon-twitter"></i></a></li>
+							<li><a href="#"><i class="icon-facebook"></i></a></li>
+							<li><a href="#"><i class="icon-linkedin"></i></a></li>
+							<li>
+								<script type="text/javascript">
+  		var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+  		document.write(unescape("%3Cspan id='cnzz_stat_icon_1261808781'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261808781%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+                               </script>                  
+							</li>
+						</ul>
+					</p>
+				</div>
+			</div>
+		</footer>
+	</div><!-- END container-wrap -->	
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.flexslider-min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.magnific-popup.min.js"></script>
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\magnific-popup-options.js"></script>
+	<!-- Counters -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\jquery.countTo.js"></script>
+	<!-- Main -->
+	<script src="http://www.qinpl.cn\api\admin\vendor\static\neat\js\main.js"></script>
+
+	<div class="list_zezao">
+	<div class="v_k">
+      <div class="cols"><span>X</span></div>
+      <div id="u_login"></div>
+     
+      		<a href="http://www.qinpl.cn/admin/Qqlater/Login?qurl=oZKvvyD48/44"></a>
+
+	</div>
+</div>
+	<script type="text/javascript" src="http://www.qinpl.cn\api\admin\vendor\static/js/config.js" ></script>
+	<script type="text/javascript" src="http://www.qinpl.cn\api\admin\vendor\static/js/new.js" ></script>
+
+	</body>
+</html>
+
